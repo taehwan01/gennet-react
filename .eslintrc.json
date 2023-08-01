@@ -9,5 +9,8 @@
         "sourceType": "module"
     },
     "rules": {
+        "react/react-in-jsx-scope":"off",
+        "react/jsx-filename-extension":[1,{"extension": ["./js", ".jsx"]}],
+        "jsx-quotes": [2, "prefer-single"]
     }
 }
