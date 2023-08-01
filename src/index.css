@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font-style-test {
+  font-family: 'YD윤고딕320';
+  src: url('./assets/YD윤고딕320.ttf');
+}
