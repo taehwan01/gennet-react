@@ -1,0 +1,90 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+}
+
+button {
+  border: none;
+}
+
+.back-bt {
+  background-color: #57b0bc;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+
+  position: relative;
+  left: 40px;
+  top: 40px;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ffc431;
+  margin: 70px;
+}
+
+.profile-txt {
+  margin-bottom: 30px;
+}
+
+.senior-txt {
+  font-family: 'YD윤고딕320';
+  src: url('../../assets/YD윤고딕320.ttf');
+  font-size: 29px;
+  color: #ffc431;
+}
+
+.name-txt {
+  font-family: 'YD윤고딕340';
+  src: url('../../assets/YD윤고딕340.ttf');
+  font-size: 40px;
+}
+.nim-txt {
+  font-family: 'YD윤고딕340';
+  src: url('../../assets/YD윤고딕340.ttf');
+  font-size: 33px;
+}
+
+.date-txt {
+  font-family: 'YD윤고딕320';
+  src: url('../../assets/YD윤고딕320.ttf');
+  font-size: 29px;
+  color: #939598;
+}
+
+.intro-box {
+  background-color: #dcf9f3;
+  width: 620px;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.intro-txt {
+  text-align: center;
+
+  font-family: 'YD윤고딕320';
+  src: url('../../assets/YD윤고딕320.ttf');
+  font-size: 29px;
+  line-height: 44px;
+}
+
+.profile-edit-bt {
+  background-color: #57b0bc;
+  width: 300px;
+  height: 70px;
+  border-radius: 15px;
+
+  font-family: 'YD윤고딕340';
+  src: url('../../assets/YD윤고딕340.ttf');
+  font-size: 35px;
+  color: white;
+}
