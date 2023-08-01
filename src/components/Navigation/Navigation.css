@@ -49,6 +49,7 @@
   margin-right: 0.5rem;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 .search-icon {
   width: 35px;
@@ -62,6 +63,7 @@
   background: transparent;
   border: none;
   margin-right: 1rem;
+  cursor: pointer;
 }
 .alert-icon {
   margin-right: 1rem;
@@ -76,4 +78,5 @@
   background: #ffd801;
   border: none;
   border-radius: 100%;
+  cursor: pointer;
 }
