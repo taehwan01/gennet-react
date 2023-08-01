@@ -1,8 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'YD윤고딕320';
+  src: url('./assets/fonts/YD윤고딕320.ttf');
+  font-weight: 400;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,7 +15,27 @@ code {
     monospace;
 }
 
-.font-style-test {
+.font-light {
   font-family: 'YD윤고딕320';
-  src: url('./assets/YD윤고딕320.ttf');
+  src: url('./assets/fonts/YD윤고딕320.ttf');
+  font-weight: 400;
+}
+.font-bold {
+  font-family: 'YD윤고딕340';
+  src: url('./assets/fonts/YD윤고딕340.ttf');
+  font-weight: 700;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation-bar-hr {
+  border: none;
+  background-color: #57b0bc;
+  width: 98%;
+  height: 1px;
+  margin: 0 0 50px 0;
 }

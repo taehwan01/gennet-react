@@ -1,10 +1,18 @@
+import { Route, Routes } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
+
 function App() {
   return (
-    <div>
-      <h1 className='font-style-test'>Gennet</h1>
-      <h1>Gennet</h1>
-      <h1>test dani branch</h1>
-      <h5>test taehwan branch</h5>
+    <div className='App'>
+      <Navigation />
+      <hr className='navigation-bar-hr' />
+      <Routes>
+        <Route path='/senior'>
+          <Route index element={<div>senior main</div>} />
+          <Route path='my-classes' element={<div>my classes</div>} />
+          <Route path='request-class' element={<div>request class</div>} />
+        </Route>
+      </Routes>
     </div>
   );
 }

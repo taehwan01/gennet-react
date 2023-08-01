@@ -1,0 +1,79 @@
+.navigation-bar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation-contents {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.nav-link {
+  font-size: 37px; /* 28pt = 37px */
+  margin-right: 4rem;
+  text-decoration: none;
+  color: black;
+}
+
+.main-logo {
+  height: 50px;
+  margin-right: 4rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+}
+.input-search {
+  /* padding-right: 40px; */
+  padding-left: 1.5rem;
+  width: calc(400px - 1.5rem);
+  height: 50px;
+  border: 1px solid #57b0bc;
+  font-size: 29px; /* 22pt */
+  color: #939598;
+  border-radius: 15px;
+}
+.search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 5px;
+  margin-right: 0.5rem;
+  background: transparent;
+  border: none;
+}
+.search-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.alert-button {
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  margin-right: 1rem;
+}
+.alert-icon {
+  margin-right: 1rem;
+  width: 50px;
+  height: 50px;
+}
+
+.profile-button {
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  background: #ffd801;
+  border: none;
+  border-radius: 100%;
+}

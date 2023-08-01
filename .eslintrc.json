@@ -3,14 +3,15 @@
         "browser": true,
         "es2021": true
     },
-    "extends": "airbnb",
+    "extends": ["airbnb", "prettier"],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
         "react/react-in-jsx-scope":"off",
-        "react/jsx-filename-extension":[1,{"extension": ["./js", ".jsx"]}],
-        "jsx-quotes": [2, "prefer-single"]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "jsx-quotes": [2, "prefer-single"],
+        "import/no-extraneous-dependencies": 0
     }
 }
