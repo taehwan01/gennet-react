@@ -1,3 +1,7 @@
+p {
+  margin: 0;
+}
+
 .container {
   width: 100%;
   display: grid;
@@ -23,36 +27,29 @@ button {
   height: 150px;
   border-radius: 50%;
   background-color: #ffc431;
-  margin: 50px 0;
+  margin: 60px 0 50px 0;
 }
 
 .profile-txt {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .senior-txt {
-  font-family: 'YD윤고딕320';
-  src: url('../../assets/fonts/YD윤고딕320.ttf');
   font-size: 29px;
   color: #ffc431;
 }
 
 .name-txt {
-  font-family: 'YD윤고딕340';
-  src: url('../../assets/fonts/YD윤고딕340.ttf');
   font-size: 40px;
 }
 .nim-txt {
-  font-family: 'YD윤고딕340';
-  src: url('../../assets/fonts/YD윤고딕340.ttf');
   font-size: 33px;
 }
 
 .date-txt {
-  font-family: 'YD윤고딕320';
-  src: url('../../assets/fonts/YD윤고딕320.ttf');
   font-size: 29px;
   color: #939598;
+  margin: 20px 0 20px 0;
 }
 
 .intro-box {
@@ -60,13 +57,12 @@ button {
   width: 620px;
   height: 250px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
 }
 
 .intro-txt {
-  text-align: center;
-
-  font-family: 'YD윤고딕320';
-  src: url('../../assets/fonts/YD윤고딕320.ttf');
   font-size: 29px;
   line-height: 44px;
 }
@@ -77,8 +73,12 @@ button {
   height: 70px;
   border-radius: 15px;
 
-  font-family: 'YD윤고딕340';
-  src: url('../../assets/fonts/YD윤고딕340.ttf');
-  font-size: 35px;
+  display: inline-block;
+  margin-top: 30px;
+
+  font-size: 30px;
   color: white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 70px;
 }

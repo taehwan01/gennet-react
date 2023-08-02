@@ -13,14 +13,14 @@ function SettingProfile() {
         <div className='circle'> </div>
         <div className='info'>
           <p className='profile-txt'>
-            <span className='senior-txt'>시니어</span>
-            <span className='name-txt'>김태환</span>
-            <span className='nim-txt'>님</span>
+            <span className='senior-txt font-light'>시니어</span>
+            <span className='name-txt font-bold'> 김태환 </span>
+            <span className='nim-txt font-bold'>님</span>
           </p>
-          <p className='date-txt'>0000년 00월 00일</p>
+          <p className='date-txt font-light'>0000년 00월 00일</p>
         </div>
         <div className='intro-box'>
-          <p className='intro-txt'>
+          <p className='intro-txt font-light'>
             잘 부탁드립니다. 요즘 MZ들은 참 부럽네요. ^^
             <br />
             저도 시대에 뒤떨어지지 않으려면 열심히 배워야겠읍니다.
@@ -31,7 +31,7 @@ function SettingProfile() {
           </p>
         </div>
         <div className='section3'>
-          <NavLink className='profile-edit-bt' to='/senior/profile-edit'>
+          <NavLink className='profile-edit-bt font-bold' to='/senior/profile-edit'>
             프로필 수정하기
           </NavLink>
         </div>
