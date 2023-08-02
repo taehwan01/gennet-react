@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import testIMG from '../../assets/images/banana.png';
-import './NewClass.css';
+import styles from './NewClass.module.scss';
 
 function NewClass({ category, title, name, review }) {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -13,22 +13,30 @@ function NewClass({ category, title, name, review }) {
   }, [title]);
 
   return (
-    <div className='new-class'>
-      <img className='new-class-image' src={testIMG} alt='class-img' />
-      <div className='new-class-info'>
-        <div className='class-category'>
-          <span className='class-category-string font-bold'>{category}</span>
+    <div className={styles['new-class']}>
+      <img
+        className={styles['new-class-image']}
+        src={testIMG}
+        alt='class-img'
+      />
+      <div className={styles['new-class-info']}>
+        <div className={styles['class-category']}>
+          <span className={`${styles['class-category-string']} font-bold`}>
+            {category}
+          </span>
         </div>
         <p
           ref={titleRef}
-          className={`class-title ${isAnimated ? 'is-animated' : ''}`}
+          className={`${styles['class-title']} ${
+            isAnimated ? 'is-animated' : ''
+          }`}
           data-text={title}
         >
           {title}
         </p>
-        <p className='tutor-info'>
-          <span className='tutor-name'>{name}</span>
-          <span className='tutor-review'>
+        <p className={styles['tutor-info']}>
+          <span className={styles['tutor-name']}>{name}</span>
+          <span className={styles['tutor-review']}>
             {`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}
           </span>
         </p>

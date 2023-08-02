@@ -1,7 +1,7 @@
 import AdCarousel from '../../../components/AdCarousel/AdCarousel';
 import NewClass from '../../../components/NewClass/NewClass';
 
-import './Main.css';
+import styles from './Main.module.scss';
 
 const newClasses = [
   {
@@ -56,13 +56,13 @@ const newClasses = [
 
 function Main() {
   return (
-    <div className='main-page'>
+    <div className={styles['main-page']}>
       <AdCarousel />
-      <div className='messages'>
-        <p className='main-message font-bold'>참여해보세요!</p>
-        <p className='sub-message'>000님에게 추천하는 수업들</p>
+      <div className={styles.messages}>
+        <p className={styles['main-message font-bold']}>참여해보세요!</p>
+        <p className={styles['sub-message']}>000님에게 추천하는 수업들</p>
       </div>
-      <div className='new-classes'>
+      <div className={styles['new-classes']}>
         {newClasses.map((newClass) => (
           <NewClass
             category={newClass.category}
