@@ -14,7 +14,7 @@ function Navigation() {
     <div className='navigation-bar'>
       <div className='navigation-contents'>
         <Link to='/senior'>
-          <img className='main-logo' src={mainLogo} alt='' />
+          <img className='main-logo' src={mainLogo} alt='GENNET logo' />
         </Link>
         <NavLink className='nav-link font-bold' to='/senior/my-classes'>
           내 수업
@@ -25,17 +25,9 @@ function Navigation() {
       </div>
       <div className='navigation-contents'>
         <div className='input-wrapper'>
-          <input
-            className='input-search font-light'
-            type='text'
-            placeholder='검색어를 입력해주세요.'
-          />
+          <input className='input-search font-light' type='text' placeholder='검색어를 입력해주세요.' />
           <button className='search-button' type='button'>
-            <img
-              className='search-icon'
-              src={searchIcon}
-              alt='Search Icon logo'
-            />
+            <img className='search-icon' src={searchIcon} alt='Search Icon logo' />
           </button>
         </div>
         <button className='alert-button' type='button'>
@@ -44,9 +36,10 @@ function Navigation() {
         {user ? (
           'profile'
         ) : (
-          <button className='profile-button' type='button'>
-            {/* none */}
-          </button>
+          <NavLink className='profile-link' to='/senior/profile' />
+          // <button className='profile-button' type='button'>
+          //   {/* none */}
+          // </button>
         )}
       </div>
     </div>

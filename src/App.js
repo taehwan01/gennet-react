@@ -13,9 +13,9 @@ function App() {
           <Route index element={<Main />} />
           <Route path='my-classes' element={<div>my classes</div>} />
           <Route path='request-class' element={<div>request class</div>} />
+          <Route path='profile' element={<SettingProfile />} />
         </Route>
       </Routes>
-      <SettingProfile />
     </div>
   );
 }
