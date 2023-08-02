@@ -1,16 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
 import './SettingProfile.css';
+import BackBtn from '../../components/Button/BackBtn';
 
 function SettingProfile() {
   return (
     <div className='container'>
       <div className='section1'>
-        <button type='button' className='back-bt'>
-          <FontAwesomeIcon icon={faArrowLeft} style={{ color: '#ffffff' }} />
-        </button>
+        <BackBtn />
       </div>
       <div className='section2'>
         <div className='circle'> </div>

@@ -1,4 +1,5 @@
 .container {
+  width: 100%;
   display: grid;
   grid-template-columns: 2fr 6fr 2fr;
 }
@@ -7,15 +8,8 @@ button {
   border: none;
 }
 
-.back-bt {
-  background-color: #57b0bc;
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-
-  position: relative;
-  left: 40px;
-  top: 40px;
+.section1 {
+  padding: 40px 0 0 50px;
 }
 
 .section2 {
@@ -29,7 +23,7 @@ button {
   height: 150px;
   border-radius: 50%;
   background-color: #ffc431;
-  margin: 70px;
+  margin: 50px 0;
 }
 
 .profile-txt {
