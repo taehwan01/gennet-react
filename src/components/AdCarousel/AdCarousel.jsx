@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import './AdCarousel.css';
 import testIMG from '../../assets/images/logo.png';
 
 const items = [
@@ -32,6 +31,7 @@ const useStyles = makeStyles({
     width: '1150px',
     overflow: 'hidden',
     borderRadius: '15px',
+    margin: '50px 0',
   },
   carouselTrack: {
     display: 'flex',
