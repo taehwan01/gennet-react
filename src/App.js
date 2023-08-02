@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import Main from './pages/Senior/Main/Main';
+import SettingProfile from './pages/SettingProfile/SettingProfile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='request-class' element={<div>request class</div>} />
         </Route>
       </Routes>
+      <SettingProfile />
     </div>
   );
 }
