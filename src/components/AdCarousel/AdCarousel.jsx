@@ -88,7 +88,7 @@ function AdCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-    }, 500);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
