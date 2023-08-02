@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 import './SettingProfile.css';
 
@@ -33,9 +34,9 @@ function SettingProfile() {
           </p>
         </div>
         <div className='section3'>
-          <button type='button' className='profile-edit-bt'>
+          <NavLink className='profile-edit-bt' to='/senior/profile-edit'>
             프로필 수정하기
-          </button>
+          </NavLink>
         </div>
       </div>
       <div> </div>
