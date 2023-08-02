@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
 import testIMG from '../../assets/images/logo.png';
 
@@ -25,129 +25,105 @@ const items = [
     imageUrl: testIMG,
   },
 ];
+const CarouselContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 50px 0;
+`;
 
-const useStyles = makeStyles({
-  carouselContainer: {
-    width: '1150px',
-    overflow: 'hidden',
-    borderRadius: '15px',
-    margin: '50px 0',
-  },
-  carouselTrack: {
-    display: 'flex',
-    height: '250px',
-    transition: 'transform 2s ease',
-  },
-  carouselItem: {
-    flex: '0 0 1150px',
-    position: 'relative',
-  },
-  carouselImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  nameSpan: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px',
-    fontSize: '2rem',
-  },
-  carouselListeners: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-  },
-  indicatorContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '-50px',
-    position: 'relative',
-  },
-  indicator: {
-    padding: '0',
-    width: '10px',
-    height: '10px',
-    border: 'none',
-    borderRadius: '100%',
-    backgroundColor: 'white',
-    margin: '5px',
-    cursor: 'pointer',
-  },
-  activeIndicator: {
-    backgroundColor: '#57B0BC',
-    width: '10px',
-    height: '10px',
-  },
-});
+const CarouselTrack = styled.div`
+  display: flex;
+  height: 250px;
+  transition: transform 2s ease;
+`;
+
+const CarouselItem = styled.div`
+  flex: 0 0 1150px;
+  position: relative;
+`;
+
+const CarouselImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const NameSpan = styled.h1`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 2rem;
+`;
+
+const CarouselListeners = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const IndicatorContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  position: relative;
+`;
+
+const Indicator = styled.button`
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 100%;
+  background-color: white;
+  margin: 5px;
+  cursor: pointer;
+  background-color: ${(props) => (props.active ? '#57B0BC' : 'white')};
+`;
 
 function AdCarousel() {
-  const classes = useStyles();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-    }, 2000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
-
-  //   const handlePrevSlide = () => {
-  //     setCurrentSlide((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-  //   };
-
-  //   const handleNextSlide = () => {
-  //     setCurrentSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-  //   };
 
   const handleIndicatorClick = (index) => {
     setCurrentSlide(index);
   };
 
   return (
-    <div className={classes.carouselContainer}>
-      <div
-        className={classes.carouselTrack}
+    <CarouselContainer>
+      <CarouselTrack
         style={{ transform: `translateX(-${currentSlide * 1150}px)` }}
       >
         {items.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <div key={index} className={classes.carouselItem}>
-            <h1 className={classes.nameSpan}>{item.name}</h1>
-            <img
-              src={item.imageUrl}
-              alt={item.name}
-              className={classes.carouselImage}
-            />
-          </div>
+          <CarouselItem key={index}>
+            <NameSpan>{item.name}</NameSpan>
+            <CarouselImage src={item.imageUrl} alt={item.name} />
+          </CarouselItem>
         ))}
-      </div>
-      <div className={classes.carouselListeners}>
-        {/* <button type='button' onClick={handlePrevSlide}>
-          Previous
-        </button> */}
-        <div className={classes.indicatorContainer}>
+      </CarouselTrack>
+      <CarouselListeners>
+        <IndicatorContainer>
           {items.map((_, index) => (
-            <button
+            <Indicator
               // eslint-disable-next-line react/no-array-index-key
               key={index}
               type='button'
-              className={`${classes.indicator} ${
-                index === currentSlide ? classes.activeIndicator : ''
-              }`}
+              active={index === currentSlide}
               onClick={() => handleIndicatorClick(index)}
-            >
-              {' '}
-            </button>
+            />
           ))}
-        </div>
-        {/* <button type='button' onClick={handleNextSlide}>
-          Next
-        </button> */}
-      </div>
-    </div>
+        </IndicatorContainer>
+      </CarouselListeners>
+    </CarouselContainer>
   );
 }
 
