@@ -36,7 +36,7 @@ function Navigation() {
       <div className={styles['navigation-contents']}>
         <div className={styles['input-wrapper']}>
           <input
-            className={`${styles['input-search']} font-light`}
+            className={styles['input-search']}
             type='text'
             placeholder='검색어를 입력해주세요.'
           />
