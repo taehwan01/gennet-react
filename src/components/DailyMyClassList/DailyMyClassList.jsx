@@ -1,12 +1,32 @@
+import PropTypes from 'prop-types';
+
+// import { useEffect } from 'react';
+import styles from '../../pages/Senior/MyClasses/MyClasses.module.scss';
 import MyClass from './MyClass';
 
-function DailyMyClassList() {
+function formatDate(date) {
+  const dateMonth = date.getMonth() + 1;
+  const dateDay = date.getDate();
+  return `${dateMonth < 10 ? `0${dateMonth}` : dateMonth}/${
+    dateDay < 10 ? `0${dateDay}` : dateDay
+  }`;
+}
+
+function DailyMyClassList({ title, name, date }) {
+  const formattedDate = formatDate(date);
+
   return (
     <div style={{ marginTop: '2rem' }}>
-      <p className='date-of-lists'>07/29</p>
-      <MyClass />
+      <p className={`${styles['date-of-lists']} font-bold`}>{formattedDate}</p>
+      <MyClass title={title} name={name} />
     </div>
   );
 }
+
+DailyMyClassList.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default DailyMyClassList;
