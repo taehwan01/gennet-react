@@ -10,9 +10,7 @@ function Button({ buttonStyle, tag }) {
         style={{ ...buttonStyle, padding: '0' }}
         type='button'
       >
-        <span className='font-bold' style={{ fontSize: '47px' }}>
-          {tag}
-        </span>
+        <span className='font-bold'>{tag}</span>
       </div>
     </div>
   );

@@ -14,13 +14,14 @@
 .form-solo-div {
   margin-bottom: 40px;
   display: grid;
-  grid-template-columns: 200px 750px;
+  grid-template-columns: 150px 750px;
 }
 
 .form-tag {
   font-size: 29px;
   display: flex;
-  align-items: center;
+  padding-top: 9.5px;
+  // align-items: center;
   justify-content: flex-end;
   padding-right: 5rem;
 }
@@ -30,4 +31,8 @@
   border: 2px solid #57b0bc;
   border-radius: 15px;
   padding: 0.5rem 1.2rem;
+}
+
+.form-input-description {
+  height: 200px;
 }

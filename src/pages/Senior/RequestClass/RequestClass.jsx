@@ -1,7 +1,16 @@
 import styles from './RequestClass.module.scss';
 import PageBanner from '../../../components/PageBanner/PageBanner';
+import Button from '../../../components/Button/Button';
 
 function RequestClass() {
+  const buttonStyle = {
+    backgroundColor: '#57b0bc',
+    width: '300px',
+    height: '80px',
+    borderRadius: '15px',
+    fontSize: '40px',
+  };
+
   return (
     <>
       <PageBanner
@@ -37,14 +46,13 @@ function RequestClass() {
             <div className={styles['form-tag']}>
               <span>내용</span>
             </div>
-            <input
-              type='text'
-              className={styles['form-input']}
+            <textarea
+              className={`${styles['form-input']} ${styles['form-input-description']}`}
               placeholder='어떤 내용의 수업을 듣고 싶나요?'
             />
           </div>
 
-          <div className={styles['form-solo-div']}>
+          {/* <div className={styles['form-solo-div']}>
             <div className={styles['form-tag']}>
               <span>사진 선택</span>
             </div>
@@ -53,7 +61,8 @@ function RequestClass() {
               className={styles['form-input']}
               placeholder=''
             />
-          </div>
+          </div> */}
+          <Button buttonStyle={buttonStyle} tag='수업 요청하기' />
         </form>
         <div> </div>
       </div>

@@ -9,6 +9,7 @@ function MyClass({ title, name }) {
     width: '200px',
     height: '80px',
     borderRadius: '15px',
+    fontSize: '47px',
   };
 
   return (
