@@ -1,0 +1,13 @@
+.button-component {
+  display: flex;
+  align-items: center;
+  .button-container {
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+  }
+}

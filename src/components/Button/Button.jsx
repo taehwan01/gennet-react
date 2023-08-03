@@ -1,11 +1,26 @@
-import './Button.css';
+import PropTypes from 'prop-types';
 
-function Button(color, name) {
+import styles from './Button.module.scss';
+
+function Button({ buttonStyle, tag }) {
   return (
-    <button type='button'>
-      <div style={{ color: props.color }}>{props.name}</div>
-    </button>
+    <div className={styles['button-component']}>
+      <div
+        className={styles['button-container']}
+        style={{ ...buttonStyle, padding: '0' }}
+        type='button'
+      >
+        <span className='font-bold' style={{ fontSize: '47px' }}>
+          {tag}
+        </span>
+      </div>
+    </div>
   );
 }
+
+Button.propTypes = {
+  buttonStyle: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+};
 
 export default Button;
