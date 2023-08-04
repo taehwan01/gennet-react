@@ -3,6 +3,8 @@ import Navigation from './components/Navigation/Navigation';
 import Main from './pages/Senior/Main/Main';
 import SettingProfile from './pages/SettingProfile/SettingProfile';
 import SettingProfileEdit from './pages/SettingProfileEdit/SettingProfileEdit';
+import MyClasses from './pages/Senior/MyClasses/MyClasses';
+import RequestClass from './pages/Senior/RequestClass/RequestClass';
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/senior'>
           <Route index element={<Main />} />
-          <Route path='my-classes' element={<div>my classes</div>} />
-          <Route path='request-class' element={<div>request class</div>} />
+          <Route path='my-classes' element={<MyClasses />} />
+          <Route path='request-class' element={<RequestClass />} />
           <Route path='profile' element={<SettingProfile />} />
           <Route path='profile-edit' element={<SettingProfileEdit />} />
         </Route>

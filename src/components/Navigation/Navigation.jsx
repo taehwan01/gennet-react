@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
-import './Navigation.css';
+import styles from './Navigation.module.scss';
 import mainLogo from '../../assets/images/logo.png';
 import searchIcon from '../../assets/images/search-icon.png';
 import alertIcon from '../../assets/images/alert-icon.png';
@@ -11,32 +11,54 @@ function Navigation() {
   const [user, setUser] = useState('');
 
   return (
-    <div className='navigation-bar'>
-      <div className='navigation-contents'>
+    <div className={styles['navigation-bar']}>
+      <div className={styles['navigation-contents']}>
         <Link to='/senior'>
-          <img className='main-logo' src={mainLogo} alt='GENNET logo' />
+          <img
+            className={styles['main-logo']}
+            src={mainLogo}
+            alt='GENNET logo'
+          />
         </Link>
-        <NavLink className='nav-link font-bold' to='/senior/my-classes'>
+        <NavLink
+          className={`${styles['nav-link']} font-bold`}
+          to='/senior/my-classes'
+        >
           내 수업
         </NavLink>
-        <NavLink className='nav-link font-bold' to='/senior/request-class'>
+        <NavLink
+          className={`${styles['nav-link']} font-bold`}
+          to='/senior/request-class'
+        >
           수업 요청하기
         </NavLink>
       </div>
-      <div className='navigation-contents'>
-        <div className='input-wrapper'>
-          <input className='input-search font-light' type='text' placeholder='검색어를 입력해주세요.' />
-          <button className='search-button' type='button'>
-            <img className='search-icon' src={searchIcon} alt='Search Icon logo' />
+      <div className={styles['navigation-contents']}>
+        <div className={styles['input-wrapper']}>
+          <input
+            className={styles['input-search']}
+            type='text'
+            placeholder='검색어를 입력해주세요.'
+          />
+          <button className={styles['search-button']} type='button'>
+            <img
+              className={styles['search-icon']}
+              src={searchIcon}
+              alt='Search Icon logo'
+            />
           </button>
         </div>
-        <button className='alert-button' type='button'>
-          <img className='alert-icon' src={alertIcon} alt='Alert Icon logo' />
+        <button className={styles['alert-button']} type='button'>
+          <img
+            className={styles['alert-icon']}
+            src={alertIcon}
+            alt='Alert Icon logo'
+          />
         </button>
         {user ? (
           'profile'
         ) : (
-          <NavLink className='profile-link' to='/senior/profile' />
+          <NavLink className={styles['profile-link']} to='/senior/profile' />
           // <button className='profile-button' type='button'>
           //   {/* none */}
           // </button>

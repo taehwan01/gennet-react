@@ -1,0 +1,75 @@
+.new-class {
+  width: 250px;
+  /* height: 250px; */
+  border: none;
+  /* background-color: #939598; */
+  margin-bottom: 2rem;
+  padding-right: 50px;
+}
+
+.new-class-image {
+  width: 250px;
+  height: 250px;
+  /* object-fit: cover; */
+  border-radius: 15px;
+}
+
+.class-category {
+  font-size: 24px;
+  background-color: #57b0bc;
+  color: white;
+  border: none;
+  /* padding: 0.2rem 0.7rem; */
+  width: 120px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 0.5rem 0;
+}
+
+.new-class-info {
+  /* position: relative; */
+  overflow: hidden;
+  white-space: nowrap;
+  will-change: transform;
+}
+.class-title {
+  /* position: absolute; */
+  font-size: 29px;
+  margin: 0;
+  /* top: 20%;
+  left: 100%; */
+}
+.new-class .is-animated {
+  /* white-space: nowrap; */
+  animation: rotateTitle 3s linear infinite;
+  /* animation-play-state: paused; */
+}
+/* .new-class:hover .is-animated {
+  animation-play-state: running;
+} */
+@keyframes rotateTitle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.tutor-info {
+  margin: 0;
+}
+.tutor-name {
+  font-size: 24px;
+}
+.tutor-review {
+  margin-left: 0.5rem;
+  font-size: 24px;
+}
+
+/* p {
+  margin: 0;
+} */

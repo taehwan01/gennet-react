@@ -1,0 +1,33 @@
+.my-classes-page {
+  width: 100%;
+  .my-classes {
+    padding: 0 260px;
+  }
+  .date-of-lists {
+    font-size: 29px;
+    padding-left: 10px;
+    color: #57b0bc;
+    margin-bottom: 0.5rem;
+  }
+  .my-class {
+    border: 1px solid #57b0bc;
+    border-radius: 15px;
+    padding: 1.2rem 1.5rem 1.2rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    .my-class-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .with-tutor {
+        font-size: 29px;
+        color: #939598;
+      }
+      .class-title {
+        font-size: 44px;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+}

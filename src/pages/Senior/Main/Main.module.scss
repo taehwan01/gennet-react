@@ -1,0 +1,19 @@
+.main-page {
+  width: 1150px;
+}
+
+.main-message {
+  margin: 0;
+  font-size: 40px;
+}
+
+.sub-message {
+  margin: 1rem 0;
+  font-size: 29px;
+  color: #939598;
+}
+
+.new-classes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
