@@ -21,10 +21,15 @@
 .form-tag {
   font-size: 29px;
   display: flex;
-  padding-top: 9.5px;
-  // align-items: center;
+  // padding-top: 9.5px;
   justify-content: flex-end;
   padding-right: 5rem;
+}
+.form-tag-text {
+  align-items: center;
+}
+.form-tag-textarea {
+  padding-top: 9.5px;
 }
 
 .form-input {
