@@ -1,0 +1,54 @@
+p {
+  margin: 0;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 70px;
+}
+
+input {
+  padding-left: 1.5rem;
+  border: 1px solid #57b0bc;
+  font-size: 29px;
+  color: #939598;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.container {
+  flex-direction: row;
+}
+
+.nameBox {
+  width: 750px;
+  height: 50px;
+}
+
+.dateBox {
+  width: 150px;
+  height: 50px;
+}
+
+.introBox {
+  width: 750px;
+  height: 200px;
+}
+
+.unsavedBtn {
+  background-color: #a7a9ac;
+  width: 250px;
+  height: 70px;
+}
+
+.savedBtn {
+  background-color: #57b0bc;
+  width: 250px;
+  height: 70px;
+}
