@@ -1,4 +1,4 @@
-import styles from './SettingProfileEdit.module.css';
+import styles from './SettingProfileEdit.module.scss';
 
 function SettingProfileEdit() {
   return (

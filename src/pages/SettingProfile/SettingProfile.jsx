@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import styles from './SettingProfile.module.css';
+import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
 
 function SettingProfile() {
