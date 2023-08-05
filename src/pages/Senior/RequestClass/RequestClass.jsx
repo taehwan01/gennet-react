@@ -21,7 +21,7 @@ function RequestClass() {
         <div> </div>
         <form className={styles['request-class-form']}>
           <div className={styles['form-solo-div']}>
-            <div className={styles['form-tag']}>
+            <div className={`${styles['form-tag']} ${styles['form-tag-text']}`}>
               <span>제목</span>
             </div>
             <input
@@ -32,7 +32,7 @@ function RequestClass() {
           </div>
 
           <div className={styles['form-solo-div']}>
-            <div className={styles['form-tag']}>
+            <div className={`${styles['form-tag']} ${styles['form-tag-text']}`}>
               <span>분야</span>
             </div>
             <input
@@ -43,7 +43,9 @@ function RequestClass() {
           </div>
 
           <div className={styles['form-solo-div']}>
-            <div className={styles['form-tag']}>
+            <div
+              className={`${styles['form-tag']} ${styles['form-tag-textarea']}`}
+            >
               <span>내용</span>
             </div>
             <textarea
