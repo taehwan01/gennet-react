@@ -5,6 +5,7 @@ import SettingProfile from './pages/SettingProfile/SettingProfile';
 import SettingProfileEdit from './pages/SettingProfileEdit/SettingProfileEdit';
 import MyClasses from './pages/Senior/MyClasses/MyClasses';
 import RequestClass from './pages/Senior/RequestClass/RequestClass';
+import ClassDescription from './pages/ClassDescription/ClassDescription';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='profile-edit' element={<SettingProfileEdit />} />
         </Route>
       </Routes>
+      <ClassDescription />
     </div>
   );
 }

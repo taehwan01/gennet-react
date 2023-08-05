@@ -2,53 +2,54 @@ p {
   margin: 0;
 }
 
-button {
-  border: none;
-  border-radius: 15px;
-
-  font-size: 30px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  line-height: 70px;
-}
-
-input {
-  padding-left: 1.5rem;
-  border: 1px solid #57b0bc;
-  font-size: 29px;
-  color: #939598;
-  border-radius: 15px;
-  margin: 20px 0;
-}
-
 .container {
-  flex-direction: row;
+  width: calc(100% - 660px);
+  padding: 50px 300px 0 300px;
+  margin-bottom: 40px;
 
-  .nameBox {
-    width: 750px;
-    height: 50px;
-  }
+  .section2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  .dateBox {
-    width: 150px;
-    height: 50px;
-  }
+    .formDiv {
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 150px 750px;
+    }
 
-  .introBox {
-    width: 750px;
-    height: 200px;
-  }
+    .formTag {
+      font-size: 29px;
+      display: flex;
+      padding-top: 9.5px;
+      justify-content: flex-end;
+      padding-right: 5rem;
+    }
 
-  .unsavedBtn {
-    background-color: #a7a9ac;
-    width: 250px;
-    height: 70px;
-  }
+    .nameBox {
+      font-size: 29px;
+      border: 2px solid #57b0bc;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+    }
 
-  .savedBtn {
-    background-color: #57b0bc;
-    width: 250px;
-    height: 70px;
+    .dateBox {
+      font-size: 29px;
+      border: 2px solid #57b0bc;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+    }
+
+    .introBox {
+      font-size: 29px;
+      border: 2px solid #57b0bc;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+    }
+
+    .formInputDescription {
+      height: 200px;
+    }
   }
 }
