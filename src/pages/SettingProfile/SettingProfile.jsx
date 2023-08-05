@@ -1,9 +1,17 @@
-import { NavLink } from 'react-router-dom';
-
-import styles from './SettingProfile.module.css';
+import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
+import Button from '../../components/Button/Button';
 
 function SettingProfile() {
+  const buttonStyle = {
+    backgroundColor: '#57b0bc',
+    width: '300px',
+    height: '70px',
+    borderRadius: '15px',
+    fontSize: '40px',
+    marginTop: '50px',
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.section1}>
@@ -31,9 +39,7 @@ function SettingProfile() {
           </p>
         </div>
         <div className={styles.section3}>
-          <NavLink className={`${styles.profileEditBtn}`} to='/senior/profile-edit'>
-            프로필 수정하기
-          </NavLink>
+          <Button buttonStyle={buttonStyle} tag='프로필 수정하기' />
         </div>
       </div>
       <div> </div>
