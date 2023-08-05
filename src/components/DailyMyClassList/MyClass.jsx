@@ -8,7 +8,6 @@ function MyClass({ title, name }) {
     backgroundColor: '#57b0bc',
     width: '200px',
     height: '80px',
-    borderRadius: '15px',
     fontSize: '47px',
   };
 
