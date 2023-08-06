@@ -7,8 +7,8 @@ function SettingProfile() {
     backgroundColor: '#57b0bc',
     width: '300px',
     height: '70px',
-    borderRadius: '15px',
     fontSize: '40px',
+    borderRadius: '15px',
     marginTop: '50px',
   };
 

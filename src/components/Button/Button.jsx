@@ -11,7 +11,7 @@ function Button({ action, buttonStyle, tag }) {
     >
       <div
         className={styles['button-container']}
-        style={{ ...buttonStyle, borderRadius: '15px', padding: '0' }}
+        style={{ ...buttonStyle, padding: '0' }}
         type='button'
       >
         <span className='font-bold'>{tag}</span>
@@ -27,6 +27,7 @@ Button.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
     fontSize: PropTypes.string,
+    borderRadius: PropTypes.string,
     margin: PropTypes.string,
   }).isRequired,
   tag: PropTypes.string.isRequired,

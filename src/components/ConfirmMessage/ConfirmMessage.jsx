@@ -16,6 +16,7 @@ function ConfirmMessage({ mainMessage, subMessage }) {
     width: '250px',
     height: '50px',
     fontSize: '29px',
+    borderRadius: '15px',
     margin: '10px 0',
   };
   return (

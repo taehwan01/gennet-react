@@ -11,6 +11,7 @@ function RequestClass() {
     width: '300px',
     height: '80px',
     fontSize: '40px',
+    borderRadius: '15px',
     margin: '0 0 40px 0',
   };
 
