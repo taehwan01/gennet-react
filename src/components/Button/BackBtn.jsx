@@ -1,12 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import backIcon from '../../assets/images/back-icon.png';
 
-import './BackBtn.scss';
+import styles from './BackBtn.module.scss';
 
 function BackBtn() {
   return (
-    <button type='button' className='back-bt'>
-      <FontAwesomeIcon icon={faArrowLeft} style={{ color: '#ffffff' }} />
+    <button className={styles['back-btn']} type='button'>
+      <img className={styles['back-icon']} src={backIcon} alt='Back Icon logo' />
     </button>
   );
 }
