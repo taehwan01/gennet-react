@@ -24,11 +24,9 @@ function SettingProfileEdit() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.section1}>
-        <div className={styles.profile} />
-        <div className={styles.profileEdit}>
-          <img className={styles.editImage} src={editIcon} alt='edit Icon logo' />
-        </div>
+      <div className={styles.profile} />
+      <div className={styles.profileEdit}>
+        <img className={styles.editImage} src={editIcon} alt='edit Icon logo' />
       </div>
       <div className={styles.section2}>
         <div className={styles.formDiv}>

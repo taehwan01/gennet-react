@@ -7,6 +7,7 @@ import MyClasses from './pages/Senior/MyClasses/MyClasses';
 import RequestClass from './pages/Senior/RequestClass/RequestClass';
 import RequestClassConfirm from './pages/Senior/RequestClassConfirm/RequestClassConfirm';
 import ClassChatroom from './pages/ClassChatroom/ClassChatroom';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         </Route>
         <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
       </Routes>
+      <Login />
     </div>
   );
 }
