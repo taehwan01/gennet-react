@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
-import Main from './pages/Senior/Main/Main';
 import SettingProfile from './pages/SettingProfile/SettingProfile';
 import SettingProfileEdit from './pages/SettingProfileEdit/SettingProfileEdit';
-import MyClasses from './pages/Senior/MyClasses/MyClasses';
-import RequestClass from './pages/Senior/RequestClass/RequestClass';
-import RequestClassConfirm from './pages/Senior/RequestClassConfirm/RequestClassConfirm';
+import MyClasses from './pages/MyClasses/MyClasses';
+import RequestClass from './pages/RequestClass/RequestClass';
+import RequestClassConfirm from './pages/RequestClassConfirm/RequestClassConfirm';
 import ClassChatroom from './pages/ClassChatroom/ClassChatroom';
+import Main from './pages/Main/Main';
 
 function App() {
   return (

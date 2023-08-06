@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
-import styles from '../../pages/Senior/MyClasses/MyClasses.module.scss';
+import styles from '../../pages/MyClasses/MyClasses.module.scss';
 import Button from '../Button/Button';
 
 function MyClass({ roomId, title, name }) {

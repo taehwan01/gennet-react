@@ -1,8 +1,8 @@
 // import { useEffect } from 'react';
-import DailyMyClassList from '../../../components/DailyMyClassList/DailyMyClassList';
-import PageBanner from '../../../components/PageBanner/PageBanner';
+import DailyMyClassList from '../../components/DailyMyClassList/DailyMyClassList';
+import PageBanner from '../../components/PageBanner/PageBanner';
 import styles from './MyClasses.module.scss';
-import MyClass from '../../../components/DailyMyClassList/MyClass';
+import MyClass from '../../components/DailyMyClassList/MyClass';
 
 const myClasses = [
   {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // import { useEffect } from 'react';
-import styles from '../../pages/Senior/MyClasses/MyClasses.module.scss';
+import styles from '../../pages/MyClasses/MyClasses.module.scss';
 import MyClass from './MyClass';
 
 function formatDate(date) {
