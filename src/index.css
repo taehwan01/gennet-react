@@ -8,6 +8,8 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
@@ -26,7 +28,13 @@ code {
   font-weight: 700;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+}
 .App {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +43,9 @@ code {
 .navigation-bar-hr {
   border: none;
   background-color: #57b0bc;
+  position: absolute;
+  top: 99px;
   width: 98%;
-  height: 1px;
+  height: 2px;
   margin: 0;
 }
