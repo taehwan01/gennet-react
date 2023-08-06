@@ -1,6 +1,8 @@
 import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
 
+import editIcon from '../../assets/images/photo-icon.png';
+
 function SettingProfileEdit() {
   const buttonStyle1 = {
     backgroundColor: '#A7A9AC',
@@ -22,7 +24,12 @@ function SettingProfileEdit() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.section1}>section1-test</div>
+      <div className={styles.section1}>
+        <div className={styles.profile} />
+        <div className={styles.profileEdit}>
+          <img className={styles.editImage} src={editIcon} alt='edit Icon logo' />
+        </div>
+      </div>
       <div className={styles.section2}>
         <div className={styles.formDiv}>
           <div className={styles.formTag}>

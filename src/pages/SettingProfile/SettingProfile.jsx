@@ -9,7 +9,7 @@ function SettingProfile() {
     height: '70px',
     borderRadius: '15px',
     fontSize: '40px',
-    marginTop: '50px',
+    marginTop: '30px',
   };
 
   return (
