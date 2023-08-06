@@ -5,6 +5,7 @@ import styles from './Navigation.module.scss';
 import mainLogo from '../../assets/images/logo.png';
 import searchIcon from '../../assets/images/search-icon.png';
 import alertIcon from '../../assets/images/alert-icon.png';
+import ProfileImage from '../ProfileImage/ProfileImage';
 
 function Navigation() {
   // eslint-disable-next-line no-unused-vars
@@ -58,10 +59,8 @@ function Navigation() {
         {user ? (
           'profile'
         ) : (
-          <NavLink className={styles['profile-link']} to='/senior/profile' />
-          // <button className='profile-button' type='button'>
-          //   {/* none */}
-          // </button>
+          <ProfileImage />
+          // <NavLink className={styles['profile-link']} to='/senior/profile' />
         )}
       </div>
     </div>
