@@ -1,0 +1,94 @@
+::placeholder {
+  font-size: 29px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .logo {
+    width: 245px;
+    height: 74px;
+    margin: 60px 0 90px 0;
+  }
+
+  .selectUser {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 70px;
+
+    .userTxt {
+      font-size: 26px;
+    }
+    .userExplainTxt {
+      font-size: 20px;
+    }
+
+    .senior {
+      background-color: #ffe783;
+      width: 150px;
+      height: 130px;
+      border-radius: 15px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      .seniorImg {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+      }
+    }
+    .junior {
+      background-color: #baeaf7;
+      width: 150px;
+      height: 130px;
+      border-radius: 15px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 15px;
+      .juniorImg {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .formDiv {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 300px 600px;
+    .formTag {
+      font-size: 29px;
+      display: flex;
+      padding-top: 9.5px;
+      justify-content: flex-end;
+      padding-right: 80px;
+    }
+    .emailForm {
+      display: flex;
+      // flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .nameBox {
+    font-size: 29px;
+    border: 2px solid #57b0bc;
+    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+    width: 430px;
+  }
+  .duplicationCheckBtn {
+    position: relative;
+    right: 125px;
+  }
+}

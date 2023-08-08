@@ -4,7 +4,7 @@ import Button from '../../components/Button/Button';
 import editIcon from '../../assets/images/photo-icon.png';
 
 function SettingProfileEdit() {
-  const buttonStyle1 = {
+  const unsavedBtn = {
     backgroundColor: '#A7A9AC',
     width: '250px',
     height: '70px',
@@ -13,7 +13,7 @@ function SettingProfileEdit() {
     marginTop: '50px',
   };
 
-  const buttonStyle2 = {
+  const savedBtn = {
     backgroundColor: '#57b0bc',
     width: '250px',
     height: '70px',
@@ -56,8 +56,8 @@ function SettingProfileEdit() {
         </div>
       </div>
       <div className={styles.section3}>
-        <Button buttonStyle={buttonStyle1} tag='저장하지 않기' />
-        <Button buttonStyle={buttonStyle2} tag='저장하기' />
+        <Button buttonStyle={unsavedBtn} tag='저장하지 않기' />
+        <Button buttonStyle={savedBtn} tag='저장하기' />
       </div>
     </div>
   );

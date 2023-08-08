@@ -14,7 +14,7 @@ function Login() {
 
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src={logoImg} alt='edit Icon logo' />
+      <img className={styles.logo} src={logoImg} alt='logo icon' />
       <span className={`${styles.loginTxt} font-bold`}>로그인</span>
 
       <div className={styles.formDiv}>
