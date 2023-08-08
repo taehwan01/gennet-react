@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button/Button';
 // import { useParams } from 'react-router-dom';
 
 import styles from './ClassChatroom.module.scss';
+import Button from '../../components/Button/Button';
+import testIMG from '../../assets/images/banana.png';
 
 // dummy data
 const user = '김태환';
@@ -66,9 +67,37 @@ function ClassChatroom() {
       const sameUser = msg.user !== prevUser;
       prevUser = msg.user;
       return (
-        <div className={user === msg.user ? styles.right : styles.left}>
-          {sameUser && <span className='font-bold'>{msg.user}</span>}
-          {msg.content}
+        <div
+          className={`${styles['user-chat']} ${
+            user === msg.user ? styles.right : styles.left
+          }`}
+        >
+          {sameUser && (
+            <div className={styles['same-user-chat']}>
+              {msg.user !== user && (
+                <img
+                  className={styles['profile-image']}
+                  src={testIMG}
+                  alt='Profile IMG'
+                />
+              )}
+              <span className={`${styles['message-user']} font-bold`}>
+                {msg.user}
+              </span>
+              {msg.user === user && (
+                <img
+                  className={styles['profile-image']}
+                  src={testIMG}
+                  alt='Profile IMG'
+                />
+              )}
+            </div>
+          )}
+          {msg.user === user ? (
+            <div className={styles['message-content-right']}>{msg.content}</div>
+          ) : (
+            <div className={styles['message-content-left']}>{msg.content}</div>
+          )}
         </div>
       );
     });
