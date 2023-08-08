@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 
+import { useState } from 'react';
 import styles from './ClassChatroom.module.scss';
 import Button from '../../components/Button/Button';
 import testIMG from '../../assets/images/banana.png';
@@ -30,6 +31,8 @@ const myClass = {
 };
 
 function ClassChatroom() {
+  const [modal, setModal] = useState(false);
+
   const navigate = useNavigate();
 
   const sendButtonStyle = {
@@ -46,6 +49,21 @@ function ClassChatroom() {
     fontSize: '29px',
     borderRadius: '15px',
   };
+  const yesButtonStyle = {
+    backgroundColor: '#57b0bc',
+    width: '180px',
+    height: '50px',
+    fontSize: '29px',
+    borderRadius: '10px',
+    marginRight: '2rem',
+  };
+  const noButtonStyle = {
+    backgroundColor: '#A7A9AC',
+    width: '180px',
+    height: '50px',
+    fontSize: '29px',
+    borderRadius: '10px',
+  };
   //   const { roomId } = useParams();
   //   const [message, setMessage] = useState('');
   //   const [chatMessages, setChatMessages] = useState([]);
@@ -57,8 +75,13 @@ function ClassChatroom() {
     console.log('message sent.');
   };
   const handleExitChatroom = () => {
-    // 수업 종료
+    setModal(true);
+  };
+  const handleClickYes = () => {
     navigate('/senior');
+  };
+  const handleClickNo = () => {
+    setModal(false);
   };
 
   const renderMessages = () => {
@@ -104,40 +127,69 @@ function ClassChatroom() {
   };
 
   return (
-    <div className={styles['class-chatroom']}>
-      <div className={styles['chat-box']}>
-        <div className={styles['chatroom-title']}>
-          <span className='font-bold'>{myClass.title}</span>
-          <Button
-            action={handleExitChatroom}
-            buttonStyle={exitButtonStyle}
-            tag='수업 종료하기'
-          />
-        </div>
-        <div className={styles['connection-message']}>
-          <span className='font-bold'>
-            청년 {myClass.tutor}님이 연결되었습니다.
-          </span>
-        </div>
-        <div className={styles['chat-contents']}>{renderMessages()}</div>
-        <div className={styles['input-box']}>
-          <div className={styles['input-container']}>
-            <input
-              type='text'
-              className={styles['message-input']}
-              placeholder='내용을 입력해 주세요.'
+    <>
+      <div className={styles['class-chatroom']}>
+        <div className={styles['chat-box']}>
+          <div className={styles['chatroom-title']}>
+            <span className='font-bold'>{myClass.title}</span>
+            <Button
+              action={handleExitChatroom}
+              buttonStyle={exitButtonStyle}
+              tag='수업 종료하기'
             />
-            <div className={styles['send-button']}>
-              <Button
-                action={handleSendMessage}
-                buttonStyle={sendButtonStyle}
-                tag='전송'
+          </div>
+          <div className={styles['connection-message']}>
+            <span className='font-bold'>
+              청년 {myClass.tutor}님이 연결되었습니다.
+            </span>
+          </div>
+          <div className={styles['chat-contents']}>{renderMessages()}</div>
+          <div className={styles['input-box']}>
+            <div className={styles['input-container']}>
+              <input
+                type='text'
+                className={styles['message-input']}
+                placeholder='내용을 입력해 주세요.'
               />
+              <div className={styles['send-button']}>
+                <Button
+                  action={handleSendMessage}
+                  buttonStyle={sendButtonStyle}
+                  tag='전송'
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {modal && (
+        <div className={styles['confirm-container']}>
+          <div className={styles['confirm-component']}>
+            <div className={styles['message-box']}>
+              <div className={`${styles['main-message']} font-bold`}>
+                <span>정말 수업을 종료하실건가요?</span>
+              </div>
+              <div className={styles['sub-message']}>
+                <span>수업을 계속하고 싶으면 아니오를 눌러주세요.</span>
+              </div>
+              <div className={styles['button-container']}>
+                <Button
+                  action={handleClickYes}
+                  buttonStyle={yesButtonStyle}
+                  tag='네, 종료할게요'
+                />
+                <Button
+                  action={handleClickNo}
+                  buttonStyle={noButtonStyle}
+                  tag='아니오'
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
