@@ -1,9 +1,11 @@
 // import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Register2.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
 
 function Register2() {
+  const navigate = useNavigate();
   //   const [buttonStyles, setButtonStyles] = useState(NonClickButton{
   //     backgroundColor: ''
   //     width: '140px',
@@ -34,6 +36,12 @@ function Register2() {
     marginTop: '18px',
     marginBottom: '130px',
   };
+
+  const handleRegister = () => {
+    // 회원가입 버튼 클릭
+    navigate('/senior');
+  };
+
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
@@ -42,7 +50,11 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>이름</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
+          <input
+            type='text'
+            className={styles.nameBox}
+            placeholder='이름을 입력하세요.'
+          />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -72,11 +84,18 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
+          <textarea
+            className={styles.introBox}
+            placeholder='자신의 자격증 등을 어필해주세요.'
+          />
         </div>
       </form>
 
-      <Button buttonStyle={registerBtn} tag='회원가입' />
+      <Button
+        action={handleRegister}
+        buttonStyle={registerBtn}
+        tag='회원가입'
+      />
     </div>
   );
 }
