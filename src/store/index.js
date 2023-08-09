@@ -5,7 +5,8 @@ const userSlice = createSlice({
   initialState: {
     email: 'test@gmail.com',
     password: '',
-    type: '',
+    type: 'SENIOR',
+    // type: 'YOUTH',
     // name: '김태환',
     // birth: new Date(),
     // interest: [],

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Navigation from './components/Navigation/Navigation';
 import SettingProfile from './pages/SettingProfile/SettingProfile';
 import SettingProfileEdit from './pages/SettingProfileEdit/SettingProfileEdit';
@@ -23,6 +24,8 @@ function ScrollToTopOnNavigate() {
 }
 
 function App() {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className='App'>
       <ScrollToTopOnNavigate />
@@ -32,27 +35,29 @@ function App() {
           <Route index element={<Register1 />} />
           <Route path='2' element={<Register2 />} />
         </Route>
-        <Route
-          element={
-            <>
-              <Navigation />
-              <hr className='navigation-bar-hr' />
-            </>
-          }
-        >
-          <Route path='/senior'>
-            <Route index element={<Main />} />
-            <Route path='my-classes' element={<MyClasses />} />
-            <Route path='request-class'>
-              <Route index element={<RequestClass />} />
-              <Route path='confirmed' element={<RequestClassConfirm />} />
+        {user.type === 'SENIOR' && (
+          <Route
+            element={
+              <>
+                <Navigation />
+                <hr className='navigation-bar-hr' />
+              </>
+            }
+          >
+            <Route path='/senior'>
+              <Route index element={<Main />} />
+              <Route path='my-classes' element={<MyClasses />} />
+              <Route path='request-class'>
+                <Route index element={<RequestClass />} />
+                <Route path='confirmed' element={<RequestClassConfirm />} />
+              </Route>
+              <Route path='profile' element={<SettingProfile />} />
+              <Route path='profile-edit' element={<SettingProfileEdit />} />
             </Route>
-            <Route path='profile' element={<SettingProfile />} />
-            <Route path='profile-edit' element={<SettingProfileEdit />} />
-          </Route>
 
-          <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
-        </Route>
+            <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
+          </Route>
+        )}
       </Routes>
     </div>
   );

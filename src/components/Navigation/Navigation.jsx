@@ -5,11 +5,20 @@ import styles from './Navigation.module.scss';
 import mainLogo from '../../assets/images/logo.png';
 import searchIcon from '../../assets/images/search-icon.png';
 import alertIcon from '../../assets/images/alert-icon.png';
+import incomeAlertIcon from '../../assets/images/income-alert-icon.png';
 import ProfileImage from '../ProfileImage/ProfileImage';
+
+let alert = true;
 
 function Navigation() {
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState('');
+  const [alertModal, setAlertModal] = useState(false);
+
+  const handleAlertClick = () => {
+    setAlertModal(!alertModal);
+    alert = false;
+  };
 
   return (
     <>
@@ -50,13 +59,39 @@ function Navigation() {
               />
             </button>
           </div>
-          <button className={styles['alert-button']} type='button'>
-            <img
-              className={styles['alert-icon']}
-              src={alertIcon}
-              alt='Alert Icon logo'
-            />
+          <button
+            onClick={handleAlertClick}
+            className={styles['alert-button']}
+            type='button'
+          >
+            {alert ? (
+              <img
+                className={styles['alert-icon']}
+                src={incomeAlertIcon}
+                alt='Alert Icon logo'
+              />
+            ) : (
+              <img
+                className={styles['alert-icon']}
+                src={alertIcon}
+                alt='Alert Icon logo'
+              />
+            )}
           </button>
+          {alertModal ? (
+            <div className={styles['alert-container']}>
+              <div className={styles['alert-message-box']}>
+                <span className={`${styles['alert-message']} font-bold`}>
+                  청년이 연결되었습니다. <br />
+                  지금 수업을 시작하세요.
+                </span>
+                {/* <span className={styles['alert-message']}>2. hello</span>
+                <span className={styles['alert-message']}>3. hello</span> */}
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
           {user ? (
             'profile'
           ) : (
