@@ -7,6 +7,7 @@ import MyClasses from './pages/Senior/MyClasses/MyClasses';
 import RequestClass from './pages/Senior/RequestClass/RequestClass';
 import RequestClassConfirm from './pages/Senior/RequestClassConfirm/RequestClassConfirm';
 import ClassChatroom from './pages/ClassChatroom/ClassChatroom';
+import Register2 from './pages/Register/Register2';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='profile-edit' element={<SettingProfileEdit />} />
         </Route>
         <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
+        <Route path='/register2' element={<Register2 />} />
       </Routes>
     </div>
   );

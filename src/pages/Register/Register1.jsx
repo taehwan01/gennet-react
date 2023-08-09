@@ -1,10 +1,10 @@
-import styles from './Register.module.scss';
+import styles from './Register1.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
 import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
-function Register() {
+function Register1() {
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
     width: '116px',
@@ -19,6 +19,7 @@ function Register() {
     fontSize: '40px',
     borderRadius: '15px',
     marginTop: '77px',
+    marginBottom: '132px',
   };
 
   return (
@@ -68,4 +69,4 @@ function Register() {
     </div>
   );
 }
-export default Register;
+export default Register1;

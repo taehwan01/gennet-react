@@ -2,6 +2,10 @@ p {
   margin: 0;
 }
 
+::placeholder {
+  color: #939598;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -13,8 +17,8 @@ p {
     height: 150px;
     border-radius: 50%;
     background-color: #ffc431;
-    margin: 30px 0 50px 0;
-    position: relative;
+    margin: 50px 0 0 0;
+    //position: relative;
   }
   .profileEdit {
     width: 60px;
@@ -23,8 +27,8 @@ p {
     background-color: #d1d3d4;
 
     position: relative;
-    bottom: 110px;
-    left: 100px;
+    bottom: 70px;
+    left: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,16 +38,16 @@ p {
       height: 40px;
     }
   }
-  .section2 {
+
+  .formSection {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     .formDiv {
       margin-bottom: 40px;
       display: grid;
-      grid-template-columns: 150px 750px;
+      grid-template-columns: 300px 900px;
     }
 
     .formTag {
@@ -59,13 +63,26 @@ p {
       border: 2px solid #57b0bc;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
+
+      width: 750px;
+      height: 50px;
+    }
+
+    .dateForm {
+      display: flex;
+      flex-direction: row;
     }
 
     .dateBox {
       font-size: 29px;
+      text-align: right;
       border: 2px solid #57b0bc;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
+
+      width: 155px;
+      height: 50px;
+      margin-right: 10px;
     }
 
     .introBox {
@@ -73,10 +90,14 @@ p {
       border: 2px solid #57b0bc;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
-    }
 
-    .formInputDescription {
+      width: 750px;
       height: 200px;
     }
+  }
+
+  .buttonSection {
+    display: flex;
+    flex-direction: row;
   }
 }
