@@ -1,5 +1,5 @@
-import AdCarousel from '../../../components/AdCarousel/AdCarousel';
-import NewClass from '../../../components/NewClass/NewClass';
+import AdCarousel from '../../components/AdCarousel/AdCarousel';
+import NewClass from '../../components/NewClass/NewClass';
 
 import styles from './Main.module.scss';
 

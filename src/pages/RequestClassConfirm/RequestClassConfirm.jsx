@@ -1,6 +1,6 @@
 // import styles from './RequestClassConfirm.module.scss';
-import ConfirmMessage from '../../../components/ConfirmMessage/ConfirmMessage';
-import PageBanner from '../../../components/PageBanner/PageBanner';
+import ConfirmMessage from '../../components/ConfirmMessage/ConfirmMessage';
+import PageBanner from '../../components/PageBanner/PageBanner';
 
 function RequestClassConfirm() {
   return (

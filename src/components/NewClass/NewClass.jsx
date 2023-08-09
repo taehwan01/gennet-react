@@ -7,9 +7,13 @@ import styles from './NewClass.module.scss';
 function NewClass({ category, title, name, review }) {
   const [isAnimated, setIsAnimated] = useState(false);
   const titleRef = useRef(null);
+  const [loopTitle, setLoopTitle] = useState(title);
 
   useEffect(() => {
     setIsAnimated(titleRef.current.scrollWidth > titleRef.current.clientWidth);
+    if (titleRef.current.scrollWidth > titleRef.current.clientWidth) {
+      setLoopTitle(`${title} - `.repeat(10));
+    }
   }, [title]);
 
   return (
@@ -28,18 +32,20 @@ function NewClass({ category, title, name, review }) {
         <p
           ref={titleRef}
           className={`${styles['class-title']} ${
-            isAnimated ? 'is-animated' : ''
+            isAnimated ? styles['is-animated'] : ''
           }`}
-          data-text={title}
+          data-text={loopTitle}
         >
-          {title}
+          {loopTitle}
         </p>
-        <p className={styles['tutor-info']}>
+        <div className={styles['tutor-info']}>
           <span className={styles['tutor-name']}>{name}</span>
           <span className={styles['tutor-review']}>
-            {`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}
+            {`${'★'.repeat(review)}${'☆'.repeat(5 - review)} ${review.toFixed(
+              1,
+            )}점`}
           </span>
-        </p>
+        </div>
       </div>
     </div>
   );
