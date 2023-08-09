@@ -12,18 +12,25 @@ import Main from './pages/Main/Main';
 function App() {
   return (
     <div className='App'>
-      <Navigation />
-      <hr className='navigation-bar-hr' />
       <Routes>
-        <Route path='/senior'>
-          <Route index element={<Main />} />
-          <Route path='my-classes' element={<MyClasses />} />
-          <Route path='request-class'>
-            <Route index element={<RequestClass />} />
-            <Route path='confirmed' element={<RequestClassConfirm />} />
+        <Route
+          element={
+            <>
+              <Navigation />
+              <hr className='navigation-bar-hr' />
+            </>
+          }
+        >
+          <Route path='/senior'>
+            <Route index element={<Main />} />
+            <Route path='my-classes' element={<MyClasses />} />
+            <Route path='request-class'>
+              <Route index element={<RequestClass />} />
+              <Route path='confirmed' element={<RequestClassConfirm />} />
+            </Route>
+            <Route path='profile' element={<SettingProfile />} />
+            <Route path='profile-edit' element={<SettingProfileEdit />} />
           </Route>
-          <Route path='profile' element={<SettingProfile />} />
-          <Route path='profile-edit' element={<SettingProfileEdit />} />
         </Route>
         <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
         <Route path='/register2' element={<Register2 />} />
