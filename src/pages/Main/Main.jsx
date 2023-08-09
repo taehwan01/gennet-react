@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import AdCarousel from '../../components/AdCarousel/AdCarousel';
 import NewClass from '../../components/NewClass/NewClass';
 
@@ -55,12 +56,16 @@ const newClasses = [
 ];
 
 function Main() {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className={styles['main-page']}>
       <AdCarousel />
       <div className={styles.messages}>
         <p className={`${styles['main-message']} font-bold`}>참여해보세요!</p>
-        <p className={styles['sub-message']}>000님에게 추천하는 수업들</p>
+        <p className={styles['sub-message']}>
+          {user.email}님에게 추천하는 수업들
+        </p>
       </div>
       <div className={styles['new-classes']}>
         {newClasses.map((newClass) => (
