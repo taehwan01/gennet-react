@@ -35,16 +35,16 @@ function App() {
           <Route index element={<Register1 />} />
           <Route path='2' element={<Register2 />} />
         </Route>
-        {user.type === 'SENIOR' && (
-          <Route
-            element={
-              <>
-                <Navigation />
-                <hr className='navigation-bar-hr' />
-              </>
-            }
-          >
-            <Route path='/senior'>
+        <Route
+          element={
+            <>
+              <Navigation />
+              <hr className='navigation-bar-hr' />
+            </>
+          }
+        >
+          {user.type === 'SENIOR' && (
+            <Route path='/senior' className='senior-page'>
               <Route index element={<Main />} />
               <Route path='my-classes' element={<MyClasses />} />
               <Route path='request-class'>
@@ -54,10 +54,23 @@ function App() {
               <Route path='profile' element={<SettingProfile />} />
               <Route path='profile-edit' element={<SettingProfileEdit />} />
             </Route>
+          )}
 
-            <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
-          </Route>
-        )}
+          {user.type === 'YOUTH' && (
+            <Route path='/youth' className='youth-page'>
+              <Route index element={<Main />} />
+              <Route path='my-classes' element={<MyClasses />} />
+              <Route path='request-class'>
+                <Route index element={<RequestClass />} />
+                <Route path='confirmed' element={<RequestClassConfirm />} />
+              </Route>
+              <Route path='profile' element={<SettingProfile />} />
+              <Route path='profile-edit' element={<SettingProfileEdit />} />
+            </Route>
+          )}
+
+          <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
+        </Route>
       </Routes>
     </div>
   );
