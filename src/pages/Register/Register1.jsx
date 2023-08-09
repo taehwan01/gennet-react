@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Register1.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
@@ -5,6 +6,8 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
+  const navigate = useNavigate();
+
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
     width: '116px',
@@ -20,6 +23,10 @@ function Register1() {
     borderRadius: '15px',
     marginTop: '77px',
     marginBottom: '132px',
+  };
+
+  const handleNextStep = () => {
+    navigate('/register/2');
   };
 
   return (
@@ -44,7 +51,11 @@ function Register1() {
             <span>아이디</span>
           </div>
           <div className={styles.emailForm}>
-            <input type='text' className={styles.nameBox} placeholder='이메일 입력' />
+            <input
+              type='text'
+              className={styles.nameBox}
+              placeholder='이메일 입력'
+            />
             <div className={styles.duplicationCheckBtn}>
               <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
@@ -54,7 +65,11 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='8자이상 입력' />
+          <input
+            type='text'
+            className={styles.nameBox}
+            placeholder='8자이상 입력'
+          />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -63,7 +78,7 @@ function Register1() {
           <input type='text' className={styles.nameBox} placeholder=' ' />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button buttonStyle={nextBtn} tag='다음' />
+          <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />
         </div>
       </form>
     </div>

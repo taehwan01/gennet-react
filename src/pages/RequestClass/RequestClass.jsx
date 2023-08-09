@@ -21,7 +21,7 @@ function RequestClass() {
   };
 
   return (
-    <>
+    <div>
       <PageBanner
         pageTitle='수업 요청하기'
         pageIntro='궁금한 것들에 대해 수업을 요청해보세요.'
@@ -81,7 +81,7 @@ function RequestClass() {
         </form>
         <div> </div>
       </div>
-    </>
+    </div>
   );
 }
 
