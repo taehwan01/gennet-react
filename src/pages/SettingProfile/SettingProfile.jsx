@@ -1,8 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
 
 function SettingProfile() {
+  const navigate = useNavigate();
+
+  const profileEdit = () => {
+    // 수정하기
+    navigate('/senior/profile-edit');
+  };
+
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '300px',
@@ -39,7 +47,7 @@ function SettingProfile() {
           </p>
         </div>
         <div className={styles.section3}>
-          <Button buttonStyle={buttonStyle} tag='프로필 수정하기' />
+          <Button action={profileEdit} buttonStyle={buttonStyle} tag='프로필 수정하기' />
         </div>
       </div>
       <div> </div>

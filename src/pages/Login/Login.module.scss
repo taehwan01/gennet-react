@@ -1,0 +1,53 @@
+input {
+  color: #939598;
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo {
+    width: 245px;
+    height: 74px;
+    margin: 60px 0 40px 0;
+  }
+  .loginTxt {
+    font-size: 29px;
+    color: #57b0bc;
+    margin-bottom: 60px;
+  }
+  .formDiv {
+    margin-bottom: 23px;
+    display: grid;
+    grid-template-columns: 200px 550px;
+    //grid-template-columns: 150px 750px;
+
+    .formTag {
+      display: flex;
+      padding-top: 9.5px;
+      justify-content: flex-end;
+      padding-right: 5rem;
+    }
+    .idTxt {
+      font-size: 29px;
+    }
+    .idBox {
+      border: 2px solid #57b0bc;
+      width: 327px;
+      height: 47px;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+    }
+    .passwordTxt {
+      font-size: 29px;
+    }
+    .passwordBox {
+      border: 2px solid #57b0bc;
+      width: 327px;
+      height: 47px;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+    }
+  }
+}

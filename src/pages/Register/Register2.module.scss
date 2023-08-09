@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo {
+    width: 245px;
+    height: 74px;
+    margin: 150px 0 100px 0;
+  }
+
+  .formDiv {
+    margin-bottom: 37px;
+    display: grid;
+    grid-template-columns: 300px 800px;
+    .formTag {
+      font-size: 29px;
+      display: flex;
+      padding-top: 9.5px;
+      justify-content: flex-end;
+      padding-right: 80px;
+    }
+
+    .nameBox {
+      font-size: 29px;
+      border: 2px solid #57b0bc;
+      border-radius: 15px;
+      padding: 0.5rem 1.2rem;
+
+      width: 332px;
+      height: 50px;
+    }
+
+    .dateForm {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .categoryForm {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .dateBox {
+    font-size: 29px;
+    text-align: right;
+    border: 2px solid #57b0bc;
+    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+
+    width: 154px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .introBox {
+    font-size: 29px;
+    border: 2px solid #57b0bc;
+    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+
+    width: 605px;
+    height: 200px;
+  }
+}
