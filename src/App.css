@@ -1,0 +1,15 @@
+.senior-page {
+  > .font-25pt {
+    font-size: 25pt;
+  }
+}
+
+/* .youth-page {
+  font-size: 5rem;
+  .font-25pt {
+    font-size: 18pt;
+  }
+  .font-22pt {
+    font-size: 22pt;
+  }
+} */
