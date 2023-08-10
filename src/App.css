@@ -1,9 +1,15 @@
 .senior-page {
-  > .font-55pt {
+  .font-55pt {
     font-size: 55pt;
   }
-  > .font-25pt {
+  .font-25pt {
     font-size: 25pt;
+  }
+  .font-22pt {
+    font-size: 22pt;
+  }
+  .senior-color {
+    color: #ffc431;
   }
 }
 
@@ -13,5 +19,11 @@
   }
   .font-22pt {
     font-size: 22pt;
+  }
+  .font-18pt {
+    font-size: 18pt;
+  }
+  .junior-color {
+    color: 7ac2e2;
   }
 }

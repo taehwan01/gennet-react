@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
 
 function SettingProfile() {
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const profileEdit = () => {
@@ -15,11 +17,12 @@ function SettingProfile() {
     backgroundColor: '#57b0bc',
     width: '300px',
     height: '70px',
-    fontSize: '40px',
     borderRadius: '15px',
     marginTop: '50px',
+    fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
   };
 
+  const review = 4;
   return (
     <div className={styles.container}>
       <div className={styles.section1}>
@@ -29,12 +32,29 @@ function SettingProfile() {
         <div className={styles.circle}> </div>
         <div className={styles.info}>
           <p className={styles.profileTxt}>
-            <span className={styles.seniorTxt}>시니어</span>
+            <span className={` ${styles.typeTxt} ${user.type === 'SENIOR' ? 'senior-color' : 'youth-color'}`}>
+              시니어
+            </span>
             <span className={`${styles.nameTxt} font-bold`}> 김태환 </span>
             <span className={`${styles.nimTxt} font-bold`}>님</span>
           </p>
-          <p className={styles.dateTxt}>0000년 00월 00일</p>
+
+          <div className={`${styles.temp}`}>
+            <div className={`${styles.tutorEvaluate} font-bold`}>
+              {user.type === 'SENIOR' ? (
+                ''
+              ) : (
+                <>
+                  <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
+                  <span className={styles.tutorScore}>4.0점</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>0000년 00월 00일</p>
         </div>
+
         <div className={styles.introBox}>
           <p className={styles.introTxt}>
             잘 부탁드립니다. 요즘 MZ들은 참 부럽네요. ^^
@@ -56,3 +76,7 @@ function SettingProfile() {
 }
 
 export default SettingProfile;
+
+// className={`${styles['main-message']} font-bold ${
+//   user.type === 'SENIOR' ? 'font-30pt' : 'font-22pt'
+// }`}
