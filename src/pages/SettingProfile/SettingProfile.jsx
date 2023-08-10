@@ -39,7 +39,7 @@ function SettingProfile() {
             <span className={`${styles.nimTxt} font-bold`}>님</span>
           </p>
 
-          <div className={`${styles.temp}`}>
+          <div className={`${styles.reviewDiv}`}>
             <div className={`${styles.tutorEvaluate} font-bold`}>
               {user.type === 'SENIOR' ? (
                 ''

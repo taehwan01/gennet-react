@@ -1,22 +1,25 @@
+import { useSelector } from 'react-redux';
 import styles from './ClassDescription.module.scss';
 import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
 import testIMG from '../../assets/images/banana.png';
 
 function ClassDescription() {
+  const user = useSelector((state) => state.user);
+
   const categoryBtn = {
     backgroundColor: '#57b0bc',
-    width: '120px',
-    height: '40px',
+    width: `${user.type === 'SENIOR' ? '120px' : '105px'}`,
+    height: `${user.type === 'SENIOR' ? '40px' : '38px'}`,
     borderRadius: '15px',
-    fontSize: '20px',
+    fontSize: `${user.type === 'SENIOR' ? '22pt' : '18pt'}`,
   };
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '250px',
     height: '50px',
     borderRadius: '15px',
-    fontSize: '30px',
+    fontSize: '30pt',
   };
   const review = 4;
   return (
@@ -33,24 +36,37 @@ function ClassDescription() {
             <div className={styles.topRight}>
               <span className={`${styles.userName} font-bold`}>천다인님</span>
               <div className={styles.tutorEvaluate}>
-                <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
-                <span className={styles.tutorScore}>4.0점</span>
+                {user.type === 'SENIOR' ? (
+                  <>
+                    <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
+                    <span className={styles.tutorScore}>4.0점</span>
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
             </div>
           </div>
+
           <div className={styles.class}>
             <img className={styles.classImage} src={testIMG} alt='class-img' />
             <div className={styles.classInfo}>
               <div className={styles.category}>
                 <Button buttonStyle={categoryBtn} tag='식사주문' />
               </div>
-              <span className={`${styles.classTitle} font-bold`}>버거킹 키오스크 수업</span>
-              <span className={styles.classInformation}>
-                프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다. 옵션 선택부터 결제까지 차근차근 알려드려요.
+              <span className={`${styles.classTitle} font-bold ${user.type === 'SENIOR' ? 'font-25pt' : 'font-25pt'}`}>
+                버거킹 키오스크 수업
+              </span>
+              <span className={`${styles.classInformation} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+                프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.
               </span>
             </div>
             <div className={styles.bottom}>
-              <Button buttonStyle={buttonStyle} tag='수업 들으러가기' />
+              {user.type === 'SENIOR' ? (
+                <Button buttonStyle={buttonStyle} tag='수업 들으러 가기' />
+              ) : (
+                <Button buttonStyle={buttonStyle} tag='수업 하러 가기' />
+              )}
             </div>
           </div>
         </div>
