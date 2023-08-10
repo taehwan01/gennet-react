@@ -1,15 +1,17 @@
 .senior-page {
+  > .font-55pt {
+    font-size: 55pt;
+  }
   > .font-25pt {
     font-size: 25pt;
   }
 }
 
-/* .youth-page {
-  font-size: 5rem;
-  .font-25pt {
-    font-size: 18pt;
+.youth-page {
+  .font-40pt {
+    font-size: 40pt;
   }
   .font-22pt {
     font-size: 22pt;
   }
-} */
+}
