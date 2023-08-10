@@ -14,6 +14,7 @@ import Register2 from './pages/Register/Register2';
 import Main from './pages/Main/Main';
 import './App.css';
 import ClassDescription from './pages/ClassDescription/ClassDescription';
+import ClassEnd from './pages/ClassEnd/ClassEnd';
 
 function ScrollToTopOnNavigate() {
   const { pathname } = useLocation();
@@ -49,6 +50,7 @@ function App() {
             <Route path='/senior'>
               <Route index element={<Main />} />
               <Route path='class/:classId' element={<ClassDescription />} />
+              <Route path='classEnd' element={<ClassEnd />} />
               <Route path='my-classes' element={<MyClasses />} />
               <Route path='request-class'>
                 <Route index element={<RequestClass />} />
