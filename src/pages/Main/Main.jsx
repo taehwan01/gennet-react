@@ -62,7 +62,13 @@ function Main() {
     <div className={styles['main-page']}>
       <AdCarousel />
       <div className={styles.messages}>
-        <p className={`${styles['main-message']} font-bold`}>참여해보세요!</p>
+        <p
+          className={`${styles['main-message']} font-bold ${
+            user.type === 'SENIOR' ? 'font-30pt' : 'font-22pt'
+          }`}
+        >
+          참여해보세요!
+        </p>
         <p className={styles['sub-message']}>
           {user.email}님에게 추천하는 수업들
         </p>

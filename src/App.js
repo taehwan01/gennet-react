@@ -12,6 +12,7 @@ import Login from './pages/Login/Login';
 import Register1 from './pages/Register/Register1';
 import Register2 from './pages/Register/Register2';
 import Main from './pages/Main/Main';
+import './App.css';
 
 function ScrollToTopOnNavigate() {
   const { pathname } = useLocation();
@@ -27,7 +28,7 @@ function App() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className='App'>
+    <div className='App senior-page'>
       <ScrollToTopOnNavigate />
       <Routes>
         <Route path='/' element={<Login />} />
@@ -44,7 +45,7 @@ function App() {
           }
         >
           {user.type === 'SENIOR' && (
-            <Route path='/senior' className='senior-page'>
+            <Route path='/senior'>
               <Route index element={<Main />} />
               <Route path='my-classes' element={<MyClasses />} />
               <Route path='request-class'>
@@ -57,7 +58,7 @@ function App() {
           )}
 
           {user.type === 'YOUTH' && (
-            <Route path='/youth' className='youth-page'>
+            <Route path='/youth'>
               <Route index element={<Main />} />
               <Route path='my-classes' element={<MyClasses />} />
               <Route path='request-class'>
