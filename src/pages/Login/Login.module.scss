@@ -1,19 +1,16 @@
-input {
-  color: #939598;
-  font-size: 24px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100%;
   .logo {
     width: 245px;
     height: 74px;
-    margin: 60px 0 40px 0;
+    margin: 0 0 40px 0;
   }
   .loginTxt {
-    font-size: 29px;
+    font-size: 25pt;
     color: #57b0bc;
     margin-bottom: 60px;
   }
@@ -30,7 +27,7 @@ input {
       padding-right: 5rem;
     }
     .idTxt {
-      font-size: 29px;
+      font-size: 22pt;
     }
     .idBox {
       border: 2px solid #57b0bc;
@@ -38,9 +35,11 @@ input {
       height: 47px;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
+      font-size: 18pt;
+      color: #939598;
     }
     .passwordTxt {
-      font-size: 29px;
+      font-size: 22pt;
     }
     .passwordBox {
       border: 2px solid #57b0bc;
@@ -48,6 +47,8 @@ input {
       height: 47px;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
+      font-size: 18pt;
+      color: #939598;
     }
   }
 }

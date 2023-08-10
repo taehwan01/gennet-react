@@ -17,9 +17,10 @@ function Login() {
     backgroundColor: '#57b0bc',
     width: '337px',
     height: '50px',
-    fontSize: '29px',
+    fontSize: '22pt',
     borderRadius: '10px',
     marginTop: '17px',
+    marginBottom: '17px',
   };
 
   const handleLogin = () => {
