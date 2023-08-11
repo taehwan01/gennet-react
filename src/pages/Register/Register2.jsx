@@ -28,8 +28,8 @@ function Register2() {
     height: '70px',
     borderRadius: '15px',
     fontSize: '30pt',
-    marginTop: '18px',
-    marginBottom: '130px',
+    margin: '10px 0 40px 0',
+    // marginBottom: '130px',
   };
 
   const style = {
@@ -50,7 +50,11 @@ function Register2() {
             <span style={style}>*</span>
             <span>이름</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
+          <input
+            type='text'
+            className={styles.nameBox}
+            placeholder='이름을 입력하세요.'
+          />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -81,11 +85,18 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
+          <textarea
+            className={styles.introBox}
+            placeholder='자신의 자격증 등을 어필해주세요.'
+          />
         </div>
       </form>
 
-      <Button action={handleRegister} buttonStyle={registerBtn} tag='회원가입' />
+      <Button
+        action={handleRegister}
+        buttonStyle={registerBtn}
+        tag='회원가입'
+      />
     </div>
   );
 }

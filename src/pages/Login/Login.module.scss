@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   .logo {
     width: 245px;
     object-fit: cover;
@@ -22,7 +22,9 @@
 
     .formTag {
       display: flex;
-      padding-top: 9.5px;
+      // padding-top: 9.5px;
+      // flex-direction: column;
+      align-items: center;
       justify-content: flex-end;
       padding-right: 5rem;
     }
@@ -32,10 +34,10 @@
     .idBox {
       border: 2px solid #57b0bc;
       width: 327px;
-      height: 47px;
+      height: 40px;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
-      font-size: 18pt;
+      font-size: 22pt;
       color: #939598;
     }
     .passwordTxt {
@@ -44,10 +46,10 @@
     .passwordBox {
       border: 2px solid #57b0bc;
       width: 327px;
-      height: 47px;
+      height: 40px;
       border-radius: 15px;
       padding: 0.5rem 1.2rem;
-      font-size: 18pt;
+      font-size: 22pt;
       color: #939598;
     }
   }

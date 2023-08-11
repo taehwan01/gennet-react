@@ -22,7 +22,7 @@ function Register1() {
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
     width: '116px',
-    height: '40px',
+    height: '45px',
     fontSize: '18pt',
     borderRadius: '15px',
   };
@@ -32,7 +32,8 @@ function Register1() {
     height: '70px',
     fontSize: '30pt',
     borderRadius: '15px',
-    marginTop: '2rem',
+    margin: '10px 0',
+    // marginTop: '2rem',
     // marginBottom: '132px',
   };
 
@@ -101,7 +102,7 @@ function Register1() {
             placeholder=' '
           />
           {this.renderFeedbackMessage()} */}
-          <input type='text' className={styles.passwordBox} placeholder=' ' />
+          <input type='text' className={styles.passwordBox} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />

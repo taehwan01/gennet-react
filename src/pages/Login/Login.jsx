@@ -15,8 +15,9 @@ function Login() {
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
+    border: '2px solid #57b0bc',
     width: '365px',
-    height: '60px',
+    height: '56px',
     fontSize: '22pt',
     borderRadius: '10px',
     marginTop: '17px',
