@@ -50,7 +50,6 @@ function App() {
             <Route path='/senior'>
               <Route index element={<Main />} />
               <Route path='class/:classId' element={<ClassDescription />} />
-              <Route path='classEnd' element={<ClassEnd />} />
               <Route path='my-classes' element={<MyClasses />} />
               <Route path='request-class'>
                 <Route index element={<RequestClass />} />
@@ -76,6 +75,7 @@ function App() {
           )}
 
           <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
+          <Route path='/class-chat/:roomId/classEnd' element={<ClassEnd />} />
         </Route>
       </Routes>
     </div>

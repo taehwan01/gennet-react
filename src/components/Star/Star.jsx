@@ -26,7 +26,7 @@ function Star() {
     <div className={styles.star}>
       {array.map((el, idx) => (
         // eslint-disable-next-line react/no-array-index-key
-        <FaStar key={idx} size='50' onClick={() => handleStarClick(el)} className={clicked[el] && styles.yellowStar} />
+        <FaStar key={idx} size='90' onClick={() => handleStarClick(el)} className={clicked[el] && styles.yellowStar} />
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  height: calc(100vh - 100px);
   display: grid;
   grid-template-columns: 3fr 4fr 3fr;
 
@@ -8,10 +9,16 @@
   }
 
   .section2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     .classBox {
       background-color: #dcf9f3;
-      width: 580px;
-      height: 640px;
+      // width: 580px;
+      // height: 640px;
+      width: 640px;
+      height: 700px;
       border-radius: 15px;
       box-shadow: 2px 5px 15px 0px #989898;
 
@@ -24,7 +31,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin: 18px 0 0 18px;
+        margin: 0 0 0 18px;
         .topLeft {
           .profileImage {
             background-color: white;
@@ -39,7 +46,7 @@
           justify-content: center;
           margin-left: 18px;
           .userName {
-            font-size: 25pt;
+            font-size: 20pt;
           }
           .tutorEvaluate {
             display: flex;
@@ -59,28 +66,31 @@
         flex-direction: column;
         align-items: center;
         .classImage {
-          width: 200px;
-          height: 200px;
+          width: 230px;
+          height: 230px;
           border-radius: 15px;
           margin: 10px 0 18px 0;
         }
 
         .classInfo {
           background-color: white;
-          width: 505px;
-          height: 240px;
+          // width: 505px;
+          // height: 240px;
+          width: 570px;
+          height: 250px;
           border-radius: 15px;
           display: flex;
           flex-direction: column;
-          margin: 0 0 12px 0;
+          margin: 0 0 20px 0;
           .category {
             margin: 15px 0 6px 15px;
           }
           .classTitle {
-            margin: 0 0 6px 15px;
+            margin: 0.5rem 1rem 0.3rem;
           }
           .classInformation {
-            margin: 0 15px 0 15px;
+            margin: 0 6px 0 15px;
+            line-height: 40px;
           }
         }
       }
