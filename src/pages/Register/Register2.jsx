@@ -14,7 +14,7 @@ function Register2() {
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    marginRight: '23px',
+    // marginRight: '23px',
   };
   const unSelectedBtn = {
     backgroundColor: 'white',
@@ -24,7 +24,7 @@ function Register2() {
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    marginRight: '23px',
+    // marginRight: '23px',
   };
   // const categoryBtn = {
   //   backgroundColor: '#57b0bc',
@@ -70,7 +70,11 @@ function Register2() {
             <span style={style}>*</span>
             <span>이름</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
+          <input
+            type='text'
+            className={styles.nameBox}
+            placeholder='이름을 입력하세요.'
+          />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -101,11 +105,18 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
+          <textarea
+            className={styles.introBox}
+            placeholder='자신의 자격증 등을 어필해주세요.'
+          />
         </div>
       </form>
 
-      <Button action={handleRegister} buttonStyle={registerBtn} tag='회원가입' />
+      <Button
+        action={handleRegister}
+        buttonStyle={registerBtn}
+        tag='회원가입'
+      />
     </div>
   );
 }
