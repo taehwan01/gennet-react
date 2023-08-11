@@ -12,7 +12,7 @@ function SettingProfileEdit() {
     width: '250px',
     height: '70px',
     borderRadius: '15px',
-    marginRight: '250px',
+    marginRight: '240px',
     fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
   };
 
@@ -21,7 +21,7 @@ function SettingProfileEdit() {
     width: '250px',
     height: '70px',
     borderRadius: '15px',
-    marginLeft: '250px',
+    marginLeft: '240px',
     fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
   };
 
