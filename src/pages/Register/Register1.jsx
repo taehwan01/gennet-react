@@ -32,8 +32,8 @@ function Register1() {
     height: '70px',
     fontSize: '30pt',
     borderRadius: '15px',
-    marginTop: '77px',
-    marginBottom: '132px',
+    marginTop: '2rem',
+    // marginBottom: '132px',
   };
 
   const handleNextStep = () => {
@@ -62,7 +62,11 @@ function Register1() {
             <span>아이디</span>
           </div>
           <div className={styles.emailForm}>
-            <input type='text' className={styles.emailBox} placeholder='이메일 입력' />
+            <input
+              type='text'
+              className={styles.emailBox}
+              placeholder='이메일 입력'
+            />
             <div className={styles.duplicationCheckBtn}>
               <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
@@ -72,7 +76,11 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호</span>
           </div>
-          <input type='text' className={styles.passwordBox} placeholder='8자이상 입력' />
+          <input
+            type='text'
+            className={styles.passwordBox}
+            placeholder='8자이상 입력'
+          />
           {/* <input
             type='password'
             className={styles.passwordBox}

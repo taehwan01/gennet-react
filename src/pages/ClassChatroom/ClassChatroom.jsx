@@ -38,7 +38,7 @@ function ClassChatroom() {
   const sendButtonStyle = {
     backgroundColor: '#57b0bc',
     width: '108px',
-    height: '50px',
+    height: '60px',
     fontSize: '33px',
     borderRadius: '10px',
   };
@@ -51,16 +51,16 @@ function ClassChatroom() {
   };
   const yesButtonStyle = {
     backgroundColor: '#57b0bc',
-    width: '180px',
-    height: '50px',
+    width: '200px',
+    height: '60px',
     fontSize: '29px',
     borderRadius: '10px',
     marginRight: '2rem',
   };
   const noButtonStyle = {
     backgroundColor: '#A7A9AC',
-    width: '180px',
-    height: '50px',
+    width: '200px',
+    height: '60px',
     fontSize: '29px',
     borderRadius: '10px',
   };

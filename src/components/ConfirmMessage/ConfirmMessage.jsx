@@ -14,7 +14,7 @@ function ConfirmMessage({ mainMessage, subMessage }) {
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '250px',
-    height: '50px',
+    height: '60px',
     fontSize: '29px',
     borderRadius: '15px',
     margin: '10px 0',

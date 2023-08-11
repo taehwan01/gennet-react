@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import { useSelector } from 'react-redux';
@@ -13,12 +13,18 @@ let alert = true;
 
 function Navigation() {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const [alertModal, setAlertModal] = useState(false);
+  // 새로운 알림 내역이 없다면 alertModal은 활성화 되지 않는다.
 
   const handleAlertClick = () => {
     setAlertModal(!alertModal);
     alert = false;
+  };
+  const handleAlertMessageClick = () => {
+    navigate('/class-chat/1');
+    setAlertModal(!alertModal);
   };
 
   return (
@@ -88,14 +94,26 @@ function Navigation() {
           {alertModal ? (
             <div className={styles['alert-container']}>
               <div className={styles['alert-message-box']}>
-                <span
-                  className={`${styles['alert-message']} font-bold ${
-                    user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'
-                  }`}
+                <button
+                  type='button'
+                  style={{
+                    padding: '0',
+                    backgroundColor: 'transparent',
+                    cursor: 'pointer',
+                  }}
+                  className='click-alert-range'
+                  onClick={handleAlertMessageClick}
                 >
-                  청년이 연결되었습니다. <br />
-                  지금 수업을 시작하세요.
-                </span>
+                  <span
+                    style={{ lineHeight: '40px' }}
+                    className={`${styles['alert-message']} font-bold ${
+                      user.type === 'SENIOR' ? 'font-20pt' : 'font-22pt'
+                    }`}
+                  >
+                    청년이 연결되었습니다. <br />
+                    지금 수업을 시작하세요.
+                  </span>
+                </button>
                 {/* <span className={styles['alert-message']}>2. hello</span>
                 <span className={styles['alert-message']}>3. hello</span> */}
               </div>

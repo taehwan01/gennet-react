@@ -16,14 +16,6 @@ const items = [
     name: 'AD #3',
     imageUrl: testIMG,
   },
-  {
-    name: 'AD #4',
-    imageUrl: testIMG,
-  },
-  {
-    name: 'AD #5',
-    imageUrl: testIMG,
-  },
 ];
 const CarouselContainer = styled.div`
   width: 100%;

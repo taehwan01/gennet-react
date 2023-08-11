@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
-import testIMG from '../../assets/images/banana.png';
+import classIMG1 from '../../assets/images/class-image-1.png';
+import classIMG2 from '../../assets/images/class-image-2.png';
+import classIMG3 from '../../assets/images/class-image-3.png';
 import styles from './NewClass.module.scss';
 
-function NewClass({ category, title, name, review }) {
+const classIMG = [classIMG1, classIMG2, classIMG3];
+
+function NewClass({ category, title, name, review, classImg }) {
   const navigate = useNavigate();
 
   const [isAnimated, setIsAnimated] = useState(false);
@@ -28,7 +32,7 @@ function NewClass({ category, title, name, review }) {
     <div className={styles['new-class']} onClick={handleClickClass}>
       <img
         className={styles['new-class-image']}
-        src={testIMG}
+        src={classIMG[classImg]}
         alt='class-img'
       />
       <div className={styles['new-class-info']}>
@@ -39,7 +43,7 @@ function NewClass({ category, title, name, review }) {
         </div>
         <p
           ref={titleRef}
-          className={`${styles['class-title']} ${
+          className={`${styles['class-title']} font-bold ${
             isAnimated ? styles['is-animated'] : ''
           }`}
           data-text={loopTitle}
@@ -64,6 +68,7 @@ NewClass.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   review: PropTypes.number.isRequired,
+  classImg: PropTypes.number.isRequired,
 };
 
 export default NewClass;

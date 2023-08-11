@@ -15,12 +15,13 @@ function Login() {
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
-    width: '337px',
-    height: '50px',
+    width: '365px',
+    height: '60px',
     fontSize: '22pt',
     borderRadius: '10px',
     marginTop: '17px',
     marginBottom: '17px',
+    marginLeft: '20px',
   };
 
   const handleLogin = () => {
