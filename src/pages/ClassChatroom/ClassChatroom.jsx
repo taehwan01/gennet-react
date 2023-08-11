@@ -37,8 +37,9 @@ function ClassChatroom() {
 
   const sendButtonStyle = {
     backgroundColor: '#57b0bc',
+    // border: '2px solid #57b0bc',
     width: '108px',
-    height: '60px',
+    height: '64px',
     fontSize: '33px',
     borderRadius: '10px',
   };

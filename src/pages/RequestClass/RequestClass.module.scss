@@ -1,3 +1,7 @@
+.request-class-page {
+  width: 100%;
+}
+
 .request-class {
   // background-color: plum;
   width: calc(100% - 600px);
@@ -14,7 +18,7 @@
 }
 
 .form-solo-div {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: grid;
   grid-template-columns: 150px 750px;
   // margin: 20px 0;
@@ -22,6 +26,7 @@
   .categoryForm {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 

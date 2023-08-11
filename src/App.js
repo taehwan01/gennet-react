@@ -15,6 +15,7 @@ import Main from './pages/Main/Main';
 import './App.css';
 import ClassDescription from './pages/ClassDescription/ClassDescription';
 import ClassEnd from './pages/ClassEnd/ClassEnd';
+import SearchResult from './pages/SearchResult/SearchResult';
 
 function ScrollToTopOnNavigate() {
   const { pathname } = useLocation();
@@ -49,6 +50,7 @@ function App() {
           {user.type === 'SENIOR' && (
             <Route path='/senior'>
               <Route index element={<Main />} />
+              <Route path='search/:keyword' element={<SearchResult />} />
               <Route path='class/:classId' element={<ClassDescription />} />
               <Route path='classEnd' element={<ClassEnd />} />
               <Route path='my-classes' element={<MyClasses />} />
@@ -75,7 +77,8 @@ function App() {
             </Route>
           )}
 
-          <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
+          <Route path='/class-chat/:roomId/' element={<ClassChatroom />} />
+          <Route path='/class-chat/:roomId/classEnd' element={<ClassEnd />} />
         </Route>
       </Routes>
     </div>

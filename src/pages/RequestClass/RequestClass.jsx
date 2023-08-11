@@ -19,21 +19,21 @@ function RequestClass() {
   const selectedBtn = {
     backgroundColor: '#57b0bc',
     border: '2px solid #57b0bc',
-    width: '140px',
+    width: '160px',
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    marginRight: '25px',
+    // marginRight: '25px',
   };
   const unSelectedBtn = {
     backgroundColor: 'white',
     color: '#57b0bc',
     border: '2px solid #57b0bc',
-    width: '140px',
+    width: '160px',
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    marginRight: '25px',
+    // marginRight: '25px',
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -42,7 +42,7 @@ function RequestClass() {
   };
 
   return (
-    <div>
+    <div className={styles['request-class-page']}>
       <PageBanner
         pageTitle='수업 요청하기'
         pageIntro='궁금한 것들에 대해 수업을 요청해보세요.'
