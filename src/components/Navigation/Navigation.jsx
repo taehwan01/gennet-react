@@ -15,8 +15,9 @@ function Navigation() {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const [alertModal, setAlertModal] = useState(false);
   // 새로운 알림 내역이 없다면 alertModal은 활성화 되지 않는다.
+  const [alertModal, setAlertModal] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState('');
 
   const handleAlertClick = () => {
     setAlertModal(!alertModal);
@@ -63,8 +64,16 @@ function Navigation() {
               }`}
               type='text'
               placeholder='검색어를 입력해주세요.'
+              value={searchKeyword}
+              onChange={(e) => {
+                setSearchKeyword(e.target.value);
+              }}
             />
-            <button className={styles['search-button']} type='button'>
+            <button
+              onClick={() => navigate(`/senior/search/${searchKeyword}`)}
+              className={styles['search-button']}
+              type='button'
+            >
               <img
                 className={styles['search-icon']}
                 src={searchIcon}
