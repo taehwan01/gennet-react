@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './ClassEnd.module.scss';
 import Button from '../../components/Button/Button';
 import Star from '../../components/Star/Star';
 
 function ClassEnd() {
+  const navigate = useNavigate();
+
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '160px',
@@ -11,6 +14,9 @@ function ClassEnd() {
     fontSize: '35pt',
   };
 
+  const handleClick = () => {
+    navigate('/senior');
+  };
   return (
     <div className={styles.container}>
       <div className={styles.pageBanner}>
@@ -27,7 +33,7 @@ function ClassEnd() {
       </div>
       <Star />
       <span className={styles.starDescription}>별을 직접 클릭할 수 있어요.</span>
-      <Button buttonStyle={buttonStyle} tag='완료' />
+      <Button action={handleClick} buttonStyle={buttonStyle} tag='완료' />
     </div>
   );
 }

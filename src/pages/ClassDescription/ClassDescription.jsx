@@ -16,9 +16,9 @@ function ClassDescription() {
   };
   const buttonStyle = {
     backgroundColor: '#57b0bc',
-    width: '250px',
-    height: '50px',
-    borderRadius: '15px',
+    width: '280px',
+    height: '60px',
+    borderRadius: '10px',
     fontSize: '25pt',
   };
   const review = 4;

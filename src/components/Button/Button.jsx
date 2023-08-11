@@ -4,16 +4,8 @@ import styles from './Button.module.scss';
 
 function Button({ action, buttonStyle, tag }) {
   return (
-    <button
-      type='button'
-      className={styles['button-component']}
-      onClick={action}
-    >
-      <div
-        className={styles['button-container']}
-        style={{ ...buttonStyle, padding: '0' }}
-        type='button'
-      >
+    <button type='button' className={styles['button-component']} onClick={action}>
+      <div className={styles['button-container']} style={{ ...buttonStyle, padding: '0' }} type='button'>
         <span className='font-bold'>{tag}</span>
       </div>
     </button>

@@ -79,7 +79,7 @@ function ClassChatroom() {
     setModal(true);
   };
   const handleClickYes = () => {
-    navigate('/senior');
+    navigate('/class-chat/:roomId/classEnd');
   };
   const handleClickNo = () => {
     setModal(false);
@@ -91,30 +91,12 @@ function ClassChatroom() {
       const sameUser = msg.user !== prevUser;
       prevUser = msg.user;
       return (
-        <div
-          className={`${styles['user-chat']} ${
-            user === msg.user ? styles.right : styles.left
-          }`}
-        >
+        <div className={`${styles['user-chat']} ${user === msg.user ? styles.right : styles.left}`}>
           {sameUser && (
             <div className={styles['same-user-chat']}>
-              {msg.user !== user && (
-                <img
-                  className={styles['profile-image']}
-                  src={testIMG}
-                  alt='Profile IMG'
-                />
-              )}
-              <span className={`${styles['message-user']} font-bold`}>
-                {msg.user}
-              </span>
-              {msg.user === user && (
-                <img
-                  className={styles['profile-image']}
-                  src={testIMG}
-                  alt='Profile IMG'
-                />
-              )}
+              {msg.user !== user && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
+              <span className={`${styles['message-user']} font-bold`}>{msg.user}</span>
+              {msg.user === user && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
             </div>
           )}
           {msg.user === user ? (
@@ -132,31 +114,17 @@ function ClassChatroom() {
       <div className={styles['chat-box']}>
         <div className={styles['chatroom-title']}>
           <span className='font-bold'>{myClass.title}</span>
-          <Button
-            action={handleExitChatroom}
-            buttonStyle={exitButtonStyle}
-            tag='수업 종료하기'
-          />
+          <Button action={handleExitChatroom} buttonStyle={exitButtonStyle} tag='수업 종료하기' />
         </div>
         <div className={styles['connection-message']}>
-          <span className='font-bold'>
-            청년 {myClass.tutor}님이 연결되었습니다.
-          </span>
+          <span className='font-bold'>청년 {myClass.tutor}님이 연결되었습니다.</span>
         </div>
         <div className={styles['chat-contents']}>{renderMessages()}</div>
         <div className={styles['input-box']}>
           <div className={styles['input-container']}>
-            <input
-              type='text'
-              className={styles['message-input']}
-              placeholder='내용을 입력해 주세요.'
-            />
+            <input type='text' className={styles['message-input']} placeholder='내용을 입력해 주세요.' />
             <div className={styles['send-button']}>
-              <Button
-                action={handleSendMessage}
-                buttonStyle={sendButtonStyle}
-                tag='전송'
-              />
+              <Button action={handleSendMessage} buttonStyle={sendButtonStyle} tag='전송' />
             </div>
           </div>
         </div>
@@ -173,16 +141,8 @@ function ClassChatroom() {
                 <span>수업을 계속하고 싶으면 아니오를 눌러주세요.</span>
               </div>
               <div className={styles['button-container']}>
-                <Button
-                  action={handleClickYes}
-                  buttonStyle={yesButtonStyle}
-                  tag='네, 종료할게요'
-                />
-                <Button
-                  action={handleClickNo}
-                  buttonStyle={noButtonStyle}
-                  tag='아니오'
-                />
+                <Button action={handleClickYes} buttonStyle={yesButtonStyle} tag='네, 종료할게요' />
+                <Button action={handleClickNo} buttonStyle={noButtonStyle} tag='아니오' />
               </div>
             </div>
           </div>
