@@ -14,7 +14,6 @@
 }
 
 .nav-link {
-  font-size: 37px; /* 28pt = 37px */
   margin-right: 4rem;
   text-decoration: none;
   color: black;
@@ -36,7 +35,7 @@
     width: calc(400px - 74px);
     height: 50px;
     border: 2px solid #57b0bc;
-    font-size: 29px; /* 22pt */
+
     color: #939598;
     border-radius: 15px;
   }
@@ -97,7 +96,6 @@
     align-items: center;
     text-align: center;
     .alert-message {
-      font-size: 33px;
       // width: 300px;
       // background-color: red;
     }

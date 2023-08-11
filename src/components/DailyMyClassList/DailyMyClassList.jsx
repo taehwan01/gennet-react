@@ -17,7 +17,7 @@ function DailyMyClassList({ roomId, title, name, date }) {
 
   return (
     <div style={{ marginTop: '2rem' }}>
-      <p className={`${styles['date-of-lists']} font-bold`}>{formattedDate}</p>
+      <p className={`${styles['date-of-lists']} font-bold `}>{formattedDate}</p>
       <MyClass title={title} name={name} roomId={roomId} />
     </div>
   );

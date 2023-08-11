@@ -8,10 +8,18 @@ function PageBanner({ pageTitle, pageIntro }) {
 
   return (
     <div className={styles['page-banner']}>
-      <h1 className={`${styles['page-title']} font-bold ${user.type === 'SENIOR' ? 'font-55pt' : 'font-40pt'}`}>
+      <span
+        className={`${styles['page-title']} font-bold ${
+          user.type === 'SENIOR' ? 'font-55pt' : 'font-40pt'
+        }`}
+      >
         {pageTitle}
-      </h1>
-      <h3 className={`${styles['page-intro']} font-light ${user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}>
+      </span>
+      <h3
+        className={`${styles['page-intro']} font-light ${
+          user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'
+        }`}
+      >
         {pageIntro}
       </h3>
     </div>
