@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  //height: 100%;
 
   .logo {
     width: 245px;
@@ -14,7 +16,7 @@
     display: grid;
     grid-template-columns: 300px 800px;
     .formTag {
-      font-size: 29px;
+      font-size: 22pt;
       display: flex;
       padding-top: 9.5px;
       justify-content: flex-end;
