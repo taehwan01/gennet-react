@@ -6,18 +6,13 @@ import logoImg from '../../assets/images/logo.png';
 
 function Register2() {
   const navigate = useNavigate();
-  //   const [buttonStyles, setButtonStyles] = useState(NonClickButton{
-  //     backgroundColor: ''
-  //     width: '140px',
-  //     height: '50px',
-  //     margin: '25px',
-  //   });
+
   const categoryBtn = {
     backgroundColor: '#57b0bc',
     width: '140px',
     height: '50px',
     borderRadius: '15px',
-    fontSize: '29px',
+    fontSize: '22pt',
     marginRight: '25px',
   };
   const etcBtn = {
@@ -25,16 +20,20 @@ function Register2() {
     width: '100px',
     height: '50px',
     borderRadius: '15px',
-    fontSize: '29px',
+    fontSize: '22pt',
   };
   const registerBtn = {
     backgroundColor: '#57b0bc',
     width: '220px',
     height: '70px',
     borderRadius: '15px',
-    fontSize: '40px',
+    fontSize: '30pt',
     marginTop: '18px',
     marginBottom: '130px',
+  };
+
+  const style = {
+    color: 'red',
   };
 
   const handleRegister = () => {
@@ -48,16 +47,14 @@ function Register2() {
       <form>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
+            <span style={style}>*</span>
             <span>이름</span>
           </div>
-          <input
-            type='text'
-            className={styles.nameBox}
-            placeholder='이름을 입력하세요.'
-          />
+          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
+            <span style={style}>*</span>
             <span>생년월일</span>
           </div>
           <div className='dateForm'>
@@ -84,18 +81,11 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea
-            className={styles.introBox}
-            placeholder='자신의 자격증 등을 어필해주세요.'
-          />
+          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
         </div>
       </form>
 
-      <Button
-        action={handleRegister}
-        buttonStyle={registerBtn}
-        tag='회원가입'
-      />
+      <Button action={handleRegister} buttonStyle={registerBtn} tag='회원가입' />
     </div>
   );
 }
