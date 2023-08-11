@@ -19,7 +19,7 @@ function SettingProfile() {
     height: '70px',
     borderRadius: '15px',
     marginTop: '30px',
-    fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
+    fontSize: `${user.type === 'SENIOR' ? '25pt' : '25pt'}`,
   };
 
   const review = 4;
