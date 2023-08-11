@@ -63,7 +63,7 @@
     display: grid;
     grid-template-columns: 300px 600px;
     .formTag {
-      font-size: 29px;
+      font-size: 22pt;
       display: flex;
       padding-top: 9.5px;
       justify-content: flex-end;
@@ -71,18 +71,31 @@
     }
     .emailForm {
       display: flex;
-      // flex-direction: column;
       align-items: center;
     }
   }
 
-  .nameBox {
-    font-size: 29px;
+  .emailBox {
+    font-size: 22pt;
     border: 2px solid #57b0bc;
     border-radius: 15px;
     padding: 0.5rem 1.2rem;
     width: 430px;
   }
+  .passwordBox {
+    font-size: 22pt;
+    border: 2px solid #57b0bc;
+    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+    width: 430px;
+  }
+  // .passwordCheckBox {
+  //   font-size: 22pt;
+  //   border: 2px solid #57b0bc;
+  //   border-radius: 15px;
+  //   padding: 0.5rem 1.2rem;
+  //   width: 430px;
+  // }
   .duplicationCheckBtn {
     position: relative;
     right: 125px;

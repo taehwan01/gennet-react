@@ -6,20 +6,31 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
+  // state = {
+  //   password: '',
+  //   confirmPassword: '',
+  // };
+
+  // handleOnPasswordInput(passwordInput) {
+  //   this.setState({password: passwordInput});
+  // }
+  // handleOnConfirmPasswordInput(confirmPasswordInput) {
+  //   this.setState({confirmPassword: confirmPasswordInput});
+  // }
   const navigate = useNavigate();
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
     width: '116px',
     height: '40px',
-    fontSize: '24px',
+    fontSize: '18pt',
     borderRadius: '15px',
   };
   const nextBtn = {
     backgroundColor: '#57b0bc',
     width: '163px',
     height: '70px',
-    fontSize: '40px',
+    fontSize: '30pt',
     borderRadius: '15px',
     marginTop: '77px',
     marginBottom: '132px',
@@ -51,11 +62,7 @@ function Register1() {
             <span>아이디</span>
           </div>
           <div className={styles.emailForm}>
-            <input
-              type='text'
-              className={styles.nameBox}
-              placeholder='이메일 입력'
-            />
+            <input type='text' className={styles.emailBox} placeholder='이메일 입력' />
             <div className={styles.duplicationCheckBtn}>
               <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
@@ -65,17 +72,28 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호</span>
           </div>
-          <input
-            type='text'
-            className={styles.nameBox}
+          <input type='text' className={styles.passwordBox} placeholder='8자이상 입력' />
+          {/* <input
+            type='password'
+            className={styles.passwordBox}
+            id='passwordInput'
+            onChange={(e) => this.handleOnPasswordInput(e.target.value)}
             placeholder='8자이상 입력'
-          />
+          /> */}
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호 확인</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder=' ' />
+          {/* <input
+            type='password'
+            className={styles.passwordBox}
+            id='confirmPasswordInput'
+            onChange={(e) => this.handleOnConfirmPasswordInput(e.target.value)}
+            placeholder=' '
+          />
+          {this.renderFeedbackMessage()} */}
+          <input type='text' className={styles.passwordBox} placeholder=' ' />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />

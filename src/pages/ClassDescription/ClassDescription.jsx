@@ -11,15 +11,15 @@ function ClassDescription() {
     backgroundColor: '#57b0bc',
     width: `${user.type === 'SENIOR' ? '120px' : '105px'}`,
     height: `${user.type === 'SENIOR' ? '40px' : '38px'}`,
-    borderRadius: '15px',
-    fontSize: `${user.type === 'SENIOR' ? '22pt' : '18pt'}`,
+    borderRadius: '10px',
+    fontSize: `${user.type === 'SENIOR' ? '19pt' : '18pt'}`,
   };
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '250px',
     height: '50px',
     borderRadius: '15px',
-    fontSize: '30pt',
+    fontSize: '25pt',
   };
   const review = 4;
   return (
@@ -57,7 +57,7 @@ function ClassDescription() {
               <span className={`${styles.classTitle} font-bold ${user.type === 'SENIOR' ? 'font-25pt' : 'font-25pt'}`}>
                 버거킹 키오스크 수업
               </span>
-              <span className={`${styles.classInformation} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+              <span className={`${styles.classInformation} ${user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'}`}>
                 프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.
               </span>
             </div>
