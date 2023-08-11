@@ -64,12 +64,16 @@ function Main() {
       <div className={styles.messages}>
         <p
           className={`${styles['main-message']} font-bold ${
-            user.type === 'SENIOR' ? 'font-30pt' : 'font-22pt'
+            user.type === 'SENIOR' ? 'font-30pt' : 'font-28pt'
           }`}
         >
           참여해보세요!
         </p>
-        <p className={styles['sub-message']}>
+        <p
+          className={`${styles['sub-message']} ${
+            user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
+          }`}
+        >
           {user.email}님에게 추천하는 수업들
         </p>
       </div>

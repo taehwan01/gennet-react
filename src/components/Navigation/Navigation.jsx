@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import styles from './Navigation.module.scss';
 import mainLogo from '../../assets/images/logo.png';
 import searchIcon from '../../assets/images/search-icon.png';
@@ -11,8 +12,8 @@ import ProfileImage from '../ProfileImage/ProfileImage';
 let alert = true;
 
 function Navigation() {
-  // eslint-disable-next-line no-unused-vars
-  const [user, setUser] = useState('');
+  const user = useSelector((state) => state.user);
+
   const [alertModal, setAlertModal] = useState(false);
 
   const handleAlertClick = () => {
@@ -22,7 +23,7 @@ function Navigation() {
 
   return (
     <>
-      <div className={styles['navigation-bar']}>
+      <div className={`${styles['navigation-bar']} `}>
         <div className={styles['navigation-contents']}>
           <Link to='/senior'>
             <img
@@ -32,13 +33,17 @@ function Navigation() {
             />
           </Link>
           <NavLink
-            className={`${styles['nav-link']} font-bold`}
+            className={`${styles['nav-link']} font-bold ${
+              user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
+            }`}
             to='/senior/my-classes'
           >
             내 수업
           </NavLink>
           <NavLink
-            className={`${styles['nav-link']} font-bold`}
+            className={`${styles['nav-link']} font-bold ${
+              user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
+            }`}
             to='/senior/request-class'
           >
             수업 요청하기
@@ -47,7 +52,9 @@ function Navigation() {
         <div className={styles['navigation-contents']}>
           <div className={styles['input-wrapper']}>
             <input
-              className={styles['input-search']}
+              className={`${styles['input-search']} ${
+                user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
+              }`}
               type='text'
               placeholder='검색어를 입력해주세요.'
             />
@@ -81,7 +88,11 @@ function Navigation() {
           {alertModal ? (
             <div className={styles['alert-container']}>
               <div className={styles['alert-message-box']}>
-                <span className={`${styles['alert-message']} font-bold`}>
+                <span
+                  className={`${styles['alert-message']} font-bold ${
+                    user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'
+                  }`}
+                >
                   청년이 연결되었습니다. <br />
                   지금 수업을 시작하세요.
                 </span>
@@ -93,9 +104,9 @@ function Navigation() {
             ''
           )}
           {user ? (
-            'profile'
-          ) : (
             <ProfileImage />
+          ) : (
+            'no user'
             // <NavLink className={styles['profile-link']} to='/senior/profile' />
           )}
         </div>

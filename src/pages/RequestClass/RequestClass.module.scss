@@ -1,9 +1,9 @@
 .request-class {
   // background-color: plum;
   width: calc(100% - 600px);
-  height: 100%;
+  // height: 100%;
   padding: 50px 300px 0 300px;
-  margin-bottom: 40px;
+  // margin-bottom: 20px;
 }
 
 .request-class-form {
@@ -14,14 +14,18 @@
 }
 
 .form-solo-div {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 150px 750px;
   // margin: 20px 0;
+
+  .categoryForm {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .form-tag {
-  font-size: 29px;
   display: flex;
   // padding-top: 9.5px;
   justify-content: flex-end;
@@ -39,14 +43,12 @@ input {
   margin: 0;
 }
 .form-input-text {
-  font-size: 29px;
   border: 2px solid #57b0bc;
   border-radius: 15px;
   padding: 0.5rem 1.2rem;
 }
 
 .form-input-textarea {
-  font-size: 29px;
   border: 2px solid #57b0bc;
   border-radius: 15px;
   padding: 0.5rem 1.2rem;

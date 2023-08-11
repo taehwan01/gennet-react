@@ -1,15 +1,30 @@
 .senior-page {
   .font-55pt {
-    font-size: 55pt;
+    font-size: 55px;
   }
   .font-35pt {
     font-size: 35pt;
+  }
+  .font-33pt {
+    font-size: 33pt;
+  }
+  .font-30pt {
+    font-size: 30pt;
+  }
+  .font-28pt {
+    font-size: 28pt;
   }
   .font-25pt {
     font-size: 25pt;
   }
   .font-22pt {
     font-size: 22pt;
+  }
+  .font-18pt {
+    font-size: 18pt;
+  }
+  .font-15pt {
+    font-size: 15pt;
   }
   .senior-color {
     color: #ffc431;
@@ -19,6 +34,9 @@
 .youth-page {
   .font-40pt {
     font-size: 40pt;
+  }
+  .font-28pt {
+    font-size: 28pt;
   }
   .font-25pt {
     font-size: 25pt;
@@ -30,6 +48,6 @@
     font-size: 18pt;
   }
   .junior-color {
-    color: 7ac2e2;
+    color: #7ac2e2;
   }
 }

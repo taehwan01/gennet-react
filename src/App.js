@@ -30,7 +30,7 @@ function App() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className='App youth-page'>
+    <div className='App senior-page'>
       <ScrollToTopOnNavigate />
       <Routes>
         <Route path='/' element={<Login />} />

@@ -1,13 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useNavigate } from 'react-router-dom';
 import testIMG from '../../assets/images/banana.png';
 import styles from './NewClass.module.scss';
 
 function NewClass({ category, title, name, review }) {
+  const navigate = useNavigate();
+
   const [isAnimated, setIsAnimated] = useState(false);
   const titleRef = useRef(null);
   const [loopTitle, setLoopTitle] = useState(title);
+
+  const handleClickClass = () => {
+    navigate('/senior/class/1');
+  };
 
   useEffect(() => {
     setIsAnimated(titleRef.current.scrollWidth > titleRef.current.clientWidth);
@@ -17,7 +24,8 @@ function NewClass({ category, title, name, review }) {
   }, [title]);
 
   return (
-    <div className={styles['new-class']}>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div className={styles['new-class']} onClick={handleClickClass}>
       <img
         className={styles['new-class-image']}
         src={testIMG}
