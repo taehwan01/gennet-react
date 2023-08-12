@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import classIMG1 from '../../assets/images/class-image-1.png';
 import classIMG2 from '../../assets/images/class-image-2.png';
 import classIMG3 from '../../assets/images/class-image-3.png';
@@ -11,13 +12,14 @@ const classIMG = [classIMG1, classIMG2, classIMG3];
 
 function NewClass({ category, title, name, review, classImg }) {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const [isAnimated, setIsAnimated] = useState(false);
   const titleRef = useRef(null);
   const [loopTitle, setLoopTitle] = useState(title);
 
   const handleClickClass = () => {
-    navigate('/senior/class/1');
+    navigate(`/${user.type.toLowerCase()}/class/1`);
   };
 
   useEffect(() => {

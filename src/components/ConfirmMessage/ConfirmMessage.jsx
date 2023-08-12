@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './ConfirmMessage.module.scss';
 import Button from '../Button/Button';
 
 function ConfirmMessage({ mainMessage, subMessage }) {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const handleClick = () => {
-    navigate('/senior');
+    navigate(`/${user.type.toLowerCase()}`);
   };
 
   const buttonStyle = {

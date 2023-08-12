@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import styles from './Login.module.scss';
 import logoImg from '../../assets/images/logo.png';
@@ -9,6 +9,7 @@ import { loginUser } from '../../store';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +28,7 @@ function Login() {
 
   const handleLogin = () => {
     dispatch(loginUser({ email, password }));
-    navigate('/senior');
+    navigate(`/${user.type.toLowerCase()}`);
   };
 
   return (
