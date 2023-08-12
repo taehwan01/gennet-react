@@ -74,14 +74,14 @@
   height: 50px;
 }
 
-.alert-container {
+.alert-container-senior {
   position: absolute;
   z-index: 2;
   top: 80px;
   right: 99px;
   width: 400px;
   height: 200px;
-  background: url('../../assets/images/alert-speech.png');
+  background: url('../../assets/images/alert-yellow.png');
   background-size: contain;
   background-repeat: no-repeat;
   display: flex;
@@ -90,6 +90,34 @@
   justify-content: center;
   .alert-message-box {
     padding-top: 2rem;
+    width: 100%;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .alert-message {
+      // width: 300px;
+      // background-color: red;
+    }
+  }
+}
+.alert-container-youth {
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  right: 99px;
+  width: 360px;
+  height: 180px;
+  background: url('../../assets/images/alert-blue.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .alert-message-box {
+    padding-top: 2.5rem;
     width: 100%;
     // height: 100%;
     display: flex;

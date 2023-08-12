@@ -33,24 +33,16 @@ function Navigation() {
       <div className={`${styles['navigation-bar']} `}>
         <div className={styles['navigation-contents']}>
           <Link to={`/${user.type.toLowerCase()}`}>
-            <img
-              className={styles['main-logo']}
-              src={mainLogo}
-              alt='GENNET logo'
-            />
+            <img className={styles['main-logo']} src={mainLogo} alt='GENNET logo' />
           </Link>
           <NavLink
-            className={`${styles['nav-link']} font-bold ${
-              user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
-            }`}
+            className={`${styles['nav-link']} font-bold ${user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
             to={`/${user.type.toLowerCase()}/my-classes`}
           >
             내 수업
           </NavLink>
           <NavLink
-            className={`${styles['nav-link']} font-bold ${
-              user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
-            }`}
+            className={`${styles['nav-link']} font-bold ${user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
             to={`/${user.type.toLowerCase()}/request-class`}
           >
             수업 요청하기
@@ -59,9 +51,7 @@ function Navigation() {
         <div className={styles['navigation-contents']}>
           <div className={styles['input-wrapper']}>
             <input
-              className={`${styles['input-search']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
-              }`}
+              className={`${styles['input-search']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}
               type='text'
               placeholder='검색어를 입력해주세요.'
               value={searchKeyword}
@@ -70,40 +60,26 @@ function Navigation() {
               }}
             />
             <button
-              onClick={() =>
-                navigate(`/${user.type.toLowerCase()}/search/${searchKeyword}`)
-              }
+              onClick={() => navigate(`/${user.type.toLowerCase()}/search/${searchKeyword}`)}
               className={styles['search-button']}
               type='button'
             >
-              <img
-                className={styles['search-icon']}
-                src={searchIcon}
-                alt='Search Icon logo'
-              />
+              <img className={styles['search-icon']} src={searchIcon} alt='Search Icon logo' />
             </button>
           </div>
-          <button
-            onClick={handleAlertClick}
-            className={styles['alert-button']}
-            type='button'
-          >
+          <button onClick={handleAlertClick} className={styles['alert-button']} type='button'>
             {alert ? (
-              <img
-                className={styles['alert-icon']}
-                src={incomeAlertIcon}
-                alt='Alert Icon logo'
-              />
+              <img className={styles['alert-icon']} src={incomeAlertIcon} alt='Alert Icon logo' />
             ) : (
-              <img
-                className={styles['alert-icon']}
-                src={alertIcon}
-                alt='Alert Icon logo'
-              />
+              <img className={styles['alert-icon']} src={alertIcon} alt='Alert Icon logo' />
             )}
           </button>
-          {alertModal ? (
-            <div className={styles['alert-container']}>
+          {alertModal && (
+            <div
+              className={`${
+                user.type === 'SENIOR' ? styles['alert-container-senior'] : styles['alert-container-youth']
+              }`}
+            >
               <div className={styles['alert-message-box']}>
                 <button
                   type='button'
@@ -118,7 +94,7 @@ function Navigation() {
                   <span
                     style={{ lineHeight: '40px' }}
                     className={`${styles['alert-message']} font-bold ${
-                      user.type === 'SENIOR' ? 'font-20pt' : 'font-22pt'
+                      user.type === 'SENIOR' ? 'font-25pt' : 'font-20pt'
                     }`}
                   >
                     청년이 연결되었습니다. <br />
@@ -129,8 +105,6 @@ function Navigation() {
                 <span className={styles['alert-message']}>3. hello</span> */}
               </div>
             </div>
-          ) : (
-            ''
           )}
           {user ? (
             <ProfileImage />

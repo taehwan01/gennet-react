@@ -31,7 +31,9 @@ function ClassDescription() {
         <div className={styles.classBox}>
           <div className={styles.top}>
             <div className={styles.topLeft}>
-              <div className={styles.profileImage} />
+              <div>
+                <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+              </div>
             </div>
             <div className={styles.topRight}>
               <span className={`${styles.userName} font-bold`}>천다인님</span>

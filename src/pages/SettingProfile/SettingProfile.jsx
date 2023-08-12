@@ -19,12 +19,23 @@ function SettingProfile() {
     navigate(`/${user.type.toLowerCase()}/profile-edit`);
   };
 
-  const buttonStyle = {
+  const editButton = {
     backgroundColor: '#57b0bc',
     width: '300px',
     height: '70px',
     borderRadius: '15px',
-    // marginTop: '40px',
+    marginTop: '30px',
+    marginRight: '38px',
+    fontSize: `${user.type === 'SENIOR' ? '25pt' : '22pt'}`,
+  };
+
+  const logoutButton = {
+    backgroundColor: '#a7a9ac',
+    width: '300px',
+    height: '70px',
+    borderRadius: '15px',
+    marginTop: '30px',
+    marginLeft: '38px',
     fontSize: `${user.type === 'SENIOR' ? '25pt' : '22pt'}`,
   };
 
@@ -40,11 +51,7 @@ function SettingProfile() {
         </div>
         <div className={styles.info}>
           <p className={styles.profileTxt}>
-            <span
-              className={` ${styles.typeTxt} ${
-                user.type === 'SENIOR' ? 'senior-color' : 'youth-color'
-              }`}
-            >
+            <span className={` ${styles.typeTxt} ${user.type === 'SENIOR' ? 'senior-color' : 'youth-color'}`}>
               시니어
             </span>
             <span className={`${styles.nameTxt} font-bold`}> 김태환 </span>
@@ -57,32 +64,21 @@ function SettingProfile() {
                 ''
               ) : (
                 <>
-                  <span className={styles.tutorReview}>{`${'★'.repeat(
-                    review,
-                  )}${'☆'.repeat(5 - review)}`}</span>
+                  <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
                   <span className={styles.tutorScore}>4.0점</span>
                 </>
               )}
             </div>
           </div>
 
-          <p
-            className={`${styles.dateTxt} ${
-              user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
-            }`}
-          >
-            0000년 00월 00일
-          </p>
+          <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>0000년 00월 00일</p>
         </div>
         <div className={styles.introBox}>
           <p className={styles.introTxt}>{userIntro}</p>
         </div>
         <div className={styles.section3}>
-          <Button
-            action={profileEdit}
-            buttonStyle={buttonStyle}
-            tag='프로필 수정하기'
-          />
+          <Button action={profileEdit} buttonStyle={editButton} tag='프로필 수정하기' />
+          <Button buttonStyle={logoutButton} tag='로그아웃' />
         </div>
       </div>
       <div> </div>
