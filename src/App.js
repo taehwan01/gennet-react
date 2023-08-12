@@ -16,6 +16,8 @@ import './App.css';
 import ClassDescription from './pages/ClassDescription/ClassDescription';
 import ClassEnd from './pages/ClassEnd/ClassEnd';
 import SearchResult from './pages/SearchResult/SearchResult';
+import Guest from './pages/Guest/Guest';
+// import Guest from './pages/Guest/Guest';
 
 function ScrollToTopOnNavigate() {
   const { pathname } = useLocation();
@@ -34,7 +36,8 @@ function App() {
     <div className={`App ${user.type.toLowerCase()}-page`}>
       <ScrollToTopOnNavigate />
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Guest />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/register'>
           <Route index element={<Register1 />} />
           <Route path='2' element={<Register2 />} />

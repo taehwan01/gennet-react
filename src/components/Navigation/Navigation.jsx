@@ -45,7 +45,7 @@ function Navigation() {
             className={`${styles['nav-link']} font-bold ${user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
             to={`/${user.type.toLowerCase()}/request-class`}
           >
-            수업 요청하기
+            {`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
           </NavLink>
         </div>
         <div className={styles['navigation-contents']}>
