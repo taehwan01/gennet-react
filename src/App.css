@@ -47,8 +47,14 @@
   .font-22pt {
     font-size: 22pt;
   }
+  .font-20pt {
+    font-size: 20pt;
+  }
   .font-18pt {
     font-size: 18pt;
+  }
+  .font-15pt {
+    font-size: 15pt;
   }
   .youth-color {
     color: #7ac2e2;

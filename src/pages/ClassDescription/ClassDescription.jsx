@@ -38,7 +38,9 @@ function ClassDescription() {
               <div className={styles.tutorEvaluate}>
                 {user.type === 'SENIOR' ? (
                   <>
-                    <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
+                    <span className={styles.tutorReview}>{`${'★'.repeat(
+                      review,
+                    )}${'☆'.repeat(5 - review)}`}</span>
                     <span className={styles.tutorScore}>4.0점</span>
                   </>
                 ) : (
@@ -54,11 +56,20 @@ function ClassDescription() {
               <div className={styles.category}>
                 <Button buttonStyle={categoryBtn} tag='식사주문' />
               </div>
-              <span className={`${styles.classTitle} font-bold ${user.type === 'SENIOR' ? 'font-25pt' : 'font-25pt'}`}>
+              <span
+                className={`${styles.classTitle} font-bold ${
+                  user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'
+                }`}
+              >
                 버거킹 키오스크 수업
               </span>
-              <span className={`${styles.classInformation} ${user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'}`}>
-                프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.
+              <span
+                className={`${styles.classInformation} ${
+                  user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'
+                }`}
+              >
+                프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션
+                선택부터 결제까지 차근차근 알려드려요.
               </span>
             </div>
             <div className={styles.bottom}>

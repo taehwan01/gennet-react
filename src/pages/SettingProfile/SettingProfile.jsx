@@ -45,9 +45,12 @@ function SettingProfile() {
                 user.type === 'SENIOR' ? 'senior-color' : 'youth-color'
               }`}
             >
-              시니어
+              {user.type === 'SENIOR' ? '시니어' : '청년'}
             </span>
-            <span className={`${styles.nameTxt} font-bold`}> 김태환 </span>
+            <span className={`${styles.nameTxt} font-bold`}>
+              {' '}
+              {user.email}{' '}
+            </span>
             <span className={`${styles.nimTxt} font-bold`}>님</span>
           </p>
 
