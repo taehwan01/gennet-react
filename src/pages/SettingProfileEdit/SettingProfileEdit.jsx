@@ -3,6 +3,7 @@ import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
 
 import editIcon from '../../assets/images/photo-icon.png';
+import testIMG from '../../assets/images/banana.png';
 
 function SettingProfileEdit() {
   const user = useSelector((state) => state.user);
@@ -29,7 +30,9 @@ function SettingProfileEdit() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.profile} />
+      <div>
+        <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+      </div>
       <div className={styles.profileEdit}>
         <img className={styles.editImage} src={editIcon} alt='edit Icon logo' />
       </div>

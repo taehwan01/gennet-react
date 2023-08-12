@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
+import testIMG from '../../assets/images/banana.png';
 
 const userIntro = `잘 부탁드립니다. 요즘 MZ들은 참 부럽네요. ^^
 저도 시대에 뒤떨어지지 않으려면 열심히 배워야겠읍니다.
@@ -23,8 +24,8 @@ function SettingProfile() {
     width: '300px',
     height: '70px',
     borderRadius: '15px',
-    marginTop: '40px',
-    fontSize: `${user.type === 'SENIOR' ? '25pt' : '25pt'}`,
+    // marginTop: '40px',
+    fontSize: `${user.type === 'SENIOR' ? '25pt' : '22pt'}`,
   };
 
   const review = 4;
@@ -34,7 +35,9 @@ function SettingProfile() {
         <BackBtn />
       </div>
       <div className={styles.section2}>
-        <div className={styles.circle}> </div>
+        <div>
+          <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+        </div>
         <div className={styles.info}>
           <p className={styles.profileTxt}>
             <span className={` ${styles.typeTxt} ${user.type === 'SENIOR' ? 'senior-color' : 'youth-color'}`}>
@@ -59,7 +62,6 @@ function SettingProfile() {
 
           <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>0000년 00월 00일</p>
         </div>
-
         <div className={styles.introBox}>
           <p className={styles.introTxt}>{userIntro}</p>
         </div>
