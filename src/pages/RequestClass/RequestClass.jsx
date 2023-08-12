@@ -38,7 +38,7 @@ function RequestClass() {
 
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = () => {
-    navigate('/senior/request-class/confirmed');
+    navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
 
   return (

@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './Register2.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
 
 function Register2() {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+
   const [selectedInterest, setSelectedInterest] = useState('식사주문');
 
   const selectedBtn = {
@@ -59,7 +62,7 @@ function Register2() {
 
   const handleRegister = () => {
     // 회원가입 버튼 클릭
-    navigate('/senior');
+    navigate(`/${user.type.toLowerCase()}`);
   };
 
   return (

@@ -31,7 +31,7 @@ function App() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className='App senior-page'>
+    <div className={`App ${user.type.toLowerCase()}-page`}>
       <ScrollToTopOnNavigate />
       <Routes>
         <Route path='/' element={<Login />} />
@@ -47,34 +47,18 @@ function App() {
             </>
           }
         >
-          {user.type === 'SENIOR' && (
-            <Route path='/senior'>
-              <Route index element={<Main />} />
-              <Route path='search/:keyword' element={<SearchResult />} />
-              <Route path='class/:classId' element={<ClassDescription />} />
-              <Route path='my-classes' element={<MyClasses />} />
-              <Route path='request-class'>
-                <Route index element={<RequestClass />} />
-                <Route path='confirmed' element={<RequestClassConfirm />} />
-              </Route>
-              <Route path='profile' element={<SettingProfile />} />
-              <Route path='profile-edit' element={<SettingProfileEdit />} />
+          <Route path={`/${user.type.toLowerCase()}`}>
+            <Route index element={<Main />} />
+            <Route path='search/:keyword' element={<SearchResult />} />
+            <Route path='class/:classId' element={<ClassDescription />} />
+            <Route path='my-classes' element={<MyClasses />} />
+            <Route path='request-class'>
+              <Route index element={<RequestClass />} />
+              <Route path='confirmed' element={<RequestClassConfirm />} />
             </Route>
-          )}
-
-          {user.type === 'YOUTH' && (
-            <Route path='/youth'>
-              <Route index element={<Main />} />
-              <Route path='class/:classId' element={<ClassDescription />} />
-              <Route path='my-classes' element={<MyClasses />} />
-              <Route path='request-class'>
-                <Route index element={<RequestClass />} />
-                <Route path='confirmed' element={<RequestClassConfirm />} />
-              </Route>
-              <Route path='profile' element={<SettingProfile />} />
-              <Route path='profile-edit' element={<SettingProfileEdit />} />
-            </Route>
-          )}
+            <Route path='profile' element={<SettingProfile />} />
+            <Route path='profile-edit' element={<SettingProfileEdit />} />
+          </Route>
 
           <Route path='/class-chat/:roomId' element={<ClassChatroom />} />
           <Route path='/class-chat/:roomId/classEnd' element={<ClassEnd />} />

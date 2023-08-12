@@ -32,7 +32,7 @@ function Navigation() {
     <>
       <div className={`${styles['navigation-bar']} `}>
         <div className={styles['navigation-contents']}>
-          <Link to='/senior'>
+          <Link to={`/${user.type.toLowerCase()}`}>
             <img
               className={styles['main-logo']}
               src={mainLogo}
@@ -43,7 +43,7 @@ function Navigation() {
             className={`${styles['nav-link']} font-bold ${
               user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
             }`}
-            to='/senior/my-classes'
+            to={`/${user.type.toLowerCase()}/my-classes`}
           >
             내 수업
           </NavLink>
@@ -51,7 +51,7 @@ function Navigation() {
             className={`${styles['nav-link']} font-bold ${
               user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'
             }`}
-            to='/senior/request-class'
+            to={`/${user.type.toLowerCase()}/request-class`}
           >
             수업 요청하기
           </NavLink>
@@ -70,7 +70,9 @@ function Navigation() {
               }}
             />
             <button
-              onClick={() => navigate(`/senior/search/${searchKeyword}`)}
+              onClick={() =>
+                navigate(`/${user.type.toLowerCase()}/search/${searchKeyword}`)
+              }
               className={styles['search-button']}
               type='button'
             >

@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './ClassEnd.module.scss';
 import Button from '../../components/Button/Button';
 import Star from '../../components/Star/Star';
 
 function ClassEnd() {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -15,7 +17,7 @@ function ClassEnd() {
   };
 
   const handleClick = () => {
-    navigate('/senior');
+    navigate(`/${user.type.toLowerCase()}`);
   };
   return (
     <div className={styles.container}>
