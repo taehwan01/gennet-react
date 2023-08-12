@@ -16,7 +16,7 @@ function MyClass({ roomId, title, name }) {
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     width: '200px',
-    height: '80px',
+    height: '100%',
     fontSize: `${user.type === 'SENIOR' ? '35pt' : '25pt'}`,
     borderRadius: '15px',
   };

@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Register2.module.scss';
 import Button from '../../components/Button/Button';
@@ -6,6 +6,7 @@ import logoImg from '../../assets/images/logo.png';
 
 function Register2() {
   const navigate = useNavigate();
+  const [selectedInterest, setSelectedInterest] = useState('식사주문');
 
   const selectedBtn = {
     backgroundColor: '#57b0bc',
@@ -92,13 +93,34 @@ function Register2() {
             <span>관심분야</span>
           </div>
           <div className={styles.categoryForm}>
-            <Button buttonStyle={selectedBtn} tag='식사주문' />
-
-            <Button buttonStyle={unSelectedBtn} tag='경제생활' />
-
-            <Button buttonStyle={unSelectedBtn} tag='일상생활' />
-
-            <Button buttonStyle={unSelectedBtn} tag='기타' />
+            <Button
+              buttonStyle={
+                selectedInterest === '식사주문' ? selectedBtn : unSelectedBtn
+              }
+              tag='식사주문'
+              action={() => setSelectedInterest('식사주문')}
+            />
+            <Button
+              buttonStyle={
+                selectedInterest === '경제생활' ? selectedBtn : unSelectedBtn
+              }
+              tag='경제생활'
+              action={() => setSelectedInterest('경제생활')}
+            />
+            <Button
+              buttonStyle={
+                selectedInterest === '일상생활' ? selectedBtn : unSelectedBtn
+              }
+              tag='일상생활'
+              action={() => setSelectedInterest('일상생활')}
+            />
+            <Button
+              buttonStyle={
+                selectedInterest === '기타' ? selectedBtn : unSelectedBtn
+              }
+              tag='기타'
+              action={() => setSelectedInterest('기타')}
+            />
           </div>
         </div>
         <div className={styles.formDiv}>

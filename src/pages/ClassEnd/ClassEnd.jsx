@@ -22,7 +22,9 @@ function ClassEnd() {
       <div className={styles.pageBanner}>
         <h1 className={`${styles.pageTitle} font-bold`}>수업을 끝내셨군요!</h1>
         <p className={styles.pageIntro}>연결된 청년은 어떠셨나요?</p>
-        <p className={styles.pageIntro}>별점을 남겨주세요.</p>
+        <p className={styles.pageIntro} style={{ marginTop: '8px' }}>
+          별점을 남겨주세요.
+        </p>
       </div>
       <div className={styles.classInfoBox}>
         <div className={styles.profile} />
@@ -32,7 +34,9 @@ function ClassEnd() {
         </div>
       </div>
       <Star />
-      <span className={styles.starDescription}>별을 직접 클릭할 수 있어요.</span>
+      <span className={styles.starDescription}>
+        별을 직접 클릭할 수 있어요.
+      </span>
       <Button action={handleClick} buttonStyle={buttonStyle} tag='완료' />
     </div>
   );
