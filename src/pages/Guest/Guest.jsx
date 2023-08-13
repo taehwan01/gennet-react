@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Guest.module.scss';
 import Button from '../../components/Button/Button';
+import startImg from '../../assets/images/start.png';
 
 function Guest() {
   const navigate = useNavigate();
@@ -27,7 +28,12 @@ function Guest() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageFile} />
+      <div className={styles.imageContainer}>
+        <img className={styles.imageFile} src={startImg} alt='page start' />
+      </div>
+      {/* <div className={styles.imageFile}>
+        <img className={styles.startImg} src={startImg} alt='page start' />
+      </div> */}
       <div className={styles.buttons}>
         <Button action={loginClick} buttonStyle={loginButton} tag='로그인' />
         <Button action={registerClick} buttonStyle={registerButton} tag='회원가입' />
