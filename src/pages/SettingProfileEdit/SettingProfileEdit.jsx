@@ -39,19 +39,9 @@ function SettingProfileEdit() {
         <img className={styles.profile} src={testIMG} alt='Profile IMG' />
       </div>
       <div className={styles.profileEdit}>
-        <label htmlFor='imgInput'>
-          <img
-            className={styles.editImage}
-            src={editIcon}
-            alt='edit Icon logo'
-          />
-          <input
-            id='imgInput'
-            type='file'
-            accept='image/*'
-            onChange={handleImgUpload}
-            style={{ display: 'none' }}
-          />
+        <label htmlFor='imgInput' className={styles.labelForm}>
+          <img className={styles.editImage} src={editIcon} alt='edit Icon logo' />
+          <input id='imgInput' type='file' accept='image/*' onChange={handleImgUpload} style={{ display: 'none' }} />
         </label>
       </div>
       <div className={styles.formSection}>
@@ -59,11 +49,7 @@ function SettingProfileEdit() {
           <div className={`${styles.formTag} font-bold`}>
             <span>이름</span>
           </div>
-          <input
-            type='text'
-            className={styles.nameBox}
-            placeholder='이름을 입력하세요.'
-          />
+          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -79,10 +65,7 @@ function SettingProfileEdit() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea
-            className={styles.introBox}
-            placeholder='자신의 자격증 등을 어필해주세요.'
-          />
+          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
         </div>
       </div>
       <div className={styles.buttonSection}>

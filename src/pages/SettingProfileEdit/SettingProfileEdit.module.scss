@@ -32,6 +32,11 @@ p {
     justify-content: center;
     align-items: center;
 
+    .labelForm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .editImage {
       width: 40px;
       height: 40px;
