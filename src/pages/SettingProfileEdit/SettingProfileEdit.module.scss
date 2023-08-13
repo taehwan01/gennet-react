@@ -105,3 +105,15 @@ p {
     flex-direction: row;
   }
 }
+
+.introWrapper {
+  position: relative;
+
+  .lengthCount {
+    position: absolute;
+    top: 185px;
+    right: 120px;
+    font-size: 17pt;
+    color: #57b0bc;
+  }
+}

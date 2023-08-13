@@ -68,12 +68,14 @@ function RequestClass() {
 
   const onInputHandlerTitle = (e) => {
     setInputCountTitle(e.target.value.length);
+    console.log(inputCountTitle);
   };
 
   const [inputCount, setInputCount] = useState(0);
 
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
+    console.log(inputCount);
   };
 
   return (
@@ -104,10 +106,10 @@ function RequestClass() {
               maxLength='255'
               placeholder='제목을 입력하세요.'
             />
-            <p className={styles.lengthCountTitle}>
+            {/* <p className={styles.lengthCountTitle}>
               <span>{inputCountTitle}</span>
               <span>/255 자</span>
-            </p>
+            </p> */}
           </div>
 
           <div className={styles['form-solo-div']}>
@@ -161,10 +163,10 @@ function RequestClass() {
               maxLength='10000'
               placeholder='어떤 내용의 수업을 듣고 싶나요?'
             />
-            <p className={styles.lengthCount}>
+            {/* <p className={styles.lengthCount}>
               <span>{inputCount}</span>
               <span>/10000 자</span>
-            </p>
+            </p> */}
           </div>
           <div className={styles['form-solo-div']}>
             <div

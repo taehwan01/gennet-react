@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
@@ -34,6 +34,13 @@ function SettingProfileEdit() {
     // eslint-disable-next-line no-console
     console.log(imgFile);
   };
+
+  const [inputCount, setInputCount] = useState(0);
+
+  const onInputHandler = (e) => {
+    setInputCount(e.target.value.length);
+  };
+
   return (
     <div className={styles.container}>
       <div>
@@ -66,7 +73,18 @@ function SettingProfileEdit() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
+          <div className={styles.introWrapper}>
+            <textarea
+              className={styles.introBox}
+              onChange={onInputHandler}
+              maxLength='255'
+              placeholder='자신의 자격증 등을 어필해주세요.'
+            />
+            <p className={styles.lengthCount}>
+              <span>{inputCount}</span>
+              <span>/255 자</span>
+            </p>
+          </div>
         </div>
       </div>
       <div className={styles.buttonSection}>
