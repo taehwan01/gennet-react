@@ -61,13 +61,24 @@
     margin-right: 10px;
   }
 
-  .introBox {
-    font-size: 22pt;
-    border: 2px solid #57b0bc;
-    border-radius: 15px;
-    padding: 12px 1.2rem;
+  .introWrapper {
+    position: relative;
 
-    width: 605px;
-    height: 200px;
+    .introBox {
+      font-size: 22pt;
+      border: 2px solid #57b0bc;
+      border-radius: 15px;
+      padding: 12px 1.2rem;
+
+      width: 605px;
+      height: 200px;
+    }
+    .lengthCount {
+      position: absolute;
+      bottom: 0;
+      right: 40px;
+      font-size: 20pt;
+      color: #aaa;
+    }
   }
 }
