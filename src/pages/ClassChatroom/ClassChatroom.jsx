@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 
 import { useState } from 'react';
@@ -7,33 +8,36 @@ import Button from '../../components/Button/Button';
 import testIMG from '../../assets/images/banana.png';
 
 // dummy data
-const user = '김태환';
-const messages = [
-  {
-    messageId: 1,
-    user: '김태환',
-    content: '안녕하세요.',
-  },
-  {
-    messageId: 2,
-    user: '김태환',
-    content: '계속 읽어봐도 영 어렵네요.',
-  },
-  {
-    messageId: 3,
-    user: '천다인',
-    content: '어렵지 않아요! 해봅시다.',
-  },
-];
-const myClass = {
-  tutor: '천다인',
-  title: '버거킹 키오스크 수업',
-};
+// const user = '김태환';
 
 function ClassChatroom() {
+  const messages = [
+    {
+      messageId: 1,
+      user: '김태환',
+      content: '안녕하세요.',
+    },
+    {
+      messageId: 2,
+      user: '김태환',
+      content: '계속 읽어봐도 영 어렵네요.',
+    },
+    {
+      messageId: 3,
+      user: '천다인',
+      content: '어렵지 않아요! 해봅시다.',
+    },
+  ];
+  const myClass = {
+    tutor: '천다인',
+    title: '버거킹 키오스크 수업',
+  };
+
   const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
+
+  const user = useSelector((state) => state.user);
 
   const sendButtonStyle = {
     backgroundColor: '#57b0bc',
@@ -78,8 +82,11 @@ function ClassChatroom() {
   const handleExitChatroom = () => {
     setModal(true);
   };
-  const handleClickYes = () => {
+  const handleClickYesSenior = () => {
     navigate('/class-chat/:roomId/classEnd');
+  };
+  const handleClickYesYouth = () => {
+    navigate(`/${user.type.toLowerCase()}`);
   };
   const handleClickNo = () => {
     setModal(false);
@@ -141,7 +148,11 @@ function ClassChatroom() {
                 <span>수업을 계속하고 싶으면 아니오를 눌러주세요.</span>
               </div>
               <div className={styles['button-container']}>
-                <Button action={handleClickYes} buttonStyle={yesButtonStyle} tag='네, 종료할게요' />
+                <Button
+                  action={user.type === 'SENIOR' ? handleClickYesSenior : handleClickYesYouth}
+                  buttonStyle={yesButtonStyle}
+                  tag='네, 종료할게요'
+                />
                 <Button action={handleClickNo} buttonStyle={noButtonStyle} tag='아니오' />
               </div>
             </div>
