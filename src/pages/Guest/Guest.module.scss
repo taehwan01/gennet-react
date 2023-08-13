@@ -1,12 +1,21 @@
 .container {
   width: 100%;
-  height: 100%;
-  .imageFile {
-    background: linear-gradient(45deg, #a6c0fe, #f68084);
-    height: calc(100% - 260px);
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .imageFile {
+      //width: 100%;
+      // width: 1276px;
+      height: 785px;
+      object-fit: cover;
+      //background: linear-gradient(45deg, #a6c0fe, #f68084);
+      //height: calc(100% - 260px);
+    }
   }
+
   .buttons {
-    padding: 95px 362px;
+    padding: 0 362px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
