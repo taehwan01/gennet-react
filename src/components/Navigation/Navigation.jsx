@@ -11,6 +11,21 @@ import ProfileImage from '../ProfileImage/ProfileImage';
 
 let alert = true;
 
+const seniorMessage = (
+  <>
+    청년이 연결되었습니다.
+    <br />
+    지금 수업을 시작하세요.
+  </>
+);
+const youthMessage = (
+  <>
+    시니어가 연결되었습니다.
+    <br />
+    지금 수업을 시작하세요.
+  </>
+);
+
 function Navigation() {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -97,12 +112,11 @@ function Navigation() {
                       user.type === 'SENIOR' ? 'font-25pt' : 'font-20pt'
                     }`}
                   >
-                    청년이 연결되었습니다. <br />
-                    지금 수업을 시작하세요.
+                    {user.type === 'SENIOR' ? seniorMessage : youthMessage}
+                    {/* 청년이 연결되었습니다. <br />
+                    지금 수업을 시작하세요. */}
                   </span>
                 </button>
-                {/* <span className={styles['alert-message']}>2. hello</span>
-                <span className={styles['alert-message']}>3. hello</span> */}
               </div>
             </div>
           )}

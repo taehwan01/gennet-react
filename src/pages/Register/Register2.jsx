@@ -30,22 +30,6 @@ function Register2() {
     fontSize: '22pt',
     // marginRight: '23px',
   };
-  // const categoryBtn = {
-  //   backgroundColor: '#57b0bc',
-  //   width: '140px',
-  //   height: '50px',
-  //   borderRadius: '15px',
-  //   fontSize: '22pt',
-  //   marginRight: '25px',
-  // };
-
-  // const etcBtn = {
-  //   backgroundColor: '#57b0bc',
-  //   width: '100px',
-  //   height: '50px',
-  //   borderRadius: '15px',
-  //   fontSize: '22pt',
-  // };
   const registerBtn = {
     backgroundColor: '#57b0bc',
     width: '220px',
@@ -74,11 +58,7 @@ function Register2() {
             <span style={style}>*</span>
             <span>이름</span>
           </div>
-          <input
-            type='text'
-            className={styles.nameBox}
-            placeholder='이름을 입력하세요.'
-          />
+          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -97,30 +77,22 @@ function Register2() {
           </div>
           <div className={styles.categoryForm}>
             <Button
-              buttonStyle={
-                selectedInterest === '식사주문' ? selectedBtn : unSelectedBtn
-              }
+              buttonStyle={selectedInterest === '식사주문' ? selectedBtn : unSelectedBtn}
               tag='식사주문'
               action={() => setSelectedInterest('식사주문')}
             />
             <Button
-              buttonStyle={
-                selectedInterest === '경제생활' ? selectedBtn : unSelectedBtn
-              }
+              buttonStyle={selectedInterest === '경제생활' ? selectedBtn : unSelectedBtn}
               tag='경제생활'
               action={() => setSelectedInterest('경제생활')}
             />
             <Button
-              buttonStyle={
-                selectedInterest === '일상생활' ? selectedBtn : unSelectedBtn
-              }
+              buttonStyle={selectedInterest === '일상생활' ? selectedBtn : unSelectedBtn}
               tag='일상생활'
               action={() => setSelectedInterest('일상생활')}
             />
             <Button
-              buttonStyle={
-                selectedInterest === '기타' ? selectedBtn : unSelectedBtn
-              }
+              buttonStyle={selectedInterest === '기타' ? selectedBtn : unSelectedBtn}
               tag='기타'
               action={() => setSelectedInterest('기타')}
             />
@@ -130,18 +102,11 @@ function Register2() {
           <div className={`${styles.formTag} font-bold`}>
             <span>자기소개</span>
           </div>
-          <textarea
-            className={styles.introBox}
-            placeholder='자신의 자격증 등을 어필해주세요.'
-          />
+          <textarea className={styles.introBox} placeholder='자신의 자격증 등을 어필해주세요.' />
         </div>
       </form>
 
-      <Button
-        action={handleRegister}
-        buttonStyle={registerBtn}
-        tag='회원가입'
-      />
+      <Button action={handleRegister} buttonStyle={registerBtn} tag='회원가입' />
     </div>
   );
 }

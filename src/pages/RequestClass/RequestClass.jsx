@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import styles from './RequestClass.module.scss';
 import PageBanner from '../../components/PageBanner/PageBanner';
 import Button from '../../components/Button/Button';
@@ -7,6 +8,8 @@ import Button from '../../components/Button/Button';
 function RequestClass() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+
+  const [selectedInterest, setSelectedInterest] = useState('식사주문');
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -80,10 +83,26 @@ function RequestClass() {
 
             <div className={styles.formDiv}>
               <div className={styles.categoryForm}>
-                <Button buttonStyle={selectedBtn} tag='식사주문' />
-                <Button buttonStyle={unSelectedBtn} tag='경제생활' />
-                <Button buttonStyle={unSelectedBtn} tag='일상생활' />
-                <Button buttonStyle={unSelectedBtn} tag='기타' />
+                <Button
+                  buttonStyle={selectedInterest === '식사주문' ? selectedBtn : unSelectedBtn}
+                  tag='식사주문'
+                  action={() => setSelectedInterest('식사주문')}
+                />
+                <Button
+                  buttonStyle={selectedInterest === '경제생활' ? selectedBtn : unSelectedBtn}
+                  tag='경제생활'
+                  action={() => setSelectedInterest('경제생활')}
+                />
+                <Button
+                  buttonStyle={selectedInterest === '일상생활' ? selectedBtn : unSelectedBtn}
+                  tag='일상생활'
+                  action={() => setSelectedInterest('일상생활')}
+                />
+                <Button
+                  buttonStyle={selectedInterest === '기타' ? selectedBtn : unSelectedBtn}
+                  tag='기타'
+                  action={() => setSelectedInterest('기타')}
+                />
               </div>
             </div>
           </div>
