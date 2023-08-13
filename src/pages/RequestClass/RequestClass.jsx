@@ -64,6 +64,12 @@ function RequestClass() {
     navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
 
+  const [inputCountTitle, setInputCountTitle] = useState(0);
+
+  const onInputHandlerTitle = (e) => {
+    setInputCountTitle(e.target.value.length);
+  };
+
   const [inputCount, setInputCount] = useState(0);
 
   const onInputHandler = (e) => {
@@ -94,8 +100,14 @@ function RequestClass() {
             <input
               type='text'
               className={`${styles['form-input-text']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
+              onChange={onInputHandlerTitle}
+              maxLength='255'
               placeholder='제목을 입력하세요.'
             />
+            <p className={styles.lengthCountTitle}>
+              <span>{inputCountTitle}</span>
+              <span>/255 자</span>
+            </p>
           </div>
 
           <div className={styles['form-solo-div']}>
@@ -146,12 +158,12 @@ function RequestClass() {
                 user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
               onChange={onInputHandler}
-              maxLength='255'
+              maxLength='10000'
               placeholder='어떤 내용의 수업을 듣고 싶나요?'
             />
             <p className={styles.lengthCount}>
               <span>{inputCount}</span>
-              <span>/255 자</span>
+              <span>/10000 자</span>
             </p>
           </div>
           <div className={styles['form-solo-div']}>
