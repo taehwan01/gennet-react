@@ -1,15 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './RequestClass.module.scss';
+
 import PageBanner from '../../components/PageBanner/PageBanner';
 import Button from '../../components/Button/Button';
+import classIMG1 from '../../assets/images/class-image-1.png';
+import classIMG2 from '../../assets/images/class-image-2.png';
+import classIMG3 from '../../assets/images/class-image-3.png';
 
 function RequestClass() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const imageInputRef = useRef();
 
   const [selectedInterest, setSelectedInterest] = useState('식사주문');
+  const [imageFile, setImageFile] = useState(null);
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -37,6 +43,20 @@ function RequestClass() {
     borderRadius: '15px',
     fontSize: '22pt',
     // marginRight: '25px',
+  };
+
+  const handleFileChange = (event) => {
+    const image = event.target.files[0];
+    if (image && image.type.includes('image')) {
+      setImageFile(image);
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Please select valid image file.');
+    }
+  };
+
+  const handleFileInputClick = () => {
+    imageInputRef.current.click();
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -113,7 +133,7 @@ function RequestClass() {
                 user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
             >
-              <span>내용</span>
+              <span style={{ paddingTop: '4px' }}>내용</span>
             </div>
             <textarea
               className={`${styles['form-input-textarea']} ${styles['form-input-description']} ${
@@ -123,16 +143,37 @@ function RequestClass() {
             />
           </div>
 
-          {/* <div className={styles['form-solo-div']}>
-            <div className={styles['form-tag']}>
+          <div className={styles['form-solo-div']}>
+            <div
+              className={`${styles['form-tag']} ${styles['form-tag-image']} ${
+                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+              }`}
+            >
               <span>사진 선택</span>
             </div>
-            <input
-              type='text'
-              className={styles['form-input']}
-              placeholder=''
-            />
-          </div> */}
+            <div className={styles['image-selector']}>
+              <button type='button' className={`${styles['class-img']} ${styles.selected}`}>
+                <img src={classIMG1} alt='' />
+              </button>
+              <button type='button' className={styles['class-img']}>
+                <img src={classIMG2} alt='' />
+              </button>
+              <button type='button' className={styles['class-img']}>
+                <img src={classIMG3} alt='' />
+              </button>
+              <button type='button' onClick={handleFileInputClick} className={styles['img-upload-button']}>
+                +
+              </button>
+              <input
+                type='file'
+                accept='image/*'
+                onChange={handleFileChange}
+                ref={imageInputRef}
+                className={styles['hidden-input']}
+              />
+              {imageFile && <img src={URL.createObjectURL(imageFile)} alt='img-upload' />}
+            </div>
+          </div>
           <Button
             action={handleSubmit}
             buttonStyle={buttonStyle}

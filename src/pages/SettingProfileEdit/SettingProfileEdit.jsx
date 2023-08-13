@@ -31,6 +31,7 @@ function SettingProfileEdit() {
 
   const handleImgUpload = (event) => {
     const imgFile = event.target.files[0];
+    // eslint-disable-next-line no-console
     console.log(imgFile);
   };
   return (
