@@ -64,6 +64,12 @@ function RequestClass() {
     navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
 
+  const [inputCount, setInputCount] = useState(0);
+
+  const onInputHandler = (e) => {
+    setInputCount(e.target.value.length);
+  };
+
   return (
     <div className={styles['request-class-page']}>
       <PageBanner
@@ -139,10 +145,15 @@ function RequestClass() {
               className={`${styles['form-input-textarea']} ${styles['form-input-description']} ${
                 user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
+              onChange={onInputHandler}
+              maxLength='255'
               placeholder='어떤 내용의 수업을 듣고 싶나요?'
             />
+            <p className={styles.lengthCount}>
+              <span>{inputCount}</span>
+              <span>/255 자</span>
+            </p>
           </div>
-
           <div className={styles['form-solo-div']}>
             <div
               className={`${styles['form-tag']} ${styles['form-tag-image']} ${

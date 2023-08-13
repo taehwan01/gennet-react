@@ -23,6 +23,14 @@
   grid-template-columns: 200px 750px;
   // margin: 20px 0;
 
+  .lengthCount {
+    position: absolute;
+    bottom: 140px;
+    right: 205px;
+    font-size: 20pt;
+    color: #aaa;
+  }
+
   .categoryForm {
     display: flex;
     flex-direction: row;
