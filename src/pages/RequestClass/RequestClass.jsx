@@ -44,8 +44,12 @@ function RequestClass() {
   return (
     <div className={styles['request-class-page']}>
       <PageBanner
-        pageTitle='수업 요청하기'
-        pageIntro='궁금한 것들에 대해 수업을 요청해보세요.'
+        pageTitle={`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
+        pageIntro={`${
+          user.type === 'SENIOR'
+            ? '궁금한 것들에 대해 수업을 요청해보세요.'
+            : '시니어에게 알려주고 싶은 수업을 등록하세요.'
+        }`}
       />
       <div className={styles['request-class']}>
         <div> </div>
@@ -60,9 +64,7 @@ function RequestClass() {
             </div>
             <input
               type='text'
-              className={`${styles['form-input-text']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
-              }`}
+              className={`${styles['form-input-text']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
               placeholder='제목을 입력하세요.'
             />
           </div>
@@ -88,16 +90,16 @@ function RequestClass() {
 
           <div className={styles['form-solo-div']}>
             <div
-              className={`${styles['form-tag']} ${
-                styles['form-tag-textarea']
-              } ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
+              className={`${styles['form-tag']} ${styles['form-tag-textarea']} ${
+                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+              }`}
             >
               <span>내용</span>
             </div>
             <textarea
-              className={`${styles['form-input-textarea']} ${
-                styles['form-input-description']
-              } ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
+              className={`${styles['form-input-textarea']} ${styles['form-input-description']} ${
+                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+              }`}
               placeholder='어떤 내용의 수업을 듣고 싶나요?'
             />
           </div>
@@ -115,7 +117,7 @@ function RequestClass() {
           <Button
             action={handleSubmit}
             buttonStyle={buttonStyle}
-            tag='수업 요청하기'
+            tag={`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
           />
         </form>
         <div> </div>
