@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import testIMG from '../../assets/images/logo.png';
+import ad1 from '../../assets/images/ad1.png';
+import ad2 from '../../assets/images/ad2.png';
+import ad3 from '../../assets/images/ad3.png';
 
 const items = [
   {
-    name: 'AD #1',
-    imageUrl: testIMG,
+    imageUrl: ad1,
   },
   {
-    name: 'AD #2',
-    imageUrl: testIMG,
+    imageUrl: ad2,
   },
   {
-    name: 'AD #3',
-    imageUrl: testIMG,
+    imageUrl: ad3,
   },
 ];
 const CarouselContainer = styled.div`
@@ -80,7 +79,7 @@ function AdCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -91,9 +90,7 @@ function AdCarousel() {
 
   return (
     <CarouselContainer>
-      <CarouselTrack
-        style={{ transform: `translateX(-${currentSlide * 1150}px)` }}
-      >
+      <CarouselTrack style={{ transform: `translateX(-${currentSlide * 1150}px)` }}>
         {items.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <CarouselItem key={index}>
