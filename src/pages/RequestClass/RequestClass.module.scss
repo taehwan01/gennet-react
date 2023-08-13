@@ -86,16 +86,39 @@ input {
     height: 150px;
     padding: 0;
     cursor: pointer;
-    > img {
-      width: 100%;
-      height: 100%;
-      border-radius: 15px;
-    }
+    // border: 5px solid transparent;
+    // > img {
+    //   width: 100%;
+    //   height: 100%;
+    //   border-radius: 15px;
+    // }
+  }
+  .class-img-1 {
+    background-image: url('../../assets/images/class-image-1.png');
+    background-size: 150px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .class-img-2 {
+    background-image: url('../../assets/images/class-image-2.png');
+    background-size: 150px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .class-img-3 {
+    background-image: url('../../assets/images/class-image-3.png');
+    background-size: 150px;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
   .selected {
+    box-sizing: border-box;
     background-color: #57b0bc;
     border: 5px solid #57b0bc;
     border-radius: 15px;
+    // transition:
+    //   border-color 0.3s ease-in-out,
+    //   background-color 0.5s ease-in-out;
   }
   .img-upload-button {
     box-sizing: border-box;
@@ -112,5 +135,16 @@ input {
   }
   .hidden-input {
     display: none;
+  }
+  .image-uploaded {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-sizing: border-box;
+    border: 2px solid #57b0bc;
+    border-radius: 15px;
+  }
+  .recent-upload {
+    border: 5px solid #57b0bc;
   }
 }

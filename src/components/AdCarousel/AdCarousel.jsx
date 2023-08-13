@@ -26,7 +26,7 @@ const CarouselContainer = styled.div`
 const CarouselTrack = styled.div`
   display: flex;
   height: 250px;
-  transition: transform 2s ease;
+  transition: transform 4s cubic-bezier(0.19, 1, 0.22, 1);
 `;
 
 const CarouselItem = styled.div`
@@ -90,7 +90,9 @@ function AdCarousel() {
 
   return (
     <CarouselContainer>
-      <CarouselTrack style={{ transform: `translateX(-${currentSlide * 1150}px)` }}>
+      <CarouselTrack
+        style={{ transform: `translateX(-${currentSlide * 1150}px)` }}
+      >
         {items.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <CarouselItem key={index}>

@@ -9,13 +9,17 @@ import classIMG1 from '../../assets/images/class-image-1.png';
 import classIMG2 from '../../assets/images/class-image-2.png';
 import classIMG3 from '../../assets/images/class-image-3.png';
 
+const classImages = [classIMG1, classIMG2, classIMG3];
+
 function RequestClass() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const imageInputRef = useRef();
 
   const [selectedInterest, setSelectedInterest] = useState('식사주문');
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [imageFile, setImageFile] = useState(null);
+  const [recentUpload, setRecentUpload] = useState(false);
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -45,10 +49,16 @@ function RequestClass() {
     // marginRight: '25px',
   };
 
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setRecentUpload(false);
+  };
+
   const handleFileChange = (event) => {
     const image = event.target.files[0];
     if (image && image.type.includes('image')) {
       setImageFile(image);
+      setRecentUpload(true);
     } else {
       // eslint-disable-next-line no-alert
       alert('Please select valid image file.');
@@ -56,6 +66,7 @@ function RequestClass() {
   };
 
   const handleFileInputClick = () => {
+    setSelectedImageIndex(null);
     imageInputRef.current.click();
   };
 
@@ -177,18 +188,22 @@ function RequestClass() {
               <span>사진 선택</span>
             </div>
             <div className={styles['image-selector']}>
-              <button type='button' className={`${styles['class-img']} ${styles.selected}`}>
-                <img src={classIMG1} alt='' />
-              </button>
-              <button type='button' className={styles['class-img']}>
-                <img src={classIMG2} alt='' />
-              </button>
-              <button type='button' className={styles['class-img']}>
-                <img src={classIMG3} alt='' />
-              </button>
-              <button type='button' onClick={handleFileInputClick} className={styles['img-upload-button']}>
-                +
-              </button>
+              {classImages.map((classImage, index) => (
+                <button
+                  type='button'
+                  onClick={() => handleImageClick(index)}
+                  className={`${styles['class-img']} ${styles[`class-img-${index + 1}`]} ${
+                    selectedImageIndex === index && styles.selected
+                  }`}
+                >
+                  {/* <img src={classImage} alt='class-img' /> */}
+                </button>
+              ))}
+              {!imageFile && (
+                <button type='button' onClick={handleFileInputClick} className={styles['img-upload-button']}>
+                  +
+                </button>
+              )}
               <input
                 type='file'
                 accept='image/*'
@@ -196,7 +211,15 @@ function RequestClass() {
                 ref={imageInputRef}
                 className={styles['hidden-input']}
               />
-              {imageFile && <img src={URL.createObjectURL(imageFile)} alt='img-upload' />}
+              {imageFile && (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+                <img
+                  src={URL.createObjectURL(imageFile)}
+                  onClick={handleFileInputClick}
+                  className={`${styles['image-uploaded']} ${recentUpload && styles['recent-upload']}`}
+                  alt='img-upload'
+                />
+              )}
             </div>
           </div>
           <Button
