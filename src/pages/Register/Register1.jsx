@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import styles from './Register1.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
@@ -18,6 +19,8 @@ function Register1() {
   //   this.setState({confirmPassword: confirmPasswordInput});
   // }
   const navigate = useNavigate();
+
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
@@ -45,16 +48,24 @@ function Register1() {
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
       <div className={styles.selectUser}>
-        <div className={styles.senior}>
+        <button
+          type='button'
+          className={`${styles.senior} ${selectedUser === 'SENIOR' ? styles.seniorBorder : ''}`}
+          onClick={() => setSelectedUser('SENIOR')}
+        >
           <img className={styles.seniorImg} src={seniorImg} alt='senior icon' />
           <span className={`${styles.userTxt} font-bold`}>시니어</span>
           <span className={styles.userExplainTxt}>(배우는 사람)</span>
-        </div>
-        <div className={styles.junior}>
+        </button>
+        <button
+          type='button'
+          className={`${styles.junior} ${selectedUser === 'YOUTH' ? styles.juniorBorder : ''}`}
+          onClick={() => setSelectedUser('YOUTH')}
+        >
           <img className={styles.juniorImg} src={juniorImg} alt='junior icon' />
-          <span className={`${styles.userTxt} font-bold`}>주니어</span>
+          <span className={`${styles.userTxt} font-bold`}>청년</span>
           <span className={styles.userExplainTxt}>(가르치는 사람)</span>
-        </div>
+        </button>
       </div>
 
       <form>
@@ -63,11 +74,7 @@ function Register1() {
             <span>아이디</span>
           </div>
           <div className={styles.emailForm}>
-            <input
-              type='text'
-              className={styles.emailBox}
-              placeholder='이메일 입력'
-            />
+            <input type='text' className={styles.emailBox} placeholder='이메일 입력' />
             <div className={styles.duplicationCheckBtn}>
               <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
@@ -77,11 +84,7 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호</span>
           </div>
-          <input
-            type='text'
-            className={styles.passwordBox}
-            placeholder='8자이상 입력'
-          />
+          <input type='text' className={styles.passwordBox} placeholder='8자이상 입력' />
           {/* <input
             type='password'
             className={styles.passwordBox}

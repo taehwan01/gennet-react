@@ -4,6 +4,7 @@ import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
 import testIMG from '../../assets/images/banana.png';
 
+const classTxt = `프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.`;
 function ClassDescription() {
   const user = useSelector((state) => state.user);
 
@@ -52,16 +53,18 @@ function ClassDescription() {
 
           <div className={styles.class}>
             <img className={styles.classImage} src={testIMG} alt='class-img' />
-            <div className={styles.classInfo}>
+            <div className={`${styles.classInfo} ${styles.scrollable}`}>
               <div className={styles.category}>
                 <Button buttonStyle={categoryBtn} tag='식사주문' />
               </div>
               <span className={`${styles.classTitle} font-bold ${user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}>
                 버거킹 키오스크 수업
               </span>
-              <span className={`${styles.classInformation} ${user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'}`}>
-                프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.
-              </span>
+              <div
+                className={`${styles.classInformationWrapper} ${user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'}`}
+              >
+                <p className={styles.classInformation}>{classTxt}</p>
+              </div>
             </div>
             <div className={styles.bottom}>
               {user.type === 'SENIOR' ? (

@@ -93,6 +93,12 @@
             line-height: 35px;
           }
         }
+        .scrollable {
+          overflow-y: auto; /* 세로 스크롤 적용 */
+          //max-height: 200px; /* 스크롤이 보여지는 최대 높이 설정 */
+          //max-height: 250px;
+          flex-grow: 1;
+        }
       }
     }
   }

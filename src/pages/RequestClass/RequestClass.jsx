@@ -189,7 +189,9 @@ function RequestClass() {
               value={content}
               onChange={handleContentChange}
               maxLength='10000'
-              placeholder='어떤 내용의 수업을 듣고 싶나요?'
+              placeholder={`${
+                user.type === 'SENIOR' ? '어떤 내용의 수업을 듣고 싶나요?' : '어떤 내용의 수업을 등록하고 싶나요?'
+              }`}
             />
             {content && !contentValidation ? (
               <span className={styles['error-message-content']}>*내용은 최소 2단어 이상으로 입력해주세요.</span>

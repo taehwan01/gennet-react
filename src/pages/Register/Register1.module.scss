@@ -25,7 +25,8 @@
     }
 
     .senior {
-      background-color: #ffe783;
+      // background-color: #ffe783;
+      background-color: rgba(255, 231, 131, 0.3);
       width: 150px;
       height: 130px;
       border-radius: 15px;
@@ -35,6 +36,14 @@
       justify-content: center;
       align-items: center;
       margin-right: 15px;
+
+      &.seniorBorder {
+        box-sizing: border-box;
+        background-color: #ffe783;
+        border: 5px solid #ffc431;
+        border-radius: 15px;
+      }
+
       .seniorImg {
         width: 55px;
         height: 55px;
@@ -42,7 +51,8 @@
       }
     }
     .junior {
-      background-color: #baeaf7;
+      //background-color: #baeaf7;
+      background-color: rgba(186, 234, 247, 0.3);
       width: 150px;
       height: 130px;
       border-radius: 15px;
@@ -52,6 +62,13 @@
       justify-content: center;
       align-items: center;
       margin-left: 15px;
+
+      &.juniorBorder {
+        box-sizing: border-box;
+        background-color: #baeaf7;
+        border: 5px solid #7ac2e2;
+        border-radius: 15px;
+      }
       .juniorImg {
         width: 55px;
         height: 55px;

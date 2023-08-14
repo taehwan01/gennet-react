@@ -185,7 +185,7 @@ function Register2() {
               className={styles.introBox}
               onChange={onInputHandler}
               maxLength='255'
-              placeholder='자신의 자격증 등을 어필해주세요.'
+              placeholder='자신을 소개해주세요.'
             />
             <p className={styles.lengthCount}>
               <span>{inputCount}</span>
