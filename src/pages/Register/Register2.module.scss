@@ -4,6 +4,20 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  .error-message-name {
+    position: absolute;
+    left: 560px;
+    top: 250px;
+    color: red;
+    font-size: 12pt;
+  }
+  .error-message-birth {
+    position: absolute;
+    left: 560px;
+    top: 350px;
+    color: red;
+    font-size: 12pt;
+  }
 
   .logo {
     width: 245px;
@@ -13,7 +27,7 @@
   }
 
   .formDiv {
-    margin-bottom: 27px;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: 300px 800px;
     .formTag {
@@ -37,6 +51,8 @@
     .dateForm {
       display: flex;
       flex-direction: row;
+      // justify-content: space-between;
+      // width: 647px;
     }
 
     .categoryForm {
