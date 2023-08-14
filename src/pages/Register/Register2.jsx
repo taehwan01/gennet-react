@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Register2.module.scss';
@@ -22,6 +22,7 @@ function Register2() {
   // const [yearNumberValidation, setYearNumberValidation] = useState(false);
   // const [monthNumberValidation, setMonthNumberValidation] = useState(false);
   // const [dateNumberValidation, setDateNumberValidation] = useState(false);
+  const [dateOfBirth, setDateOfBirth] = useState(null);
 
   const selectedBtn = {
     backgroundColor: '#57b0bc',
@@ -99,6 +100,12 @@ function Register2() {
       setDateValidation(Number(dateInput) >= 1 && Number(dateInput) <= 31);
     }
   };
+
+  useEffect(() => {
+    setDateOfBirth(`${Number(year)}.${Number(month)}.${Number(date)}`);
+    // 백엔드로 생년월일 보낼 형식 지정했음
+    console.log(dateOfBirth);
+  }, [year, month, date, dateOfBirth]);
 
   return (
     <div className={styles.container}>
