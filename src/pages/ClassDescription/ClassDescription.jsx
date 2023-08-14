@@ -1,12 +1,23 @@
+// import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './ClassDescription.module.scss';
 import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
 import testIMG from '../../assets/images/banana.png';
+// import MyClass from '../../components/DailyMyClassList/MyClass';
 
 const classTxt = `프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.`;
 function ClassDescription() {
   const user = useSelector((state) => state.user);
+
+  // const navigate = useNavigate();
+
+  // // const handleProfile = () => {
+  // //   navigate(`/${user.type.toLowerCase()}/profile`);
+  // // };
+  // const handleClick = () => {
+  //   navigate(`/class-chat/:${roomId}`);
+  // };
 
   const categoryBtn = {
     backgroundColor: '#57b0bc',

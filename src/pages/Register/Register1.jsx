@@ -22,7 +22,7 @@ function Register1() {
   // }
   const navigate = useNavigate();
 
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState('SENIOR');
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',

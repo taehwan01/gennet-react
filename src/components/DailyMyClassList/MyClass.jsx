@@ -24,18 +24,10 @@ function MyClass({ roomId, title, name }) {
   return (
     <div className={styles['my-class']}>
       <div className={styles['my-class-info']}>
-        <span
-          className={`${styles['with-tutor']} ${
-            user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
-          }`}
-        >
+        <span className={`${styles['with-tutor']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
           청년 {name}님과 함께한
         </span>
-        <span
-          className={`${styles['class-title']} font-bold ${
-            user.type === 'SENIOR' ? 'font-33pt' : 'font-25pt'
-          }`}
-        >
+        <span className={`${styles['class-title']} font-bold ${user.type === 'SENIOR' ? 'font-33pt' : 'font-25pt'}`}>
           {title}
         </span>
       </div>
