@@ -27,7 +27,7 @@ function RequestClass() {
     height: '80px',
     fontSize: '40px',
     borderRadius: '15px',
-    margin: '10px 0 30px 0',
+    margin: '0 0 40px 0',
   };
   const selectedBtn = {
     backgroundColor: '#57b0bc',
@@ -75,18 +75,28 @@ function RequestClass() {
     navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
 
-  const [inputCountTitle, setInputCountTitle] = useState(0);
+  const [title, setTitle] = useState('');
+  // const [inputCountTitle, setInputCountTitle] = useState(0);
+  const [titleValidation, setTitleValidation] = useState(false);
 
-  const onInputHandlerTitle = (e) => {
-    setInputCountTitle(e.target.value.length);
-    console.log(inputCountTitle);
+  const handleTitleChange = (e) => {
+    const titleInput = e.target.value;
+    setTitle(titleInput);
+    // setInputCountTitle(titleInput.length);
+    const space = titleInput.trim().split(' ');
+    setTitleValidation(space.length >= 2);
   };
 
-  const [inputCount, setInputCount] = useState(0);
+  const [content, setContent] = useState('');
+  // const [inputCount, setInputCount] = useState(0);
+  const [contentValidation, setContentValidation] = useState(false);
 
-  const onInputHandler = (e) => {
-    setInputCount(e.target.value.length);
-    console.log(inputCount);
+  const handleContentChange = (e) => {
+    const contentInput = e.target.value;
+    setContent(contentInput);
+    // setInputCount(contentInput.length);
+    const space = contentInput.trim().split(' ');
+    setContentValidation(space.length >= 2);
   };
 
   return (
@@ -113,10 +123,16 @@ function RequestClass() {
             <input
               type='text'
               className={`${styles['form-input-text']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
-              onChange={onInputHandlerTitle}
+              value={title}
+              onChange={handleTitleChange}
               maxLength='255'
               placeholder='제목을 입력하세요.'
             />
+            {title && !titleValidation ? (
+              <span className={styles['error-message-title']}>*제목은 최소 2단어 이상으로 입력해주세요.</span>
+            ) : (
+              ''
+            )}
             {/* <p className={styles.lengthCountTitle}>
               <span>{inputCountTitle}</span>
               <span>/255 자</span>
@@ -170,12 +186,18 @@ function RequestClass() {
               className={`${styles['form-input-textarea']} ${styles['form-input-description']} ${
                 user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
-              onChange={onInputHandler}
+              value={content}
+              onChange={handleContentChange}
               maxLength='10000'
               placeholder={`${
                 user.type === 'SENIOR' ? '어떤 내용의 수업을 듣고 싶나요?' : '어떤 내용의 수업을 등록하고 싶나요?'
               }`}
             />
+            {content && !contentValidation ? (
+              <span className={styles['error-message-content']}>*내용은 최소 2단어 이상으로 입력해주세요.</span>
+            ) : (
+              ''
+            )}
             {/* <p className={styles.lengthCount}>
               <span>{inputCount}</span>
               <span>/10000 자</span>

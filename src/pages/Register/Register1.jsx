@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
+
 import styles from './Register1.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
@@ -40,6 +42,14 @@ function Register1() {
     margin: '10px 0',
     // marginTop: '2rem',
     // marginBottom: '132px',
+  };
+
+  const handleEmailCheck = () => {
+    const emailData = { email: 'monte@gmail.com' };
+    axios
+      .post('http://localhost:8080/members/check-email', emailData)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
   };
 
   const handleNextStep = () => {
@@ -129,7 +139,7 @@ function Register1() {
               {email && !emailValidation ? '이메일 주소 형식에 맞춰 입력해주세요' : ''}
             </span>
             <div className={styles.duplicationCheckBtn}>
-              <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
+              <Button action={handleEmailCheck} buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
           </div>
         </div>

@@ -34,6 +34,8 @@ function ClassChatroom() {
   };
 
   const [modal, setModal] = useState(false);
+  const [chat, setChat] = useState('');
+  const [chatValidation, setChatValidation] = useState(false);
 
   const navigate = useNavigate();
 
@@ -73,11 +75,18 @@ function ClassChatroom() {
   //   const [message, setMessage] = useState('');
   //   const [chatMessages, setChatMessages] = useState([]);
 
+  const handleChatChange = (event) => {
+    const chatInput = event.target.value;
+    setChat(chatInput);
+    setChatValidation(chatInput.trim().length > 0);
+  };
   const handleSendMessage = () => {
     // 1. 서버로 채팅 내용 보내고
     // 2. 클라이언트에 서버 채팅 내역 다시 가져와서
     // 3. 재렌더링
-    console.log('message sent.');
+    if (chatValidation) console.log(`message: ${chat} sent.`);
+    else console.log('need message!');
+    setChat('');
   };
   const handleExitChatroom = () => {
     setModal(true);
@@ -98,15 +107,15 @@ function ClassChatroom() {
       const sameUser = msg.user !== prevUser;
       prevUser = msg.user;
       return (
-        <div className={`${styles['user-chat']} ${user === msg.user ? styles.right : styles.left}`}>
+        <div className={`${styles['user-chat']} ${user.name === msg.user ? styles.right : styles.left}`}>
           {sameUser && (
             <div className={styles['same-user-chat']}>
-              {msg.user !== user && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
+              {msg.user !== user.name && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
               <span className={`${styles['message-user']} font-bold`}>{msg.user}</span>
-              {msg.user === user && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
+              {msg.user === user.name && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
             </div>
           )}
-          {msg.user === user ? (
+          {msg.user === user.name ? (
             <div className={styles['message-content-right']}>{msg.content}</div>
           ) : (
             <div className={styles['message-content-left']}>{msg.content}</div>
@@ -129,7 +138,13 @@ function ClassChatroom() {
         <div className={styles['chat-contents']}>{renderMessages()}</div>
         <div className={styles['input-box']}>
           <div className={styles['input-container']}>
-            <input type='text' className={styles['message-input']} placeholder='내용을 입력해 주세요.' />
+            <input
+              type='text'
+              value={chat}
+              onChange={handleChatChange}
+              className={styles['message-input']}
+              placeholder='내용을 입력해 주세요.'
+            />
             <div className={styles['send-button']}>
               <Button action={handleSendMessage} buttonStyle={sendButtonStyle} tag='전송' />
             </div>
