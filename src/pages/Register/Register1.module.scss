@@ -78,7 +78,7 @@
   }
 
   .formDiv {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: 300px 600px;
     .formTag {
@@ -121,4 +121,28 @@
     position: relative;
     right: 125px;
   }
+}
+
+.emailErrorMessage {
+  position: absolute;
+  left: 660px;
+  top: 460px;
+  color: red;
+  font-size: 12pt;
+}
+
+.passwordErrorMessage {
+  position: absolute;
+  left: 660px;
+  top: 560px;
+  color: red;
+  font-size: 12pt;
+}
+
+.passwordConfirmErrorMessage {
+  position: absolute;
+  left: 660px;
+  top: 660px;
+  color: red;
+  font-size: 12pt;
 }

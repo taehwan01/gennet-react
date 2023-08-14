@@ -7,6 +7,8 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
+  // const [selectedInterest, setSelectedInterest] = useState('식사주문');
+
   // state = {
   //   password: '',
   //   confirmPassword: '',
@@ -44,6 +46,48 @@ function Register1() {
     navigate('/register/2');
   };
 
+  const [email, setEmail] = useState('');
+  const [emailValidation, setEmailValidation] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordValidation, setPasswordValidation] = useState(false);
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [passwordConfirmValidation, setPasswordConfirmValidation] = useState(false);
+
+  const handleEmailChange = (e) => {
+    const emailInput = e.target.value;
+    setEmail(emailInput);
+    // email 주소 형식을 검사
+    const emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+
+    if (!emailRegExp.test(emailInput)) {
+      setEmailValidation(false);
+    } else {
+      setEmailValidation(true);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const passwordInput = e.target.value;
+    setPassword(passwordInput);
+    // 영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자
+    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/;
+
+    if (!passwordRegExp.test(passwordInput)) {
+      setPasswordValidation(false);
+    } else {
+      setPasswordValidation(true);
+    }
+  };
+
+  const handlePasswordConfirmChange = (e) => {
+    const passwordConfirmInput = e.target.value;
+    setPasswordConfirm(passwordConfirmInput);
+    if (password !== passwordConfirmInput) {
+      setPasswordConfirmValidation(false);
+    } else {
+      setPasswordConfirmValidation(true);
+    }
+  };
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
@@ -74,7 +118,16 @@ function Register1() {
             <span>아이디</span>
           </div>
           <div className={styles.emailForm}>
-            <input type='text' className={styles.emailBox} placeholder='이메일 입력' />
+            <input
+              type='email'
+              className={styles.emailBox}
+              placeholder='이메일 입력'
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <span className={styles.emailErrorMessage}>
+              {email && !emailValidation ? '이메일 주소 형식에 맞춰 입력해주세요' : ''}
+            </span>
             <div className={styles.duplicationCheckBtn}>
               <Button buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
@@ -84,14 +137,16 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호</span>
           </div>
-          <input type='text' className={styles.passwordBox} placeholder='8자이상 입력' />
-          {/* <input
+          <input
             type='password'
             className={styles.passwordBox}
-            id='passwordInput'
-            onChange={(e) => this.handleOnPasswordInput(e.target.value)}
             placeholder='8자이상 입력'
-          /> */}
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <span className={styles.passwordErrorMessage}>
+            {password && !passwordValidation ? '영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자' : ''}
+          </span>
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -105,7 +160,15 @@ function Register1() {
             placeholder=' '
           />
           {this.renderFeedbackMessage()} */}
-          <input type='text' className={styles.passwordBox} />
+          <input
+            type='password'
+            className={styles.passwordBox}
+            value={passwordConfirm}
+            onChange={handlePasswordConfirmChange}
+          />
+          <span className={styles.passwordConfirmErrorMessage}>
+            {passwordConfirm && !passwordConfirmValidation ? '비밀번호가 일치하지 않습니다.' : ''}
+          </span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />
