@@ -172,7 +172,9 @@ function RequestClass() {
               }`}
               onChange={onInputHandler}
               maxLength='10000'
-              placeholder='어떤 내용의 수업을 듣고 싶나요?'
+              placeholder={`${
+                user.type === 'SENIOR' ? '어떤 내용의 수업을 듣고 싶나요?' : '어떤 내용의 수업을 등록하고 싶나요?'
+              }`}
             />
             {/* <p className={styles.lengthCount}>
               <span>{inputCount}</span>
