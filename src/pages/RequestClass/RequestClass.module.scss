@@ -18,7 +18,7 @@
 }
 
 .form-solo-div {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: 200px 750px;
   // margin: 20px 0;
@@ -147,4 +147,19 @@ input {
   .recent-upload {
     border: 5px solid #57b0bc;
   }
+}
+
+.error-message-title {
+  position: absolute;
+  left: 535px;
+  top: 415px;
+  color: red;
+  font-size: 12pt;
+}
+.error-message-content {
+  position: absolute;
+  left: 535px;
+  bottom: 99px;
+  color: red;
+  font-size: 12pt;
 }
