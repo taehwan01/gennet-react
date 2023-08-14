@@ -10,6 +10,18 @@ function Register2() {
   const user = useSelector((state) => state.user);
 
   const [selectedInterest, setSelectedInterest] = useState('식사주문');
+  // form input
+  const [name, setName] = useState('');
+  const [nameValidation, setNameValidation] = useState(false);
+  const [year, setYear] = useState(null);
+  const [yearValidation, setYearValidation] = useState(false);
+  const [month, setMonth] = useState(null);
+  const [monthValidation, setMonthValidation] = useState(false);
+  const [date, setDate] = useState(null);
+  const [dateValidation, setDateValidation] = useState(false);
+  // const [yearNumberValidation, setYearNumberValidation] = useState(false);
+  // const [monthNumberValidation, setMonthNumberValidation] = useState(false);
+  // const [dateNumberValidation, setDateNumberValidation] = useState(false);
 
   const selectedBtn = {
     backgroundColor: '#57b0bc',
@@ -55,6 +67,39 @@ function Register2() {
     setInputCount(e.target.value.length);
   };
 
+  const handleNameChange = (event) => {
+    const nameInput = event.target.value;
+    setName(nameInput);
+    setNameValidation(nameInput.length >= 2 && nameInput.length <= 10);
+  };
+  const handleYearChange = (event) => {
+    const yearInput = event.target.value;
+    setYear(yearInput);
+    if (yearInput === '') {
+      setYearValidation(false);
+    } else {
+      setYearValidation(Number(yearInput) >= 1900);
+    }
+  };
+  const handleMonthChange = (event) => {
+    const monthInput = event.target.value;
+    setMonth(monthInput);
+    if (monthInput === '') {
+      setMonthValidation(false);
+    } else {
+      setMonthValidation(Number(monthInput) >= 1 && Number(monthInput) <= 12);
+    }
+  };
+  const handleDateChange = (event) => {
+    const dateInput = event.target.value;
+    setDate(dateInput);
+    if (dateInput === '') {
+      setDateValidation(false);
+    } else {
+      setDateValidation(Number(dateInput) >= 1 && Number(dateInput) <= 31);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
@@ -64,18 +109,38 @@ function Register2() {
             <span style={style}>*</span>
             <span>이름</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
+          <input
+            className={styles.nameBox}
+            placeholder='이름을 입력하세요.'
+            type='text'
+            value={name}
+            onChange={handleNameChange}
+          />
+          <span className={styles['error-message-name']}>
+            {name && !nameValidation ? '*이름은 2글자 이상 10글자 이하로 입력해주세요.' : ''}
+          </span>
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
             <span style={style}>*</span>
             <span>생년월일</span>
           </div>
-          <div className='dateForm'>
-            <input type='text' className={styles.dateBox} placeholder='년' />
-            <input type='text' className={styles.dateBox} placeholder='월' />
-            <input type='text' className={styles.dateBox} placeholder='일' />
+          <div className={styles.dateForm}>
+            <input type='number' value={year} onChange={handleYearChange} className={styles.dateBox} placeholder='년' />
+            <input
+              type='number'
+              value={month}
+              onChange={handleMonthChange}
+              className={styles.dateBox}
+              placeholder='월'
+            />
+            <input type='number' value={date} onChange={handleDateChange} className={styles.dateBox} placeholder='일' />
           </div>
+          <span className={styles['error-message-birth']}>
+            {(yearValidation && monthValidation && dateValidation) || (!year && !month && !date)
+              ? ''
+              : '*유효하지 않은 날짜입니다.'}
+          </span>
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
