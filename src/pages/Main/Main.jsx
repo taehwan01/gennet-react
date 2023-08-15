@@ -73,7 +73,7 @@ function Main() {
           참여해보세요!
         </p>
         <p className={`${styles['sub-message']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
-          {user.type === 'SENIOR' ? '{user.name}님에게 추천하는 수업들' : '지금 시니어들이 요청한 수업들'}
+          {user.type === 'SENIOR' ? `${user.name}님에게 추천하는 수업들` : '지금 시니어들이 요청한 수업들'}
         </p>
       </div>
       <div className={styles['new-classes']}>

@@ -3,7 +3,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    name: '김태환',
+    // name: '김태환',
+    name: '천다인',
     email: 'test@gmail.com',
     password: '',
     type: 'SENIOR',
