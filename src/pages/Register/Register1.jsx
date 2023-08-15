@@ -9,19 +9,6 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
-  // const [selectedInterest, setSelectedInterest] = useState('식사주문');
-
-  // state = {
-  //   password: '',
-  //   confirmPassword: '',
-  // };
-
-  // handleOnPasswordInput(passwordInput) {
-  //   this.setState({password: passwordInput});
-  // }
-  // handleOnConfirmPasswordInput(confirmPasswordInput) {
-  //   this.setState({confirmPassword: confirmPasswordInput});
-  // }
   const navigate = useNavigate();
 
   const [selectedUser, setSelectedUser] = useState('SENIOR');
@@ -44,24 +31,35 @@ function Register1() {
     // marginBottom: '132px',
   };
 
-  const handleEmailCheck = () => {
-    const emailData = { email: 'monte@gmail.com' };
-    axios
-      .post('http://localhost:8080/members/check-email', emailData)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
-  };
-
-  const handleNextStep = () => {
-    navigate('/register/2');
-  };
-
   const [email, setEmail] = useState('');
   const [emailValidation, setEmailValidation] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordValidation, setPasswordValidation] = useState(false);
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [passwordConfirmValidation, setPasswordConfirmValidation] = useState(false);
+
+  const [emailDupliError, setEmailDupliError] = useState('');
+
+  const handleEmailCheck = () => {
+    axios
+      .post('http://localhost:8080/members/check-email', { email }) // js문법 떄문에 축약
+      .then((response) => {
+        console.log(response);
+        setEmailDupliError('');
+      })
+      .catch((error) => {
+        // console.log(error.response.status);
+        const errorCode = error.response.status;
+        if (errorCode === 409) {
+          console.log(emailDupliError);
+          setEmailDupliError('이메일이 중복되었습니다.');
+        }
+      });
+  };
+
+  const handleNextStep = () => {
+    navigate('/register/2');
+  };
 
   const handleEmailChange = (e) => {
     const emailInput = e.target.value;
@@ -138,9 +136,11 @@ function Register1() {
             <span className={styles.emailErrorMessage}>
               {email && !emailValidation ? '이메일 주소 형식에 맞춰 입력해주세요' : ''}
             </span>
+
             <div className={styles.duplicationCheckBtn}>
               <Button action={handleEmailCheck} buttonStyle={duplicationCheckBtn} tag='중복확인' />
             </div>
+            <span className={styles.emailErrorMessage}>{emailDupliError}</span>
           </div>
         </div>
         <div className={styles.formDiv}>
