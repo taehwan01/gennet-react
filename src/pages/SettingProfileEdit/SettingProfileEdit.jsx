@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
@@ -8,6 +8,55 @@ import testIMG from '../../assets/images/banana.png';
 
 function SettingProfileEdit() {
   const user = useSelector((state) => state.user);
+
+  const [name, setName] = useState('');
+  const [nameValidation, setNameValidation] = useState(false);
+  const [year, setYear] = useState(null);
+  const [yearValidation, setYearValidation] = useState(false);
+  const [month, setMonth] = useState(null);
+  const [monthValidation, setMonthValidation] = useState(false);
+  const [date, setDate] = useState(null);
+  const [dateValidation, setDateValidation] = useState(false);
+  const [dateOfBirth, setDateOfBirth] = useState(null);
+
+  const handleNameChange = (event) => {
+    const nameInput = event.target.value;
+    setName(nameInput);
+    setNameValidation(nameInput.length >= 2 && nameInput.length <= 10);
+  };
+  const handleYearChange = (event) => {
+    const yearInput = event.target.value;
+    setYear(yearInput);
+    if (yearInput === '') {
+      setYearValidation(false);
+    } else {
+      setYearValidation(Number(yearInput) >= 1900);
+    }
+  };
+  const handleMonthChange = (event) => {
+    const monthInput = event.target.value;
+    setMonth(monthInput);
+    if (monthInput === '') {
+      setMonthValidation(false);
+    } else {
+      setMonthValidation(Number(monthInput) >= 1 && Number(monthInput) <= 12);
+    }
+  };
+  const handleDateChange = (event) => {
+    const dateInput = event.target.value;
+    setDate(dateInput);
+    if (dateInput === '') {
+      setDateValidation(false);
+    } else {
+      setDateValidation(Number(dateInput) >= 1 && Number(dateInput) <= 31);
+    }
+  };
+
+  useEffect(() => {
+    setDateOfBirth(`${Number(year)}.${Number(month)}.${Number(date)}`);
+    // 백엔드로 생년월일 보낼 형식 지정했음
+    console.log(dateOfBirth);
+  }, [year, month, date, dateOfBirth]);
 
   const unsavedBtn = {
     backgroundColor: '#A7A9AC',
@@ -57,17 +106,42 @@ function SettingProfileEdit() {
           <div className={`${styles.formTag} font-bold`}>
             <span>이름</span>
           </div>
-          <input type='text' className={styles.nameBox} placeholder='이름을 입력하세요.' />
+          <input
+            type='text'
+            className={styles.nameBox}
+            placeholder='이름을 입력하세요.'
+            value={name}
+            onChange={handleNameChange}
+          />
+          <span className={styles['error-message-name']}>
+            {name && !nameValidation ? '*이름은 2글자 이상 10글자 이하로 입력해주세요.' : ''}
+          </span>
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
             <span>생년월일</span>
           </div>
-          <div className='dateForm'>
+          <div className={styles.dateForm}>
+            <input type='number' value={year} onChange={handleYearChange} className={styles.dateBox} placeholder='년' />
+            <input
+              type='number'
+              value={month}
+              onChange={handleMonthChange}
+              className={styles.dateBox}
+              placeholder='월'
+            />
+            <input type='number' value={date} onChange={handleDateChange} className={styles.dateBox} placeholder='일' />
+          </div>
+          <span className={styles['error-message-birth']}>
+            {(yearValidation && monthValidation && dateValidation) || (!year && !month && !date)
+              ? ''
+              : '*유효하지 않은 날짜입니다.'}
+          </span>
+          {/* <div className={styles.dateForm}>
             <input type='text' className={styles.dateBox} placeholder='년' />
             <input type='text' className={styles.dateBox} placeholder='월' />
             <input type='text' className={styles.dateBox} placeholder='일' />
-          </div>
+          </div> */}
         </div>
         <div className={styles.formDiv}>
           <div className={`${styles.formTag} font-bold`}>
@@ -79,7 +153,6 @@ function SettingProfileEdit() {
               onChange={onInputHandler}
               maxLength='255'
               placeholder={`${user.type === 'SENIOR' ? '자신의 자격증 등을 어필해주세요.' : '자신을 소개해주세요.'}`}
-              // placeholder='자신의 자격증 등을 어필해주세요.'
             />
             <p className={styles.lengthCount}>
               <span>{inputCount}</span>

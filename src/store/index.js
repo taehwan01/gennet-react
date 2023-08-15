@@ -8,7 +8,6 @@ const userSlice = createSlice({
     password: '',
     type: 'SENIOR',
     // type: 'YOUTH',
-    name: '김태환',
     birth: '2002.01.10',
     intro: 'test message',
     // birth: new Date(),

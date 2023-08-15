@@ -19,9 +19,6 @@ function Register2() {
   const [monthValidation, setMonthValidation] = useState(false);
   const [date, setDate] = useState(null);
   const [dateValidation, setDateValidation] = useState(false);
-  // const [yearNumberValidation, setYearNumberValidation] = useState(false);
-  // const [monthNumberValidation, setMonthNumberValidation] = useState(false);
-  // const [dateNumberValidation, setDateNumberValidation] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState(null);
 
   const selectedBtn = {

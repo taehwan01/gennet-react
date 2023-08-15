@@ -12,6 +12,22 @@ p {
   justify-content: center;
   align-items: center;
 
+  height: 100vh;
+  .error-message-name {
+    position: absolute;
+    left: 505px;
+    top: 450px;
+    color: red;
+    font-size: 12pt;
+  }
+  .error-message-birth {
+    position: absolute;
+    left: 505px;
+    bottom: 340px;
+    // top: 350px;
+    color: red;
+    font-size: 12pt;
+  }
   .profile {
     width: 150px;
     height: 150px;
