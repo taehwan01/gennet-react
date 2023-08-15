@@ -77,8 +77,8 @@ function Register1() {
   const handlePasswordChange = (e) => {
     const passwordInput = e.target.value;
     setPassword(passwordInput);
-    // 영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자
-    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/;
+    // 특수문자 한 자 이상 포함, 8자 이상, 영어 사용
+    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
     if (!passwordRegExp.test(passwordInput)) {
       setPasswordValidation(false);
@@ -155,7 +155,7 @@ function Register1() {
             onChange={handlePasswordChange}
           />
           <span className={styles.passwordErrorMessage}>
-            {password && !passwordValidation ? '영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자' : ''}
+            {password && !passwordValidation ? '비밀번호 특수문자 포함 8자 이상' : ''}
           </span>
         </div>
         <div className={styles.formDiv}>
