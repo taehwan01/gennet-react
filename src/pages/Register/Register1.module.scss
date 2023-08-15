@@ -7,7 +7,6 @@
   width: auto;
   .logo {
     width: 245px;
-    // height: 74px;
     object-fit: cover;
     margin: 0 0 52px 0;
   }
@@ -25,7 +24,6 @@
     }
 
     .senior {
-      // background-color: #ffe783;
       background-color: rgba(255, 231, 131, 0.3);
       width: 150px;
       height: 130px;
@@ -51,7 +49,6 @@
       }
     }
     .junior {
-      //background-color: #baeaf7;
       background-color: rgba(186, 234, 247, 0.3);
       width: 150px;
       height: 130px;
@@ -110,13 +107,6 @@
     width: 430px;
     height: 40px;
   }
-  // .passwordCheckBox {
-  //   font-size: 22pt;
-  //   border: 2px solid #57b0bc;
-  //   border-radius: 15px;
-  //   padding: 0.5rem 1.2rem;
-  //   width: 430px;
-  // }
   .duplicationCheckBtn {
     position: relative;
     right: 125px;

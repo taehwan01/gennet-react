@@ -162,14 +162,6 @@ function Register1() {
           <div className={`${styles.formTag} font-bold`}>
             <span>비밀번호 확인</span>
           </div>
-          {/* <input
-            type='password'
-            className={styles.passwordBox}
-            id='confirmPasswordInput'
-            onChange={(e) => this.handleOnConfirmPasswordInput(e.target.value)}
-            placeholder=' '
-          />
-          {this.renderFeedbackMessage()} */}
           <input
             type='password'
             className={styles.passwordBox}
