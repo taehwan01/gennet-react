@@ -1,5 +1,6 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import styles from './ClassDescription.module.scss';
 import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
@@ -10,15 +11,16 @@ const classTxt = `프랜차이즈 버거 브랜드인 버거킹의 키오스크�
 function ClassDescription() {
   const user = useSelector((state) => state.user);
 
-  // const navigate = useNavigate();
+  const [roomId, setRoomId] = useState(null); // room ID 생성(임시)
 
-  // // const handleProfile = () => {
-  // //   navigate(`/${user.type.toLowerCase()}/profile`);
-  // // };
-  // const handleClick = () => {
-  //   navigate(`/class-chat/:${roomId}`);
-  // };
-
+  const navigate = useNavigate();
+  const handleProfileClick = () => {
+    navigate(`/${user.type.toLowerCase()}/profile`);
+  };
+  const handleChatClick = () => {
+    console.log(roomId);
+    navigate(`/class-chat/${roomId}`);
+  };
   const categoryBtn = {
     backgroundColor: '#57b0bc',
     width: `${user.type === 'SENIOR' ? '120px' : '105px'}`,
@@ -34,6 +36,9 @@ function ClassDescription() {
     fontSize: '25pt',
   };
   const review = 4;
+  useEffect(() => {
+    setRoomId(2);
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.section1}>
@@ -43,9 +48,9 @@ function ClassDescription() {
         <div className={styles.classBox}>
           <div className={styles.top}>
             <div className={styles.topLeft}>
-              <div>
+              <button type='button' className={styles.profileButton} onClick={handleProfileClick}>
                 <img className={styles.profile} src={testIMG} alt='Profile IMG' />
-              </div>
+              </button>
             </div>
             <div className={styles.topRight}>
               <span className={`${styles.userName} font-bold`}>천다인님</span>
@@ -79,9 +84,9 @@ function ClassDescription() {
             </div>
             <div className={styles.bottom}>
               {user.type === 'SENIOR' ? (
-                <Button buttonStyle={buttonStyle} tag='수업 들으러 가기' />
+                <Button buttonStyle={buttonStyle} tag='수업 들으러 가기' action={handleChatClick} />
               ) : (
-                <Button buttonStyle={buttonStyle} tag='수업 하러 가기' />
+                <Button buttonStyle={buttonStyle} tag='수업 하러 가기' action={handleChatClick} />
               )}
             </div>
           </div>
