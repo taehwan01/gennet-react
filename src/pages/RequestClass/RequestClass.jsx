@@ -133,10 +133,6 @@ function RequestClass() {
             ) : (
               ''
             )}
-            {/* <p className={styles.lengthCountTitle}>
-              <span>{inputCountTitle}</span>
-              <span>/255 자</span>
-            </p> */}
           </div>
 
           <div className={styles['form-solo-div']}>
@@ -198,10 +194,6 @@ function RequestClass() {
             ) : (
               ''
             )}
-            {/* <p className={styles.lengthCount}>
-              <span>{inputCount}</span>
-              <span>/10000 자</span>
-            </p> */}
           </div>
           <div className={styles['form-solo-div']}>
             <div
