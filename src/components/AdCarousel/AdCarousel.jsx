@@ -70,7 +70,8 @@ const Indicator = styled.button`
   background-color: white;
   margin: 5px;
   cursor: pointer;
-  background-color: ${(props) => (props.active ? '#57B0BC' : 'white')};
+  background-color: ${(props) =>
+    props.$active === 'true' ? '#57B0BC' : 'white'};
 `;
 
 function AdCarousel() {
@@ -108,7 +109,7 @@ function AdCarousel() {
               // eslint-disable-next-line react/no-array-index-key
               key={index}
               type='button'
-              active={index === currentSlide}
+              $active={index === currentSlide ? 'true' : 'false'}
               onClick={() => handleIndicatorClick(index)}
             />
           ))}
