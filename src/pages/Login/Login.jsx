@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import axios from 'axios';
 import styles from './Login.module.scss';
 import logoImg from '../../assets/images/logo.png';
 import Button from '../../components/Button/Button';
@@ -14,6 +15,41 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/auth/login', {
+        email,
+        password,
+      });
+      const accessToken = response.headers.authorization;
+      console.log(accessToken);
+      // const accessToken = response.headers.authorization;
+
+      dispatch(loginUser({ email, password }));
+
+      navigate(`/${user.type.toLowerCase()}`);
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
+
+  // const handleEmailCheck = () => {
+  //   axios
+  //     .post('http://localhost:8080/members/check-email', { email }) // js문법 떄문에 축약
+  //     .then((response) => {
+  //       console.log(response);
+  //       setEmailDupliError('');
+  //     })
+  //     .catch((error) => {
+  //       // console.log(error.response.status);
+  //       const errorCode = error.response.status;
+  //       if (errorCode === 409) {
+  //         console.log(emailDupliError);
+  //         setEmailDupliError('이메일이 중복되었습니다.');
+  //       }
+  //     });
+  // };
+
   const buttonStyle = {
     backgroundColor: '#57b0bc',
     border: '2px solid #57b0bc',
@@ -26,10 +62,10 @@ function Login() {
     marginLeft: '20px',
   };
 
-  const handleLogin = () => {
-    dispatch(loginUser({ email, password }));
-    navigate(`/${user.type.toLowerCase()}`);
-  };
+  // const handleLogin = () => {
+  //   dispatch(loginUser({ email, password }));
+  //   navigate(`/${user.type.toLowerCase()}`);
+  // };
 
   return (
     <div className={styles.container}>
@@ -41,7 +77,7 @@ function Login() {
           <span className={`${styles.idTxt} font-bold`}>아이디</span>
         </div>
         <input
-          type='text'
+          type='email'
           className={styles.idBox}
           placeholder='아이디를 입력해주세요.'
           value={email}
@@ -56,7 +92,7 @@ function Login() {
           <span className={`${styles.passwordTxt} font-bold`}>비밀번호</span>
         </div>
         <input
-          type='text'
+          type='password'
           className={styles.passwordBox}
           placeholder='비밀번호를 입력해주세요.'
           value={password}
