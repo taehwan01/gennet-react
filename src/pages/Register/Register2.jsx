@@ -54,7 +54,6 @@ function Register2() {
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    // marginRight: '23px',
   };
   const unSelectedBtn = {
     backgroundColor: 'white',
@@ -64,7 +63,6 @@ function Register2() {
     height: '56px',
     borderRadius: '15px',
     fontSize: '22pt',
-    // marginRight: '23px',
   };
   const registerBtn = {
     backgroundColor: '#57b0bc',
@@ -73,17 +71,11 @@ function Register2() {
     borderRadius: '15px',
     fontSize: '30pt',
     margin: '10px 0 40px 0',
-    // marginBottom: '130px',
   };
 
   const style = {
     color: 'red',
   };
-
-  // const handleRegister = () => {
-  //   // 회원가입 버튼 클릭
-  //   navigate(`/${user.type.toLowerCase()}`);
-  // };
 
   const [inputCount, setInputCount] = useState(0);
 

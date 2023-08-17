@@ -21,7 +21,6 @@
 
   .logo {
     width: 245px;
-    // height: 74px;
     object-fit: cover;
     margin: 52px 0;
   }
@@ -51,8 +50,6 @@
     .dateForm {
       display: flex;
       flex-direction: row;
-      // justify-content: space-between;
-      // width: 647px;
     }
 
     .categoryForm {
@@ -60,8 +57,6 @@
       flex-direction: row;
       justify-content: space-between;
       width: 647px;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 

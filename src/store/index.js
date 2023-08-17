@@ -26,6 +26,7 @@ const userSlice = createSlice({
       state.password = action.payload.password;
       // eslint-disable-next-line no-param-reassign
       state.passwordConfirm = action.payload.passwordConfirm;
+      state.type = action.payload.type;
     },
     logoutUser: (state) => {
       state.accessToken = '';
