@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
 
@@ -18,6 +19,23 @@ function SettingProfileEdit() {
   const [date, setDate] = useState(null);
   const [dateValidation, setDateValidation] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState(null);
+
+  const handleSave = async () => {
+    // 수정
+    try {
+      const response = await axios.patch(`http://localhost:8080/members/${user.id}/edit`, {
+        name,
+        // eslint-disable-next-line no-undef
+        image, // 바꿔야 됨
+        dateOfBirth,
+        introduction: 'introduction', // 바꿔야 됨
+      });
+
+      console.log('User information update:', response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleNameChange = (event) => {
     const nameInput = event.target.value;
@@ -163,7 +181,7 @@ function SettingProfileEdit() {
       </div>
       <div className={styles.buttonSection}>
         <Button buttonStyle={unsavedBtn} tag='저장하지 않기' />
-        <Button buttonStyle={savedBtn} tag='저장하기' />
+        <Button action={handleSave} buttonStyle={savedBtn} tag='저장하기' />
       </div>
     </div>
   );
