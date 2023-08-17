@@ -4,6 +4,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
+    // user 정보
+    memberId: 6,
     name: '천다인',
     email: 'test@gmail.com',
     password: '',
@@ -11,19 +13,10 @@ const userSlice = createSlice({
     type: 'SENIOR',
     birth: '2002.01.10',
     intro: 'test message',
+
+    // auth 정보
     accessToken: '',
     refreshToken: '',
-    // // name: '김태환',
-    // name: '천다인',
-    // email: 'test@gmail.com',
-    // password: '',
-    // // type: 'SENIOR',
-    // type: 'YOUTH',
-    // birth: '2002.01.10',
-    // intro: 'test message',
-    // // birth: new Date(),
-    // // interest: [],
-    // // intro: '',
   },
   reducers: {
     loginUser: (state, action) => {
@@ -38,10 +31,14 @@ const userSlice = createSlice({
       state.accessToken = '';
       state.refreshToken = '';
     },
+    setTokens: (state, action) => {
+      state.accessToken = action.payload.accessToken;
+      state.refreshToken = action.payload.refreshToken;
+    },
   },
 });
 
-export const { loginUser, logoutUser } = userSlice.actions;
+export const { loginUser, logoutUser, setTokens } = userSlice.actions;
 
 export default configureStore({
   reducer: {

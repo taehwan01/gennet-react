@@ -5,7 +5,7 @@ import axios from 'axios';
 import styles from './Login.module.scss';
 import logoImg from '../../assets/images/logo.png';
 import Button from '../../components/Button/Button';
-import { loginUser } from '../../store';
+import { loginUser, setTokens } from '../../store';
 
 function Login() {
   const dispatch = useDispatch();
@@ -22,14 +22,14 @@ function Login() {
         password,
       });
       const accessToken = response.headers.authorization;
-      console.log(accessToken);
-      // const accessToken = response.headers.authorization;
+      const refreshToken = response.headers.refresh;
 
       dispatch(loginUser({ email, password }));
+      dispatch(setTokens({ accessToken, refreshToken }));
 
       navigate(`/${user.type.toLowerCase()}`);
     } catch (error) {
-      // console.error('Login error:', error);
+      console.error('Login qwefqerf error:', error);
     }
   };
 
