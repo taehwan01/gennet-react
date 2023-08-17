@@ -23,7 +23,7 @@ function SettingProfileEdit() {
   const handleSave = async () => {
     // 수정
     try {
-      const response = await axios.patch(`http://localhost:8080/members/${user.id}/edit`, {
+      const response = await axios.patch(`http://localhost:8080/members/${user.memberId}/edit`, {
         name,
         // eslint-disable-next-line no-undef
         image, // 바꿔야 됨

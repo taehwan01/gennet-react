@@ -10,16 +10,10 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
-  const dispatch = useDispatch(); // 추가
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [selectedUser, setSelectedUser] = useState('SENIOR');
-
-  const handleNextStep = () => {
-    // eslint-disable-next-line no-use-before-define
-    dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
-    navigate('/register/2');
-  };
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
@@ -92,6 +86,17 @@ function Register1() {
       setPasswordConfirmValidation(true);
     }
   };
+
+  const isAllValid = emailValidation && passwordValidation && passwordConfirmValidation;
+
+  const handleNextStep = () => {
+    if (isAllValid && emailDupliError === '') {
+      // eslint-disable-next-line no-use-before-define
+      dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
+      navigate('/register/2');
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
@@ -169,7 +174,12 @@ function Register1() {
           </span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />
+          <Button
+            action={handleNextStep}
+            buttonStyle={nextBtn}
+            tag='다음'
+            disabled={!isAllValid || !emailValidation || emailDupliError}
+          />
         </div>
       </form>
     </div>
