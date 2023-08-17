@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 import styles from './Register2.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
@@ -21,6 +22,31 @@ function Register2() {
   const [dateValidation, setDateValidation] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState(null);
 
+  const handleRegister = async () => {
+    try {
+      const memberInfo = {
+        email: user.email,
+        password: user.password,
+        samePassword: user.passwordConfirm,
+        name,
+        dateOfBirth,
+        memberType: user.type,
+        // 이미지와 자기소개 등도 필요한 정보에 따라 추가
+        // image: 이미지,
+        // introduction: '안녕하세요, 시니어입니다',
+        // lifeCategory: 'ECONOMIC',
+      };
+
+      console.log(memberInfo);
+      const response = await axios.post('http://localhost:8080/members/signup', memberInfo);
+
+      console.log('회원가입 성공', response);
+
+      navigate(`/${user.type.toLowerCase()}`);
+    } catch (error) {
+      console.log('회원가입 실패', error);
+    }
+  };
   const selectedBtn = {
     backgroundColor: '#57b0bc',
     border: '2px solid #57b0bc',
@@ -54,10 +80,10 @@ function Register2() {
     color: 'red',
   };
 
-  const handleRegister = () => {
-    // 회원가입 버튼 클릭
-    navigate(`/${user.type.toLowerCase()}`);
-  };
+  // const handleRegister = () => {
+  //   // 회원가입 버튼 클릭
+  //   navigate(`/${user.type.toLowerCase()}`);
+  // };
 
   const [inputCount, setInputCount] = useState(0);
 
@@ -130,15 +156,27 @@ function Register2() {
             <span>생년월일</span>
           </div>
           <div className={styles.dateForm}>
-            <input type='number' value={year} onChange={handleYearChange} className={styles.dateBox} placeholder='년' />
             <input
               type='number'
-              value={month}
+              value={year || ''}
+              onChange={handleYearChange}
+              className={styles.dateBox}
+              placeholder='년'
+            />
+            <input
+              type='number'
+              value={month || ''}
               onChange={handleMonthChange}
               className={styles.dateBox}
               placeholder='월'
             />
-            <input type='number' value={date} onChange={handleDateChange} className={styles.dateBox} placeholder='일' />
+            <input
+              type='number'
+              value={date || ''}
+              onChange={handleDateChange}
+              className={styles.dateBox}
+              placeholder='일'
+            />
           </div>
           <span className={styles['error-message-birth']}>
             {(yearValidation && monthValidation && dateValidation) || (!year && !month && !date)

@@ -7,6 +7,7 @@ const userSlice = createSlice({
     name: '천다인',
     email: 'test@gmail.com',
     password: '',
+    samePassword: '',
     type: 'SENIOR',
     birth: '2002.01.10',
     intro: 'test message',
@@ -30,6 +31,8 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       // eslint-disable-next-line no-param-reassign
       state.password = action.payload.password;
+      // eslint-disable-next-line no-param-reassign
+      state.passwordConfirm = action.payload.passwordConfirm;
     },
     logoutUser: (state) => {
       state.accessToken = '';

@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../store';
 import styles from './Register1.module.scss';
 import Button from '../../components/Button/Button';
 import logoImg from '../../assets/images/logo.png';
@@ -9,9 +10,16 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
+  const dispatch = useDispatch(); // 추가
   const navigate = useNavigate();
 
   const [selectedUser, setSelectedUser] = useState('SENIOR');
+
+  const handleNextStep = () => {
+    // eslint-disable-next-line no-use-before-define
+    dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
+    navigate('/register/2');
+  };
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
@@ -57,9 +65,9 @@ function Register1() {
       });
   };
 
-  const handleNextStep = () => {
-    navigate('/register/2');
-  };
+  // const handleNextStep = () => {
+  //   navigate('/register/2');
+  // };
 
   const handleEmailChange = (e) => {
     const emailInput = e.target.value;
