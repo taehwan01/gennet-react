@@ -29,7 +29,7 @@ function Login() {
 
       navigate(`/${user.type.toLowerCase()}`);
     } catch (error) {
-      console.error('Login error:', error);
+      // console.error('Login error:', error);
     }
   };
 
@@ -61,11 +61,6 @@ function Login() {
     marginBottom: '17px',
     marginLeft: '20px',
   };
-
-  // const handleLogin = () => {
-  //   dispatch(loginUser({ email, password }));
-  //   navigate(`/${user.type.toLowerCase()}`);
-  // };
 
   return (
     <div className={styles.container}>

@@ -1,9 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './SettingProfile.module.scss';
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
 import testIMG from '../../assets/images/banana.png';
+import { logoutUser } from '../../store';
 
 // const userIntro = `잘 부탁드립니다. 요즘 MZ들은 참 부럽네요. ^^
 // 저도 시대에 뒤떨어지지 않으려면 열심히 배워야겠읍니다.
@@ -16,6 +18,8 @@ import testIMG from '../../assets/images/banana.png';
 
 function SettingProfile() {
   const user = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const profileEdit = () => {
@@ -23,6 +27,19 @@ function SettingProfile() {
     navigate(`/${user.type.toLowerCase()}/profile-edit`);
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.delete('http://localhost:8080/auth/logout', {
+        headers: {
+          Refresh: user.refreshToken,
+        },
+      });
+      dispatch(logoutUser());
+      navigate('/login');
+    } catch (error) {
+      console.log('Logout error: ', error);
+    }
+  };
   const editButton = {
     backgroundColor: '#57b0bc',
     width: '300px',
@@ -86,7 +103,7 @@ function SettingProfile() {
         </div>
         <div className={styles.section3}>
           <Button action={profileEdit} buttonStyle={editButton} tag='프로필 수정하기' />
-          <Button buttonStyle={logoutButton} tag='로그아웃' />
+          <Button action={handleLogout} buttonStyle={logoutButton} tag='로그아웃' />
         </div>
       </div>
       <div> </div>
