@@ -86,7 +86,8 @@ function Register1() {
     const passwordInput = e.target.value;
     setPassword(passwordInput);
     // 특수문자 한 자 이상 포함, 8자 이상, 영어 사용
-    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    // const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    const passwordRegExp = /^(?=.*[\W_])(.{8,})$/;
 
     if (!passwordRegExp.test(passwordInput)) {
       setPasswordValidation(false);
