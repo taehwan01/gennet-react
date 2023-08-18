@@ -5,7 +5,8 @@ import axios from 'axios';
 
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
-import testIMG from '../../assets/images/banana.png';
+import youthIMG from '../../assets/images/junior.png';
+import seniorIMG from '../../assets/images/senior.png';
 import { logoutUser, resetToken } from '../../store';
 
 import styles from './SettingProfile.module.scss';
@@ -97,7 +98,7 @@ function SettingProfile() {
       </div>
       <div className={styles.section2}>
         <div>
-          <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+          <img className={styles.profile} src={`${user.type === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
         </div>
         <div className={styles.info}>
           <p className={styles.profileTxt}>

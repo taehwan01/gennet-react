@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
@@ -40,7 +42,7 @@ function ClassChatroom() {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
-
+  console.log(user.name);
   const sendButtonStyle = {
     backgroundColor: '#57b0bc',
     // border: '2px solid #57b0bc',
@@ -115,15 +117,15 @@ function ClassChatroom() {
           {sameUser && (
             <div className={styles['same-user-chat']}>
               {msg.user !== user.name && (
-                <button type='button' className={`${styles.profileButton}`} onClick={handleProfileClick}>
+                <div className={`${styles.profileButton}`} onClick={handleProfileClick}>
                   <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
-                </button>
+                </div>
               )}
               <span className={`${styles['message-user']} font-bold`}>{msg.user}</span>
               {msg.user === user.name && (
-                <button type='button' className={`${styles.profileButton}`} onClick={handleProfileClick}>
+                <div className={`${styles.profileButton}`} onClick={handleProfileClick}>
                   <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
-                </button>
+                </div>
               )}
             </div>
           )}

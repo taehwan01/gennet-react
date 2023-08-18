@@ -8,7 +8,8 @@ import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
 
 import editIcon from '../../assets/images/photo-icon.png';
-import testIMG from '../../assets/images/banana.png';
+import youthIMG from '../../assets/images/junior.png';
+import seniorIMG from '../../assets/images/senior.png';
 import { resetToken, editProfile } from '../../store';
 
 function SettingProfileEdit() {
@@ -129,7 +130,7 @@ function SettingProfileEdit() {
   return (
     <div className={styles.container}>
       <div>
-        <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+        <img className={styles.profile} src={`${user.type === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
       </div>
       <div className={styles.profileEdit}>
         <label htmlFor='imgInput' className={styles.labelForm}>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 // import { useEffect } from 'react';
 import DailyMyClassList from '../../components/DailyMyClassList/DailyMyClassList';
 import PageBanner from '../../components/PageBanner/PageBanner';
@@ -96,21 +97,16 @@ function MyClasses() {
   return (
     <div className={styles['my-classes-page']}>
       <PageBanner pageTitle='내 수업' pageIntro='지난 수업을 확인하세요.' />
-      {groupedClasses.map((group) => (
-        <div className={styles['my-classes']}>
+      {groupedClasses.map((group, id) => (
+        <div key={id} className={styles['my-classes']}>
           <DailyMyClassList
             title={group.myClass.title}
             name={group.myClass.name}
             date={group.myClass.date}
             roomId={group.myClass.roomId}
           />
-          {group.otherClasses.map((otherClass) => (
-            <MyClass
-              key={otherClass.title}
-              title={otherClass.title}
-              name={otherClass.name}
-              roomId={otherClass.roomId}
-            />
+          {group.otherClasses.map((otherClass, index) => (
+            <MyClass key={index} title={otherClass.title} name={otherClass.name} roomId={otherClass.roomId} />
           ))}
         </div>
       ))}
