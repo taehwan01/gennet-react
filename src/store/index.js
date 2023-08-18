@@ -47,10 +47,15 @@ const userSlice = createSlice({
       state.dateOfBirth = action.payload.dateOfBirth;
       state.introduction = action.payload.introduction;
     },
+    editProfile: (state, action) => {
+      state.name = action.payload.name;
+      state.dateOfBirth = action.payload.dateOfBirth;
+      state.introduction = action.payload.introduction;
+    },
   },
 });
 
-export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo } = userSlice.actions;
+export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo, editProfile } = userSlice.actions;
 
 export default configureStore({
   reducer: {
