@@ -22,31 +22,6 @@ function Register2() {
   const [dateValidation, setDateValidation] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState(null);
 
-  const handleRegister = async () => {
-    try {
-      const memberInfo = {
-        email: user.email,
-        password: user.password,
-        samePassword: user.passwordConfirm,
-        name,
-        dateOfBirth,
-        memberType: user.type,
-        // 이미지와 자기소개 등도 필요한 정보에 따라 추가
-        // image: 이미지,
-        // introduction: '안녕하세요, 시니어입니다',
-        // lifeCategory: 'ECONOMIC',
-      };
-
-      console.log(memberInfo);
-      const response = await axios.post('http://localhost:8080/members/signup', memberInfo);
-
-      console.log('회원가입 성공', response);
-
-      navigate(`/${user.type.toLowerCase()}`);
-    } catch (error) {
-      console.log('회원가입 실패', error);
-    }
-  };
   const selectedBtn = {
     backgroundColor: '#57b0bc',
     border: '2px solid #57b0bc',
@@ -121,6 +96,36 @@ function Register2() {
     // 백엔드로 생년월일 보낼 형식 지정했음
     console.log(dateOfBirth);
   }, [year, month, date, dateOfBirth]);
+
+  const isAllValid = nameValidation && yearValidation && monthValidation && dateValidation;
+
+  const handleRegister = async () => {
+    if (isAllValid && name && year && month && date) {
+      try {
+        const memberInfo = {
+          email: user.email,
+          password: user.password,
+          samePassword: user.passwordConfirm,
+          name,
+          dateOfBirth,
+          memberType: user.type,
+          // 이미지와 자기소개 등도 필요한 정보에 따라 추가
+          // image: 이미지,
+          // introduction: '안녕하세요, 시니어입니다',
+          // lifeCategory: 'ECONOMIC',
+        };
+
+        console.log(memberInfo);
+        const response = await axios.post('http://localhost:8080/members/signup', memberInfo);
+
+        alert('회원가입 성공', response); // TODO: 모달창으로 변경
+
+        navigate(`/${user.type.toLowerCase()}`);
+      } catch (error) {
+        console.log('회원가입 실패', error);
+      }
+    }
+  };
 
   return (
     <div className={styles.container}>
