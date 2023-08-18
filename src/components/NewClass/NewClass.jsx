@@ -10,7 +10,7 @@ import styles from './NewClass.module.scss';
 
 const classIMG = [classIMG1, classIMG2, classIMG3];
 
-function NewClass({ category, title, name, review, classImg }) {
+function NewClass({ postId, category, title, name, review, classImg }) {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
@@ -19,7 +19,7 @@ function NewClass({ category, title, name, review, classImg }) {
   const [loopTitle, setLoopTitle] = useState(title);
 
   const handleClickClass = () => {
-    navigate(`/${user.memberType.toLowerCase()}/class/1`);
+    navigate(`/${user.memberType.toLowerCase()}/class/${postId}`);
   };
 
   useEffect(() => {
@@ -56,6 +56,7 @@ function NewClass({ category, title, name, review, classImg }) {
 }
 
 NewClass.propTypes = {
+  postId: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

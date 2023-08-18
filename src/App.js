@@ -54,7 +54,7 @@ function App() {
           <Route path={`/${user.memberType.toLowerCase()}`}>
             <Route index element={<Main />} />
             <Route path='search/:keyword' element={<SearchResult />} />
-            <Route path='class/:classId' element={<ClassDescription />} />
+            <Route path='class/:postId' element={<ClassDescription />} />
             <Route path='my-classes' element={<MyClasses />} />
             <Route path='request-class'>
               <Route index element={<RequestClass />} />

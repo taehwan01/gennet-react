@@ -27,6 +27,7 @@ function Login() {
     const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
     dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
   };
+  //
   const loginAndGetUserInfo = async () => {
     try {
       const response1 = await axios.post(
@@ -37,8 +38,8 @@ function Login() {
         },
       );
       const accessToken = response1.headers.authorization;
-      // const refreshToken = response1.headers.refresh;
-      // dispatch(setTokens({ accessToken, refreshToken }));
+      const refreshToken = response1.headers.refresh;
+      dispatch(setTokens({ accessToken, refreshToken }));
 
       const { memberId } = response1.data;
 
