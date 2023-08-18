@@ -32,8 +32,8 @@ function Login() {
         password,
       });
       const accessToken = response1.headers.authorization;
-      // const refreshToken = response1.headers.refresh;
-      // dispatch(setTokens({ accessToken, refreshToken }));
+      const refreshToken = response1.headers.refresh;
+      dispatch(setTokens({ accessToken, refreshToken }));
 
       const { memberId } = response1.data;
 

@@ -1,9 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import styles from './RequestClass.module.scss';
 
 import PageBanner from '../../components/PageBanner/PageBanner';
@@ -19,7 +19,7 @@ function RequestClass() {
   const user = useSelector((state) => state.user);
   const imageInputRef = useRef();
 
-  const [selectedInterest, setSelectedInterest] = useState('식사주문');
+  const [selectedInterest, setSelectedInterest] = useState('EATING');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [imageFile, setImageFile] = useState(null);
   const [recentUpload, setRecentUpload] = useState(false);
@@ -82,33 +82,27 @@ function RequestClass() {
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = async () => {
     try {
-      console.log(uuidv4());
       const now = new Date();
       const formattedDate = now.toISOString().split('.')[0];
-      const response = await axios.post(
-        'http://localhost:8080/posts',
-        {
-          // TODO: DB auto increment 사용
-          postId: uuidv4(),
-          title,
-          content,
-          lifeCategory: selectedInterest,
-          viewCount: 0,
-          postMemberId: user.memberId,
-          matchingMemberId: 2,
-          postStatus: 'RECRUITING',
-          created_at: formattedDate,
-          modified_at: formattedDate,
-        },
-        {
-          headers: { Authorization: user.accessToken },
-        }
-      );
+      console.log(title, content, selectedInterest, user.memberId, formattedDate);
+      const postData = {
+        title,
+        content,
+        lifeCategory: selectedInterest,
+        viewCount: 0,
+        postMemberId: 8,
+        matchingMemberId: 2,
+        postStatus: 'RECRUTING',
+        created_at: formattedDate,
+        modified_at: formattedDate,
+      };
+      const headers = { Authorization: user.accessToken };
+      const response = await axios.post('http://localhost:8080/posts', postData, { headers });
       console.log(response.data);
     } catch (err) {
       console.log('Request class error: ', err);
     }
-    navigate(`/${user.memberType.toLowerCase()}/request-class/confirmed`);
+    // navigate(`/${user.memberType.toLowerCase()}/request-class/confirmed`);
   };
 
   const handleTitleChange = (e) => {
@@ -175,24 +169,24 @@ function RequestClass() {
             <div className={styles.formDiv}>
               <div className={styles.categoryForm}>
                 <Button
-                  buttonStyle={selectedInterest === '식사주문' ? selectedBtn : unSelectedBtn}
+                  buttonStyle={selectedInterest === 'EATING' ? selectedBtn : unSelectedBtn}
                   tag='식사주문'
-                  action={() => setSelectedInterest('식사주문')}
+                  action={() => setSelectedInterest('EATING')}
                 />
                 <Button
-                  buttonStyle={selectedInterest === '경제생활' ? selectedBtn : unSelectedBtn}
+                  buttonStyle={selectedInterest === 'ECONOMIC' ? selectedBtn : unSelectedBtn}
                   tag='경제생활'
-                  action={() => setSelectedInterest('경제생활')}
+                  action={() => setSelectedInterest('ECONOMIC')}
                 />
                 <Button
-                  buttonStyle={selectedInterest === '일상생활' ? selectedBtn : unSelectedBtn}
+                  buttonStyle={selectedInterest === 'SOCIAL' ? selectedBtn : unSelectedBtn}
                   tag='일상생활'
-                  action={() => setSelectedInterest('일상생활')}
+                  action={() => setSelectedInterest('SOCIAL')}
                 />
                 <Button
-                  buttonStyle={selectedInterest === '기타' ? selectedBtn : unSelectedBtn}
+                  buttonStyle={selectedInterest === 'ETC' ? selectedBtn : unSelectedBtn}
                   tag='기타'
-                  action={() => setSelectedInterest('기타')}
+                  action={() => setSelectedInterest('ETC')}
                 />
               </div>
             </div>
