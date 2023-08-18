@@ -68,22 +68,13 @@ function Main() {
   return (
     <div className={styles['main-page']}>
       <AdCarousel />
+      {`${user.memberId} ${user.type} ${user.memberId} ${user.memberId}`}
       <div className={styles.messages}>
-        <p
-          className={`${styles['main-message']} font-bold ${
-            user.type === 'SENIOR' ? 'font-30pt' : 'font-28pt'
-          }`}
-        >
+        <p className={`${styles['main-message']} font-bold ${user.type === 'SENIOR' ? 'font-30pt' : 'font-28pt'}`}>
           참여해보세요!
         </p>
-        <p
-          className={`${styles['sub-message']} ${
-            user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'
-          }`}
-        >
-          {user.type === 'SENIOR'
-            ? `${user.name}님에게 추천하는 수업들`
-            : '지금 시니어들이 요청한 수업들'}
+        <p className={`${styles['sub-message']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+          {user.type === 'SENIOR' ? `${user.name}님에게 추천하는 수업들` : '지금 시니어들이 요청한 수업들'}
         </p>
       </div>
       <div className={styles['new-classes']}>

@@ -1,7 +1,9 @@
+/* eslint-disable react/no-array-index-key */
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './RequestClass.module.scss';
 
 import PageBanner from '../../components/PageBanner/PageBanner';
@@ -21,6 +23,12 @@ function RequestClass() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [imageFile, setImageFile] = useState(null);
   const [recentUpload, setRecentUpload] = useState(false);
+  const [title, setTitle] = useState('');
+  // const [inputCountTitle, setInputCountTitle] = useState(0);
+  const [titleValidation, setTitleValidation] = useState(false);
+  const [content, setContent] = useState('');
+  // const [inputCount, setInputCount] = useState(0);
+  const [contentValidation, setContentValidation] = useState(false);
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -74,17 +82,34 @@ function RequestClass() {
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/post', {});
-      console.log(response);
+      console.log(uuidv4());
+      const now = new Date();
+      const formattedDate = now.toISOString().split('.')[0];
+      const response = await axios.post(
+        'http://localhost:8080/posts',
+        {
+          // TODO: DB auto increment 사용
+          postId: uuidv4(),
+          title,
+          content,
+          lifeCategory: selectedInterest,
+          viewCount: 0,
+          postMemberId: user.memberId,
+          matchingMemberId: 2,
+          postStatus: 'RECRUITING',
+          created_at: formattedDate,
+          modified_at: formattedDate,
+        },
+        {
+          headers: { Authorization: user.accessToken },
+        }
+      );
+      console.log(response.data);
     } catch (err) {
       console.log('Request class error: ', err);
     }
     navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
-
-  const [title, setTitle] = useState('');
-  // const [inputCountTitle, setInputCountTitle] = useState(0);
-  const [titleValidation, setTitleValidation] = useState(false);
 
   const handleTitleChange = (e) => {
     const titleInput = e.target.value;
@@ -93,10 +118,6 @@ function RequestClass() {
     const space = titleInput.trim().split(' ');
     setTitleValidation(space.length >= 2);
   };
-
-  const [content, setContent] = useState('');
-  // const [inputCount, setInputCount] = useState(0);
-  const [contentValidation, setContentValidation] = useState(false);
 
   const handleContentChange = (e) => {
     const contentInput = e.target.value;
@@ -213,6 +234,7 @@ function RequestClass() {
             <div className={styles['image-selector']}>
               {classImages.map((classImage, index) => (
                 <button
+                  key={index}
                   type='button'
                   onClick={() => handleImageClick(index)}
                   className={`${styles['class-img']} ${styles[`class-img-${index + 1}`]} ${

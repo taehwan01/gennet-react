@@ -11,7 +11,7 @@ const userSlice = createSlice({
 
     memberId: 0,
     name: '',
-    type: 'SENIOR',
+    type: 'TYPE',
     dateOfBirth: '',
     introduction: '',
     avgStarRate: 0,
