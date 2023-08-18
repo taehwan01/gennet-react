@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import styles from './ClassEnd.module.scss';
 import Button from '../../components/Button/Button';
 import Star from '../../components/Star/Star';
+import juniorImg from '../../assets/images/junior.png';
 
 function ClassEnd() {
   const navigate = useNavigate();
@@ -29,16 +30,16 @@ function ClassEnd() {
         </p>
       </div>
       <div className={styles.classInfoBox}>
-        <div className={styles.profile} />
+        <div className={styles.profile}>
+          <img className={styles.juniorImg} src={juniorImg} alt='junior icon' />
+        </div>
         <div className={styles.infoText}>
           <span className={`${styles.tutorName} font-bold`}>천다인</span>
           <span className={styles.classTitle}>버거킹 키오스크 수업</span>
         </div>
       </div>
       <Star />
-      <span className={styles.starDescription}>
-        별을 직접 클릭할 수 있어요.
-      </span>
+      <span className={styles.starDescription}>별을 직접 클릭할 수 있어요.</span>
       <Button action={handleClick} buttonStyle={buttonStyle} tag='완료' />
     </div>
   );
