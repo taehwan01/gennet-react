@@ -47,26 +47,26 @@ function Navigation() {
     <>
       <div className={`${styles['navigation-bar']} `}>
         <div className={styles['navigation-contents']}>
-          <Link to={`/${user.type.toLowerCase()}`}>
+          <Link to={`/${user.memberType.toLowerCase()}`}>
             <img className={styles['main-logo']} src={mainLogo} alt='GENNET logo' />
           </Link>
           <NavLink
-            className={`${styles['nav-link']} font-bold ${user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
-            to={`/${user.type.toLowerCase()}/my-classes`}
+            className={`${styles['nav-link']} font-bold ${user.memberType === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
+            to={`/${user.memberType.toLowerCase()}/my-classes`}
           >
             내 수업
           </NavLink>
           <NavLink
-            className={`${styles['nav-link']} font-bold ${user.type === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
-            to={`/${user.type.toLowerCase()}/request-class`}
+            className={`${styles['nav-link']} font-bold ${user.memberType === 'SENIOR' ? 'font-28pt' : 'font-25pt'}`}
+            to={`/${user.memberType.toLowerCase()}/request-class`}
           >
-            {`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
+            {`${user.memberType === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
           </NavLink>
         </div>
         <div className={styles['navigation-contents']}>
           <div className={styles['input-wrapper']}>
             <input
-              className={`${styles['input-search']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}
+              className={`${styles['input-search']} ${user.memberType === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}
               type='text'
               placeholder='검색어를 입력해주세요.'
               value={searchKeyword}
@@ -75,7 +75,7 @@ function Navigation() {
               }}
             />
             <button
-              onClick={() => navigate(`/${user.type.toLowerCase()}/search/${searchKeyword}`)}
+              onClick={() => navigate(`/${user.memberType.toLowerCase()}/search/${searchKeyword}`)}
               className={styles['search-button']}
               type='button'
             >
@@ -92,7 +92,7 @@ function Navigation() {
           {alertModal && (
             <div
               className={`${
-                user.type === 'SENIOR' ? styles['alert-container-senior'] : styles['alert-container-youth']
+                user.memberType === 'SENIOR' ? styles['alert-container-senior'] : styles['alert-container-youth']
               }`}
             >
               <div className={styles['alert-message-box']}>
@@ -109,10 +109,10 @@ function Navigation() {
                   <span
                     style={{ lineHeight: '40px' }}
                     className={`${styles['alert-message']} font-bold ${
-                      user.type === 'SENIOR' ? 'font-25pt' : 'font-20pt'
+                      user.memberType === 'SENIOR' ? 'font-25pt' : 'font-20pt'
                     }`}
                   >
-                    {user.type === 'SENIOR' ? seniorMessage : youthMessage}
+                    {user.memberType === 'SENIOR' ? seniorMessage : youthMessage}
                     {/* 청년이 연결되었습니다. <br />
                     지금 수업을 시작하세요. */}
                   </span>

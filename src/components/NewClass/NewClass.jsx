@@ -19,7 +19,7 @@ function NewClass({ category, title, name, review, classImg }) {
   const [loopTitle, setLoopTitle] = useState(title);
 
   const handleClickClass = () => {
-    navigate(`/${user.type.toLowerCase()}/class/1`);
+    navigate(`/${user.memberType.toLowerCase()}/class/1`);
   };
 
   useEffect(() => {
@@ -32,22 +32,14 @@ function NewClass({ category, title, name, review, classImg }) {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div className={styles['new-class']} onClick={handleClickClass}>
-      <img
-        className={styles['new-class-image']}
-        src={classIMG[classImg]}
-        alt='class-img'
-      />
+      <img className={styles['new-class-image']} src={classIMG[classImg]} alt='class-img' />
       <div className={styles['new-class-info']}>
         <div className={styles['class-category']}>
-          <span className={`${styles['class-category-string']} font-bold`}>
-            {category}
-          </span>
+          <span className={`${styles['class-category-string']} font-bold`}>{category}</span>
         </div>
         <p
           ref={titleRef}
-          className={`${styles['class-title']} font-bold ${
-            isAnimated ? styles['is-animated'] : ''
-          }`}
+          className={`${styles['class-title']} font-bold ${isAnimated ? styles['is-animated'] : ''}`}
           data-text={loopTitle}
         >
           {loopTitle}
@@ -55,9 +47,7 @@ function NewClass({ category, title, name, review, classImg }) {
         <div className={styles['tutor-info']}>
           <span className={styles['tutor-name']}>{name}</span>
           <span className={styles['tutor-review']}>
-            {`${'★'.repeat(review)}${'☆'.repeat(5 - review)} ${review.toFixed(
-              1,
-            )}점`}
+            {`${'★'.repeat(review)}${'☆'.repeat(5 - review)} ${review.toFixed(1)}점`}
           </span>
         </div>
       </div>

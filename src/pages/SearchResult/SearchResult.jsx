@@ -63,13 +63,15 @@ function Main() {
   return (
     <div className={styles['search-result-page']}>
       <div className={styles.messages}>
-        <p className={`${styles['main-message']} font-bold ${user.type === 'SENIOR' ? 'font-30pt' : 'font-28pt'}`}>
+        <p
+          className={`${styles['main-message']} font-bold ${user.memberType === 'SENIOR' ? 'font-30pt' : 'font-28pt'}`}
+        >
           &apos;{keyword}&apos;(으)로 검색한 결과
         </p>
       </div>
       <div className={styles['new-classes']}>
         {newClasses.length === 0 ? (
-          <span className={`${styles['no-result']} ${user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}>
+          <span className={`${styles['no-result']} ${user.memberType === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}>
             검색 결과가 없습니다.
           </span>
         ) : (

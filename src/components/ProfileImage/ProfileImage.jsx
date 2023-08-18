@@ -8,8 +8,8 @@ import youthIMG from '../../assets/images/junior.png';
 function ProfileImage() {
   const user = useSelector((state) => state.user);
   return (
-    <NavLink className={styles['profile-link']} to={`/${user.type.toLowerCase()}/profile`}>
-      <img src={`${user.type === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
+    <NavLink className={styles['profile-link']} to={`/${user.memberType.toLowerCase()}/profile`}>
+      <img src={`${user.memberType === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
     </NavLink>
   );
 }

@@ -110,7 +110,7 @@ function Register2() {
           samePassword: user.passwordConfirm,
           name,
           dateOfBirth,
-          memberType: user.type,
+          memberType: user.memberType,
           image: '',
           introduction,
           // lifeCategory: selectedInterest,
@@ -121,7 +121,7 @@ function Register2() {
 
         alert('회원가입 성공', response); // TODO: 모달창으로 변경
 
-        navigate(`/${user.type.toLowerCase()}`);
+        navigate(`/${user.memberType.toLowerCase()}`);
       } catch (error) {
         console.log('회원가입 실패', error);
       }

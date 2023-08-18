@@ -108,7 +108,7 @@ function RequestClass() {
     } catch (err) {
       console.log('Request class error: ', err);
     }
-    navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
+    navigate(`/${user.memberType.toLowerCase()}/request-class/confirmed`);
   };
 
   const handleTitleChange = (e) => {
@@ -130,9 +130,9 @@ function RequestClass() {
   return (
     <div className={styles['request-class-page']}>
       <PageBanner
-        pageTitle={`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
+        pageTitle={`${user.memberType === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
         pageIntro={`${
-          user.type === 'SENIOR'
+          user.memberType === 'SENIOR'
             ? '궁금한 것들에 대해 수업을 요청해보세요.'
             : '시니어에게 알려주고 싶은 수업을 등록하세요.'
         }`}
@@ -143,14 +143,14 @@ function RequestClass() {
           <div className={styles['form-solo-div']}>
             <div
               className={`${styles['form-tag']} ${styles['form-tag-text']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+                user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
             >
               <span>제목</span>
             </div>
             <input
               type='text'
-              className={`${styles['form-input-text']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
+              className={`${styles['form-input-text']} ${user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'}`}
               value={title}
               onChange={handleTitleChange}
               maxLength='255'
@@ -166,7 +166,7 @@ function RequestClass() {
           <div className={styles['form-solo-div']}>
             <div
               className={`${styles['form-tag']} ${styles['form-tag-text']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+                user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
             >
               <span>분야</span>
@@ -201,20 +201,20 @@ function RequestClass() {
           <div className={styles['form-solo-div']}>
             <div
               className={`${styles['form-tag']} ${styles['form-tag-textarea']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+                user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
             >
               <span style={{ paddingTop: '4px' }}>내용</span>
             </div>
             <textarea
               className={`${styles['form-input-textarea']} ${styles['form-input-description']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+                user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
               value={content}
               onChange={handleContentChange}
               maxLength='10000'
               placeholder={`${
-                user.type === 'SENIOR' ? '어떤 내용의 수업을 듣고 싶나요?' : '어떤 내용의 수업을 등록하고 싶나요?'
+                user.memberType === 'SENIOR' ? '어떤 내용의 수업을 듣고 싶나요?' : '어떤 내용의 수업을 등록하고 싶나요?'
               }`}
             />
             {content && !contentValidation ? (
@@ -226,7 +226,7 @@ function RequestClass() {
           <div className={styles['form-solo-div']}>
             <div
               className={`${styles['form-tag']} ${styles['form-tag-image']} ${
-                user.type === 'SENIOR' ? 'font-22pt' : 'font-20pt'
+                user.memberType === 'SENIOR' ? 'font-22pt' : 'font-20pt'
               }`}
             >
               <span>사진 선택</span>
@@ -270,7 +270,7 @@ function RequestClass() {
           <Button
             action={handleSubmit}
             buttonStyle={buttonStyle}
-            tag={`${user.type === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
+            tag={`${user.memberType === 'SENIOR' ? '수업 요청하기' : '수업 등록하기'}`}
           />
         </form>
         <div> </div>

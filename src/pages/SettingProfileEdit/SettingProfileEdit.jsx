@@ -101,7 +101,7 @@ function SettingProfileEdit() {
     borderRadius: '15px',
     marginTop: '25px',
     marginRight: '240px',
-    fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '30pt' : '25pt'}`,
   };
 
   const savedBtn = {
@@ -111,7 +111,7 @@ function SettingProfileEdit() {
     borderRadius: '15px',
     marginTop: '25px',
     marginLeft: '240px',
-    fontSize: `${user.type === 'SENIOR' ? '30pt' : '25pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '30pt' : '25pt'}`,
   };
 
   const handleImgUpload = (event) => {
@@ -130,7 +130,11 @@ function SettingProfileEdit() {
   return (
     <div className={styles.container}>
       <div>
-        <img className={styles.profile} src={`${user.type === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
+        <img
+          className={styles.profile}
+          src={`${user.memberType === 'SENIOR' ? seniorIMG : youthIMG}`}
+          alt='Profile IMG'
+        />
       </div>
       <div className={styles.profileEdit}>
         <label htmlFor='imgInput' className={styles.labelForm}>
@@ -190,7 +194,9 @@ function SettingProfileEdit() {
               value={userIntroduction}
               onChange={onInputHandler}
               maxLength='255'
-              placeholder={`${user.type === 'SENIOR' ? '자신의 자격증 등을 어필해주세요.' : '자신을 소개해주세요.'}`}
+              placeholder={`${
+                user.memberType === 'SENIOR' ? '자신의 자격증 등을 어필해주세요.' : '자신을 소개해주세요.'
+              }`}
             />
             <p className={styles.lengthCount}>
               <span>{inputCount}</span>

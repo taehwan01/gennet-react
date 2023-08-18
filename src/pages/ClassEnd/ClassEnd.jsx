@@ -20,7 +20,7 @@ function ClassEnd() {
   };
 
   const handleClick = () => {
-    navigate(`/${user.type.toLowerCase()}`);
+    navigate(`/${user.memberType.toLowerCase()}`);
   };
   return (
     <div className={styles.container}>

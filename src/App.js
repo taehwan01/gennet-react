@@ -43,7 +43,7 @@ function App() {
   }, [user.accessToken]);
 
   return (
-    <div className={`App ${user.type.toLowerCase()}-page`}>
+    <div className={`App ${user.memberType.toLowerCase()}-page`}>
       <ScrollToTopOnNavigate />
       <Routes>
         <Route path='/' element={<Guest />} />
@@ -60,7 +60,7 @@ function App() {
             </>
           }
         >
-          <Route path={`/${user.type.toLowerCase()}`}>
+          <Route path={`/${user.memberType.toLowerCase()}`}>
             <Route index element={<Main />} />
             <Route path='search/:keyword' element={<SearchResult />} />
             <Route path='class/:classId' element={<ClassDescription />} />

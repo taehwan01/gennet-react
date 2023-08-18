@@ -27,7 +27,7 @@ function SettingProfile() {
 
   const profileEdit = () => {
     // 수정하기
-    navigate(`/${user.type.toLowerCase()}/profile-edit`);
+    navigate(`/${user.memberType.toLowerCase()}/profile-edit`);
   };
 
   const handleLogout = async () => {
@@ -72,7 +72,7 @@ function SettingProfile() {
     borderRadius: '15px',
     marginTop: '30px',
     marginRight: '38px',
-    fontSize: `${user.type === 'SENIOR' ? '25pt' : '22pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '25pt' : '22pt'}`,
   };
 
   const logoutButton = {
@@ -82,7 +82,7 @@ function SettingProfile() {
     borderRadius: '15px',
     marginTop: '30px',
     marginLeft: '38px',
-    fontSize: `${user.type === 'SENIOR' ? '25pt' : '22pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '25pt' : '22pt'}`,
   };
 
   const review = 4;
@@ -98,12 +98,16 @@ function SettingProfile() {
       </div>
       <div className={styles.section2}>
         <div>
-          <img className={styles.profile} src={`${user.type === 'SENIOR' ? seniorIMG : youthIMG}`} alt='Profile IMG' />
+          <img
+            className={styles.profile}
+            src={`${user.memberType === 'SENIOR' ? seniorIMG : youthIMG}`}
+            alt='Profile IMG'
+          />
         </div>
         <div className={styles.info}>
           <p className={styles.profileTxt}>
-            <span className={` ${styles.typeTxt} ${user.type === 'SENIOR' ? 'senior-color' : 'youth-color'}`}>
-              {user.type === 'SENIOR' ? '시니어' : '청년'}
+            <span className={` ${styles.typeTxt} ${user.memberType === 'SENIOR' ? 'senior-color' : 'youth-color'}`}>
+              {user.memberType === 'SENIOR' ? '시니어' : '청년'}
             </span>
             <span className={`${styles.nameTxt} font-bold`}> {user.name} </span>
             <span className={`${styles.nimTxt} font-bold`}>님</span>
@@ -111,7 +115,7 @@ function SettingProfile() {
 
           <div className={`${styles.reviewDiv}`}>
             <div className={`${styles.tutorEvaluate} font-bold`}>
-              {user.type === 'SENIOR' ? (
+              {user.memberType === 'SENIOR' ? (
                 ''
               ) : (
                 <>
@@ -122,7 +126,7 @@ function SettingProfile() {
             </div>
           </div>
 
-          <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+          <p className={`${styles.dateTxt} ${user.memberType === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
             {user.dateOfBirth}
           </p>
         </div>

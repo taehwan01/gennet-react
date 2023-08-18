@@ -17,17 +17,19 @@ function MyClass({ roomId, title, name }) {
     backgroundColor: '#57b0bc',
     width: '200px',
     height: '100%',
-    fontSize: `${user.type === 'SENIOR' ? '35pt' : '25pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '35pt' : '25pt'}`,
     borderRadius: '15px',
   };
 
   return (
     <div className={styles['my-class']}>
       <div className={styles['my-class-info']}>
-        <span className={`${styles['with-tutor']} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+        <span className={`${styles['with-tutor']} ${user.memberType === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
           청년 {name}님과 함께한
         </span>
-        <span className={`${styles['class-title']} font-bold ${user.type === 'SENIOR' ? 'font-33pt' : 'font-25pt'}`}>
+        <span
+          className={`${styles['class-title']} font-bold ${user.memberType === 'SENIOR' ? 'font-33pt' : 'font-25pt'}`}
+        >
           {title}
         </span>
       </div>

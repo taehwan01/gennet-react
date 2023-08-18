@@ -33,15 +33,15 @@ function Login() {
       });
 
       const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
-      dispatch(setUserInfo({ memberId, type: memberType, avgStarRate, name, image, dateOfBirth, introduction }));
+      dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
     } catch (error) {
       console.error('Login error:', error);
     }
   };
-  const handleLogin = async () => {
-    await loginAndGetUserInfo();
-    console.log('user: ', user.type);
-    navigate(`/${user.type.toLowerCase()}`);
+  const handleLogin = () => {
+    loginAndGetUserInfo();
+    console.log('user: ', user.memberType);
+    navigate(`/${user.memberType.toLowerCase()}`);
   };
 
   const buttonStyle = {

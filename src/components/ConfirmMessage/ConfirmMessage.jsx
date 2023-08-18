@@ -10,7 +10,7 @@ function ConfirmMessage({ mainMessage, subMessage }) {
   const user = useSelector((state) => state.user);
 
   const handleClick = () => {
-    navigate(`/${user.type.toLowerCase()}`);
+    navigate(`/${user.memberType.toLowerCase()}`);
   };
 
   const buttonStyle = {
@@ -31,11 +31,7 @@ function ConfirmMessage({ mainMessage, subMessage }) {
           <div className={styles['sub-message']}>
             <span>{subMessage}</span>
           </div>
-          <Button
-            action={handleClick}
-            buttonStyle={buttonStyle}
-            tag='다른 수업 보러가기'
-          />
+          <Button action={handleClick} buttonStyle={buttonStyle} tag='다른 수업 보러가기' />
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ function ClassDescription() {
 
   const navigate = useNavigate();
   const handleProfileClick = () => {
-    navigate(`/${user.type.toLowerCase()}/profile`);
+    navigate(`/${user.memberType.toLowerCase()}/profile`);
   };
   const handleChatClick = () => {
     console.log(roomId);
@@ -23,10 +23,10 @@ function ClassDescription() {
   };
   const categoryBtn = {
     backgroundColor: '#57b0bc',
-    width: `${user.type === 'SENIOR' ? '120px' : '105px'}`,
-    height: `${user.type === 'SENIOR' ? '40px' : '38px'}`,
+    width: `${user.memberType === 'SENIOR' ? '120px' : '105px'}`,
+    height: `${user.memberType === 'SENIOR' ? '40px' : '38px'}`,
     borderRadius: '10px',
-    fontSize: `${user.type === 'SENIOR' ? '19pt' : '18pt'}`,
+    fontSize: `${user.memberType === 'SENIOR' ? '19pt' : '18pt'}`,
   };
   const buttonStyle = {
     backgroundColor: '#57b0bc',
@@ -55,7 +55,7 @@ function ClassDescription() {
             <div className={styles.topRight}>
               <span className={`${styles.userName} font-bold`}>천다인님</span>
               <div className={styles.tutorEvaluate}>
-                {user.type === 'SENIOR' ? (
+                {user.memberType === 'SENIOR' ? (
                   <>
                     <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
                     <span className={styles.tutorScore}>4.0점</span>
@@ -73,17 +73,21 @@ function ClassDescription() {
               <div className={styles.category}>
                 <Button buttonStyle={categoryBtn} tag='식사주문' />
               </div>
-              <span className={`${styles.classTitle} font-bold ${user.type === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}>
+              <span
+                className={`${styles.classTitle} font-bold ${user.memberType === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}
+              >
                 버거킹 키오스크 수업
               </span>
               <div
-                className={`${styles.classInformationWrapper} ${user.type === 'SENIOR' ? 'font-20pt' : 'font-18pt'}`}
+                className={`${styles.classInformationWrapper} ${
+                  user.memberType === 'SENIOR' ? 'font-20pt' : 'font-18pt'
+                }`}
               >
                 <p className={styles.classInformation}>{classTxt}</p>
               </div>
             </div>
             <div className={styles.bottom}>
-              {user.type === 'SENIOR' ? (
+              {user.memberType === 'SENIOR' ? (
                 <Button buttonStyle={buttonStyle} tag='수업 들으러 가기' action={handleChatClick} />
               ) : (
                 <Button buttonStyle={buttonStyle} tag='수업 하러 가기' action={handleChatClick} />

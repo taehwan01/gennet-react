@@ -92,7 +92,7 @@ function Register1() {
   const handleNextStep = () => {
     if (isAllValid && emailDupliError === '') {
       // eslint-disable-next-line no-use-before-define
-      dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
+      dispatch(loginUser({ email, password, passwordConfirm, memberType: selectedUser }));
       navigate('/register/2');
     }
   };

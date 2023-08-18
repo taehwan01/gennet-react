@@ -11,7 +11,7 @@ const userSlice = createSlice({
 
     memberId: 0,
     name: '',
-    type: 'TYPE',
+    memberType: 'YOUTH',
     dateOfBirth: '',
     introduction: '',
     avgStarRate: 0,
@@ -25,7 +25,7 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.password = action.payload.password;
       state.passwordConfirm = action.payload.passwordConfirm;
-      state.type = action.payload.type;
+      state.memberType = action.payload.memberType;
     },
     logoutUser: (state) => {
       state.accessToken = '';
@@ -38,9 +38,12 @@ const userSlice = createSlice({
     resetToken: (state, action) => {
       state.accessToken = action.payload.accessToken;
     },
+    setMemberId: (state, action) => {
+      state.memberId = action.payload.memberId;
+    },
     setUserInfo: (state, action) => {
       state.memberId = action.payload.memberId;
-      state.type = action.payload.type;
+      state.memberType = action.payload.memberType;
       state.avgStarRate = action.payload.avgStarRate;
       state.name = action.payload.name;
       state.image = action.payload.image;
@@ -55,7 +58,8 @@ const userSlice = createSlice({
   },
 });
 
-export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo, editProfile } = userSlice.actions;
+export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo, setMemberId, editProfile } =
+  userSlice.actions;
 
 export default configureStore({
   reducer: {

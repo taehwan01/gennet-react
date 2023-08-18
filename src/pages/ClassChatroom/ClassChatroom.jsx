@@ -97,14 +97,14 @@ function ClassChatroom() {
     navigate('/class-chat/:roomId/classEnd');
   };
   const handleClickYesYouth = () => {
-    navigate(`/${user.type.toLowerCase()}`);
+    navigate(`/${user.memberType.toLowerCase()}`);
   };
   const handleClickNo = () => {
     setModal(false);
   };
 
   const handleProfileClick = () => {
-    navigate(`/${user.type.toLowerCase()}/profile`);
+    navigate(`/${user.memberType.toLowerCase()}/profile`);
   };
 
   const renderMessages = () => {
@@ -178,7 +178,7 @@ function ClassChatroom() {
               </div>
               <div className={styles['button-container']}>
                 <Button
-                  action={user.type === 'SENIOR' ? handleClickYesSenior : handleClickYesYouth}
+                  action={user.memberType === 'SENIOR' ? handleClickYesSenior : handleClickYesYouth}
                   buttonStyle={yesButtonStyle}
                   tag='네, 종료할게요'
                 />
