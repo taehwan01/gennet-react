@@ -31,6 +31,7 @@ function ScrollToTopOnNavigate() {
 
 function App() {
   const user = useSelector((state) => state.user);
+  console.log(user);
 
   return (
     <div className={`App ${user.type.toLowerCase()}-page`}>

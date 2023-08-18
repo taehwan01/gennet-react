@@ -11,6 +11,7 @@ function Register2() {
   const user = useSelector((state) => state.user);
 
   const [selectedInterest, setSelectedInterest] = useState('식사주문');
+  const [introduction, setIntroduction] = useState('');
   // form input
   const [name, setName] = useState('');
   const [nameValidation, setNameValidation] = useState(false);
@@ -55,6 +56,7 @@ function Register2() {
   const [inputCount, setInputCount] = useState(0);
 
   const onInputHandler = (e) => {
+    setIntroduction(e.target.value);
     setInputCount(e.target.value.length);
   };
 
@@ -109,10 +111,9 @@ function Register2() {
           name,
           dateOfBirth,
           memberType: user.type,
-          // 이미지와 자기소개 등도 필요한 정보에 따라 추가
-          // image: 이미지,
-          // introduction: '안녕하세요, 시니어입니다',
-          // lifeCategory: 'ECONOMIC',
+          image: '',
+          introduction,
+          // lifeCategory: selectedInterest,
         };
 
         console.log(memberInfo);
@@ -215,6 +216,7 @@ function Register2() {
           <div className={styles.introWrapper}>
             <textarea
               className={styles.introBox}
+              value={introduction}
               onChange={onInputHandler}
               maxLength='255'
               placeholder='자신을 소개해주세요.'
