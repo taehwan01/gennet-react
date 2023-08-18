@@ -106,7 +106,12 @@ function MyClasses() {
             roomId={group.myClass.roomId}
           />
           {group.otherClasses.map((otherClass, index) => (
-            <MyClass key={index} title={otherClass.title} name={otherClass.name} roomId={otherClass.roomId} />
+            <MyClass
+              key={index}
+              title={otherClass.title}
+              name={otherClass.name}
+              roomId={otherClass.roomId}
+            />
           ))}
         </div>
       ))}

@@ -113,18 +113,38 @@ function ClassChatroom() {
       const sameUser = msg.user !== prevUser;
       prevUser = msg.user;
       return (
-        <div className={`${styles['user-chat']} ${user.name === msg.user ? styles.right : styles.left}`}>
+        <div
+          className={`${styles['user-chat']} ${
+            user.name === msg.user ? styles.right : styles.left
+          }`}
+        >
           {sameUser && (
             <div className={styles['same-user-chat']}>
               {msg.user !== user.name && (
-                <div className={`${styles.profileButton}`} onClick={handleProfileClick}>
-                  <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
+                <div
+                  className={`${styles.profileButton}`}
+                  onClick={handleProfileClick}
+                >
+                  <img
+                    className={styles['profile-image']}
+                    src={testIMG}
+                    alt='Profile IMG'
+                  />
                 </div>
               )}
-              <span className={`${styles['message-user']} font-bold`}>{msg.user}</span>
+              <span className={`${styles['message-user']} font-bold`}>
+                {msg.user}
+              </span>
               {msg.user === user.name && (
-                <div className={`${styles.profileButton}`} onClick={handleProfileClick}>
-                  <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
+                <div
+                  className={`${styles.profileButton}`}
+                  onClick={handleProfileClick}
+                >
+                  <img
+                    className={styles['profile-image']}
+                    src={testIMG}
+                    alt='Profile IMG'
+                  />
                 </div>
               )}
             </div>
@@ -144,10 +164,17 @@ function ClassChatroom() {
       <div className={styles['chat-box']}>
         <div className={styles['chatroom-title']}>
           <span className='font-bold'>{myClass.title}</span>
-          <Button action={handleExitChatroom} buttonStyle={exitButtonStyle} tag='수업 종료하기' />
+          <Button
+            action={handleExitChatroom}
+            buttonStyle={exitButtonStyle}
+            tag='수업 종료하기'
+          />
         </div>
         <div className={styles['connection-message']}>
-          <span className='font-bold'>청년 {myClass.tutor}님이 연결되었습니다.</span>
+          <span className='font-bold'>
+            `${user.memberType === 'SENIOR' ? '120px' : '105px'}`
+          </span>
+          {/* <span className='font-bold'>청년 {myClass.tutor}님이 연결되었습니다.</span> */}
         </div>
         <div className={styles['chat-contents']}>{renderMessages()}</div>
         <div className={styles['input-box']}>
@@ -160,7 +187,11 @@ function ClassChatroom() {
               placeholder='내용을 입력해 주세요.'
             />
             <div className={styles['send-button']}>
-              <Button action={handleSendMessage} buttonStyle={sendButtonStyle} tag='전송' />
+              <Button
+                action={handleSendMessage}
+                buttonStyle={sendButtonStyle}
+                tag='전송'
+              />
             </div>
           </div>
         </div>
@@ -178,11 +209,19 @@ function ClassChatroom() {
               </div>
               <div className={styles['button-container']}>
                 <Button
-                  action={user.memberType === 'SENIOR' ? handleClickYesSenior : handleClickYesYouth}
+                  action={
+                    user.memberType === 'SENIOR'
+                      ? handleClickYesSenior
+                      : handleClickYesYouth
+                  }
                   buttonStyle={yesButtonStyle}
                   tag='네, 종료할게요'
                 />
-                <Button action={handleClickNo} buttonStyle={noButtonStyle} tag='아니오' />
+                <Button
+                  action={handleClickNo}
+                  buttonStyle={noButtonStyle}
+                  tag='아니오'
+                />
               </div>
             </div>
           </div>

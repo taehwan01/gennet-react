@@ -28,12 +28,32 @@ function Login() {
 
       const { memberId } = response1.data;
 
-      const response2 = await axios.get(`http://localhost:8080/members/${memberId}`, {
-        headers: { Authorization: accessToken },
-      });
+      const response2 = await axios.get(
+        `http://localhost:8080/members/${memberId}`,
+        {
+          headers: { Authorization: accessToken },
+        },
+      );
 
-      const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
-      dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
+      const {
+        memberType,
+        avgStarRate,
+        name,
+        image,
+        dateOfBirth,
+        introduction,
+      } = response2.data;
+      dispatch(
+        setUserInfo({
+          memberId,
+          memberType,
+          avgStarRate,
+          name,
+          image,
+          dateOfBirth,
+          introduction,
+        }),
+      );
     } catch (error) {
       console.error('Login error:', error);
     }
