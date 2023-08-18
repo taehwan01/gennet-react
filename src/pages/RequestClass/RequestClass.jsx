@@ -84,13 +84,12 @@ function RequestClass() {
     try {
       const now = new Date();
       const formattedDate = now.toISOString().split('.')[0];
-      console.log(title, content, selectedInterest, user.memberId, formattedDate);
       const postData = {
         title,
         content,
         lifeCategory: selectedInterest,
         viewCount: 0,
-        postMemberId: 8,
+        postMemberId: user.memberId,
         matchingMemberId: 2,
         postStatus: 'RECRUTING',
         created_at: formattedDate,
@@ -98,7 +97,7 @@ function RequestClass() {
       };
       const headers = { Authorization: user.accessToken };
       const response = await axios.post('http://localhost:8080/posts', postData, { headers });
-      console.log(response.data);
+      navigate(`/${user.memberType.toLowerCase()}/request-class/confirmed`);
     } catch (err) {
       console.log('Request class error: ', err);
     }
