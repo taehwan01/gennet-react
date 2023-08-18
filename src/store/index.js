@@ -40,7 +40,7 @@ const userSlice = createSlice({
     },
     setUserInfo: (state, action) => {
       state.memberId = action.payload.memberId;
-      state.type = action.payload.memberType;
+      state.type = action.payload.type;
       state.avgStarRate = action.payload.avgStarRate;
       state.name = action.payload.name;
       state.image = action.payload.image;

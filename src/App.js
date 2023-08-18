@@ -33,14 +33,14 @@ function App() {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     if (user.accessToken === '') {
-      navigate('/');
       alert('로그인 필요');
+      navigate('/');
     }
-  }, []);
+  }, [user.accessToken]);
 
   return (
     <div className={`App ${user.type.toLowerCase()}-page`}>

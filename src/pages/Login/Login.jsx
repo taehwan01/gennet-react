@@ -31,14 +31,16 @@ function Login() {
       const response2 = await axios.get(`http://localhost:8080/members/${memberId}`, {
         headers: { Authorization: accessToken },
       });
+
       const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
-      dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
+      dispatch(setUserInfo({ memberId, type: memberType, avgStarRate, name, image, dateOfBirth, introduction }));
     } catch (error) {
       console.error('Login error:', error);
     }
   };
   const handleLogin = async () => {
     await loginAndGetUserInfo();
+    console.log('user: ', user.type);
     navigate(`/${user.type.toLowerCase()}`);
   };
 
