@@ -121,12 +121,14 @@ function SettingProfile() {
             </div>
           </div>
 
-          <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>{user.birth}</p>
+          <p className={`${styles.dateTxt} ${user.type === 'SENIOR' ? 'font-22pt' : 'font-18pt'}`}>
+            {user.dateOfBirth}
+          </p>
         </div>
         <div className={styles.introContainer}>
           <div className={styles.introBox}>
             <div className={styles.introContent}>
-              <p className={styles.introTxt}>{user.intro}</p>
+              <p className={styles.introTxt}>{user.introduction}</p>
             </div>
           </div>
         </div>

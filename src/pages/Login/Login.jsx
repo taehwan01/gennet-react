@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Login.module.scss';
 import logoImg from '../../assets/images/logo.png';
@@ -15,26 +16,30 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
+  const loginAndGetUserInfo = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/auth/login', {
+      const response1 = await axios.post('http://localhost:8080/auth/login', {
         email,
         password,
       });
-      const accessToken = response.headers.authorization;
-      const refreshToken = response.headers.refresh;
+      const accessToken = response1.headers.authorization;
+      const refreshToken = response1.headers.refresh;
       dispatch(setTokens({ accessToken, refreshToken }));
-      const { memberId } = response.data;
 
-      const memberInfo = await axios.get(`http://localhost:8080/members/${memberId}`, {
+      const { memberId } = response1.data;
+
+      const response2 = await axios.get(`http://localhost:8080/members/${memberId}`, {
         headers: { Authorization: accessToken },
       });
-      dispatch(setUserInfo({ memberInfo }));
-
-      navigate(`/${user.type.toLowerCase()}`);
+      const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
+      dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
     } catch (error) {
       console.error('Login error:', error);
     }
+  };
+  const handleLogin = async () => {
+    await loginAndGetUserInfo();
+    navigate(`/${user.type.toLowerCase()}`);
   };
 
   const buttonStyle = {

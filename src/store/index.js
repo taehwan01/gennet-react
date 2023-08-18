@@ -5,15 +5,15 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     // user 정보
-    email: 'test@gmail.com',
+    email: '',
     password: '',
     samePassword: '',
 
-    memberId: 6,
-    name: '천다인',
+    memberId: 0,
+    name: '',
     type: 'SENIOR',
-    dateOfBirth: '2002.01.10',
-    introduction: 'test message',
+    dateOfBirth: '',
+    introduction: '',
     avgStarRate: 0,
 
     // auth 정보
@@ -39,6 +39,7 @@ const userSlice = createSlice({
       state.accessToken = action.payload.accessToken;
     },
     setUserInfo: (state, action) => {
+      state.memberId = action.payload.memberId;
       state.type = action.payload.memberType;
       state.avgStarRate = action.payload.avgStarRate;
       state.name = action.payload.name;
@@ -46,10 +47,15 @@ const userSlice = createSlice({
       state.dateOfBirth = action.payload.dateOfBirth;
       state.introduction = action.payload.introduction;
     },
+    editProfile: (state, action) => {
+      state.name = action.payload.name;
+      state.dateOfBirth = action.payload.dateOfBirth;
+      state.introduction = action.payload.introduction;
+    },
   },
 });
 
-export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo } = userSlice.actions;
+export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo, editProfile } = userSlice.actions;
 
 export default configureStore({
   reducer: {
