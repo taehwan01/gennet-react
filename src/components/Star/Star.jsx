@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FaStar } from 'react-icons/fa';
 import axios from 'axios';
 import styles from './Star.module.scss';
@@ -49,5 +50,10 @@ function Star({ memberId, ratedMemberId }) {
     </div>
   );
 }
+
+Star.propTypes = {
+  memberId: PropTypes.number.isRequired,
+  ratedMemberId: PropTypes.number.isRequired,
+};
 
 export default Star;
