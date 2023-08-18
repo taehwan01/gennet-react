@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
+import axios from 'axios';
 import styles from './RequestClass.module.scss';
 
 import PageBanner from '../../components/PageBanner/PageBanner';
@@ -71,7 +72,13 @@ function RequestClass() {
   };
 
   // eslint-disable-next-line no-unused-vars
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/post', {});
+      console.log(response);
+    } catch (err) {
+      console.log('Request class error: ', err);
+    }
     navigate(`/${user.type.toLowerCase()}/request-class/confirmed`);
   };
 

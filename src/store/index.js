@@ -5,14 +5,16 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     // user 정보
-    memberId: 6,
-    name: '천다인',
     email: 'test@gmail.com',
     password: '',
     samePassword: '',
+
+    memberId: 6,
+    name: '천다인',
     type: 'SENIOR',
-    birth: '2002.01.10',
-    intro: 'test message',
+    dateOfBirth: '2002.01.10',
+    introduction: 'test message',
+    avgStarRate: 0,
 
     // auth 정보
     accessToken: '',
@@ -20,11 +22,8 @@ const userSlice = createSlice({
   },
   reducers: {
     loginUser: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.email = action.payload.email;
-      // eslint-disable-next-line no-param-reassign
       state.password = action.payload.password;
-      // eslint-disable-next-line no-param-reassign
       state.passwordConfirm = action.payload.passwordConfirm;
     },
     logoutUser: (state) => {
@@ -35,10 +34,21 @@ const userSlice = createSlice({
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
     },
+    resetToken: (state, action) => {
+      state.accessToken = action.payload.accessToken;
+    },
+    setUserInfo: (state, action) => {
+      state.type = action.payload.memberType;
+      state.avgStarRate = action.payload.avgStarRate;
+      state.name = action.payload.name;
+      state.image = action.payload.image;
+      state.dateOfBirth = action.payload.dateOfBirth;
+      state.introduction = action.payload.introduction;
+    },
   },
 });
 
-export const { loginUser, logoutUser, setTokens } = userSlice.actions;
+export const { loginUser, logoutUser, setTokens, resetToken, setUserInfo } = userSlice.actions;
 
 export default configureStore({
   reducer: {

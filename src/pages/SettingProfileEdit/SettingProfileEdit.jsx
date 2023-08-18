@@ -1,38 +1,49 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import styles from './SettingProfileEdit.module.scss';
 import Button from '../../components/Button/Button';
 
 import editIcon from '../../assets/images/photo-icon.png';
 import testIMG from '../../assets/images/banana.png';
+import { resetToken } from '../../store';
 
 function SettingProfileEdit() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   const [name, setName] = useState('');
   const [nameValidation, setNameValidation] = useState(false);
-  const [year, setYear] = useState(null);
+  const [year, setYear] = useState('');
   const [yearValidation, setYearValidation] = useState(false);
-  const [month, setMonth] = useState(null);
+  const [month, setMonth] = useState('');
   const [monthValidation, setMonthValidation] = useState(false);
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState('');
   const [dateValidation, setDateValidation] = useState(false);
-  const [dateOfBirth, setDateOfBirth] = useState(null);
+  const [dateOfBirth, setDateOfBirth] = useState('');
 
   const handleSave = async () => {
     // 수정
     try {
-      const response = await axios.patch(`http://localhost:8080/members/${user.id}/edit`, {
-        name,
-        // eslint-disable-next-line no-undef
-        image, // 바꿔야 됨
-        dateOfBirth,
-        introduction: 'introduction', // 바꿔야 됨
+      const response = await axios.patch(`http://localhost:8080/members/${user.memberId}/edit`, {
+        name: 'kimcoding',
+        // image:
+        //   'https://gennetimage.s3.ap-northeast-2.amazonaws.com/member/759fe657-9be9-4adb-aeab-7d995361db67.KakaoTalk_20230628_133838367.jpg',
+        dateOfBirth: '2023.8.2',
+        introduction: '자기소개 수정',
       });
 
       console.log('User information update:', response.data);
     } catch (error) {
+      if (error.response.status === 401) {
+        const response = await axios.post('http://localhost:8080/auth/reissue', {
+          headers: {
+            Refresh: user.refreshToken,
+          },
+        });
+        const accessToken = response.headers.authorization;
+        dispatch(resetToken({ accessToken }));
+      }
       console.log(error);
     }
   };

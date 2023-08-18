@@ -5,7 +5,7 @@ import axios from 'axios';
 import styles from './Login.module.scss';
 import logoImg from '../../assets/images/logo.png';
 import Button from '../../components/Button/Button';
-import { loginUser, setTokens } from '../../store';
+import { setTokens, setUserInfo } from '../../store';
 
 function Login() {
   const dispatch = useDispatch();
@@ -23,32 +23,19 @@ function Login() {
       });
       const accessToken = response.headers.authorization;
       const refreshToken = response.headers.refresh;
-
-      dispatch(loginUser({ email, password }));
       dispatch(setTokens({ accessToken, refreshToken }));
+      const { memberId } = response.data;
+
+      const memberInfo = await axios.get(`http://localhost:8080/members/${memberId}`, {
+        headers: { Authorization: accessToken },
+      });
+      dispatch(setUserInfo({ memberInfo }));
 
       navigate(`/${user.type.toLowerCase()}`);
     } catch (error) {
-      console.error('Login qwefqerf error:', error);
+      console.error('Login error:', error);
     }
   };
-
-  // const handleEmailCheck = () => {
-  //   axios
-  //     .post('http://localhost:8080/members/check-email', { email }) // js문법 떄문에 축약
-  //     .then((response) => {
-  //       console.log(response);
-  //       setEmailDupliError('');
-  //     })
-  //     .catch((error) => {
-  //       // console.log(error.response.status);
-  //       const errorCode = error.response.status;
-  //       if (errorCode === 409) {
-  //         console.log(emailDupliError);
-  //         setEmailDupliError('이메일이 중복되었습니다.');
-  //       }
-  //     });
-  // };
 
   const buttonStyle = {
     backgroundColor: '#57b0bc',

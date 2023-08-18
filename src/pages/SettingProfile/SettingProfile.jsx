@@ -6,7 +6,7 @@ import axios from 'axios';
 import BackBtn from '../../components/Button/BackBtn';
 import Button from '../../components/Button/Button';
 import testIMG from '../../assets/images/banana.png';
-import { logoutUser } from '../../store';
+import { logoutUser, resetToken } from '../../store';
 
 import styles from './SettingProfile.module.scss';
 // const userIntro = `잘 부탁드립니다. 요즘 MZ들은 참 부럽네요. ^^
@@ -51,6 +51,15 @@ function SettingProfile() {
         },
       });
     } catch (error) {
+      if (error.response.status === 401) {
+        const response = await axios.post('http://localhost:8080/auth/reissue', {
+          headers: {
+            Refresh: user.refreshToken,
+          },
+        });
+        const accessToken = response.headers.authorization;
+        dispatch(resetToken({ accessToken }));
+      }
       console.log('Profile data error: ', error);
     }
   };
