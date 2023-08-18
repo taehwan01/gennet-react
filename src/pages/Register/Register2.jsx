@@ -111,7 +111,7 @@ function Register2() {
           name,
           dateOfBirth,
           memberType: user.memberType,
-          image: '',
+          // image: '',
           introduction,
           // lifeCategory: selectedInterest,
         };
