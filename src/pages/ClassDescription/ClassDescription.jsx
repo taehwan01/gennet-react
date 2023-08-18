@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import styles from './ClassDescription.module.scss';
 import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
-import juniorImg from '../../assets/images/junior.png';
+// import juniorImg from '../../assets/images/junior.png';
+import seniorImg from '../../assets/images/senior.png';
+// import juniorImg from '../../assets/images/junior.png';
 import classImg1 from '../../assets/images/class-image-1.png';
 // import MyClass from '../../components/DailyMyClassList/MyClass';
 
@@ -54,9 +56,16 @@ function ClassDescription() {
                 className={styles.profileButton}
                 onClick={handleProfileClick}
               >
+                {/* <img
+                  className={styles.profile}
+                  alt='Profile IMG'
+                  src={
+                    user.memberType === 'SENIOR' ? { seniorImg } : { juniorImg }
+                  }
+                /> */}
                 <img
                   className={styles.profile}
-                  src={juniorImg}
+                  src={seniorImg}
                   alt='Profile IMG'
                 />
               </button>
