@@ -17,19 +17,25 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const getInfo = async (accessToken, memberId) => {
-    const response2 = await axios.get(`http://localhost:8080/members/${memberId}`, {
-      headers: { Authorization: accessToken },
-    });
+    const response2 = await axios.get(
+      `http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//members/${memberId}`,
+      {
+        headers: { Authorization: accessToken },
+      },
+    );
 
     const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
     dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
   };
   const loginAndGetUserInfo = async () => {
     try {
-      const response1 = await axios.post('http://localhost:8080/auth/login', {
-        email,
-        password,
-      });
+      const response1 = await axios.post(
+        'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//auth/login',
+        {
+          email,
+          password,
+        },
+      );
       const accessToken = response1.headers.authorization;
       // const refreshToken = response1.headers.refresh;
       // dispatch(setTokens({ accessToken, refreshToken }));
@@ -44,8 +50,8 @@ function Login() {
       console.error('Login error:', error);
     }
   };
-  const handleLogin = async () => {
-    await loginAndGetUserInfo();
+  const handleLogin = () => {
+    loginAndGetUserInfo();
   };
 
   const buttonStyle = {

@@ -22,11 +22,14 @@ function Star({ memberId, ratedMemberId }) {
 
     try {
       // HTTP POST 요청 보내기
-      const response = await axios.post('http://localhost:8080/star-rate/set-rating', {
-        memberId,
-        ratedMemberId,
-        rating: score,
-      });
+      const response = await axios.post(
+        'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//star-rate/set-rating',
+        {
+          memberId,
+          ratedMemberId,
+          rating: score,
+        },
+      );
 
       if (response.status === 200) {
         console.log('별점이 성공적으로 등록되었습니다.');

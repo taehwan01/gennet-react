@@ -86,7 +86,7 @@ function RequestClass() {
       const now = new Date();
       const formattedDate = now.toISOString().split('.')[0];
       const response = await axios.post(
-        'http://localhost:8080/posts',
+        'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//posts',
         {
           // TODO: DB auto increment 사용
           postId: uuidv4(),
@@ -102,7 +102,7 @@ function RequestClass() {
         },
         {
           headers: { Authorization: user.accessToken },
-        }
+        },
       );
       console.log(response.data);
     } catch (err) {

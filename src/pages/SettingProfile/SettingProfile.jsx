@@ -32,7 +32,7 @@ function SettingProfile() {
 
   const handleLogout = async () => {
     try {
-      await axios.delete('http://localhost:8080/auth/logout', {
+      await axios.delete('http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//auth/logout', {
         headers: {
           Refresh: user.refreshToken,
         },
@@ -46,18 +46,21 @@ function SettingProfile() {
 
   const fetchData = async () => {
     try {
-      await axios.get(`http://localhost:8080/members/${user.memberId}`, {
+      await axios.get(`http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//members/${user.memberId}`, {
         headers: {
           Authorization: user.accessToken,
         },
       });
     } catch (error) {
       if (error.response.status === 401) {
-        const response = await axios.post('http://localhost:8080/auth/reissue', {
-          headers: {
-            Refresh: user.refreshToken,
+        const response = await axios.post(
+          'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//auth/reissue',
+          {
+            headers: {
+              Refresh: user.refreshToken,
+            },
           },
-        });
+        );
         const accessToken = response.headers.authorization;
         dispatch(resetToken({ accessToken }));
       }

@@ -42,7 +42,10 @@ function Register1() {
 
   const handleEmailCheck = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/members/check-email', { email });
+      const response = await axios.post(
+        'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//members/check-email',
+        { email },
+      );
       setEmailDupliError('');
       if (response.status === 200) alert('사용 가능한 메일입니다.'); // TODO: 나중에 투명 모달창 등으로 바꾸기
     } catch (error) {

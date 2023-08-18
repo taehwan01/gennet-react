@@ -117,7 +117,10 @@ function Register2() {
         };
 
         console.log(memberInfo);
-        const response = await axios.post('http://localhost:8080/members/signup', memberInfo);
+        const response = await axios.post(
+          'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//members/signup',
+          memberInfo,
+        );
 
         alert('회원가입 성공', response); // TODO: 모달창으로 변경
 

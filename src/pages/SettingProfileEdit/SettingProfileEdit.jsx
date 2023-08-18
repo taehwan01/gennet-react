@@ -69,7 +69,7 @@ function SettingProfileEdit() {
   const handleSave = async () => {
     try {
       const response = await axios.patch(
-        `http://localhost:8080/members/${user.memberId}/edit`,
+        `http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//members/${user.memberId}/edit`,
         {
           name: userName,
           // image:
@@ -77,17 +77,20 @@ function SettingProfileEdit() {
           dateOfBirth: userDateOfBirth,
           introduction: userIntroduction,
         },
-        { headers: { Authorization: user.accessToken } }
+        { headers: { Authorization: user.accessToken } },
       );
       const { name, dateOfBirth, introduction } = response.data;
       dispatch(editProfile({ name, dateOfBirth, introduction }));
     } catch (error) {
       if (error.response.status === 401) {
-        const response = await axios.post('http://localhost:8080/auth/reissue', {
-          headers: {
-            Refresh: user.refreshToken,
+        const response = await axios.post(
+          'http://ec2-13-209-8-248.ap-northeast-2.compute.amazonaws.com:8080//auth/reissue',
+          {
+            headers: {
+              Refresh: user.refreshToken,
+            },
           },
-        });
+        );
         const accessToken = response.headers.authorization;
         dispatch(resetToken({ accessToken }));
       }
