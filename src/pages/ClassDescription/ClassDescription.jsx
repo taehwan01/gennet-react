@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import styles from './ClassDescription.module.scss';
 import Button from '../../components/Button/Button';
 import BackBtn from '../../components/Button/BackBtn';
-import testIMG from '../../assets/images/banana.png';
+import seniorImg from '../../assets/images/senior.png';
+// import juniorImg from '../../assets/images/junior.png';
+import classImg1 from '../../assets/images/class-image-1.png';
 // import MyClass from '../../components/DailyMyClassList/MyClass';
 
 const classTxt = `프랜차이즈 버거 브랜드인 버거킹의 키오스크를 다뤄봅시다.옵션 선택부터 결제까지 차근차근 알려드려요.`;
@@ -48,8 +50,23 @@ function ClassDescription() {
         <div className={styles.classBox}>
           <div className={styles.top}>
             <div className={styles.topLeft}>
-              <button type='button' className={styles.profileButton} onClick={handleProfileClick}>
-                <img className={styles.profile} src={testIMG} alt='Profile IMG' />
+              <button
+                type='button'
+                className={styles.profileButton}
+                onClick={handleProfileClick}
+              >
+                {/* <img
+                  className={styles.profile}
+                  alt='Profile IMG'
+                  src={
+                    user.memberType === 'SENIOR' ? { seniorImg } : { juniorImg }
+                  }
+                /> */}
+                <img
+                  className={styles.profile}
+                  src={seniorImg}
+                  alt='Profile IMG'
+                />
               </button>
             </div>
             <div className={styles.topRight}>
@@ -57,7 +74,9 @@ function ClassDescription() {
               <div className={styles.tutorEvaluate}>
                 {user.memberType === 'SENIOR' ? (
                   <>
-                    <span className={styles.tutorReview}>{`${'★'.repeat(review)}${'☆'.repeat(5 - review)}`}</span>
+                    <span className={styles.tutorReview}>{`${'★'.repeat(
+                      review,
+                    )}${'☆'.repeat(5 - review)}`}</span>
                     <span className={styles.tutorScore}>4.0점</span>
                   </>
                 ) : (
@@ -68,13 +87,19 @@ function ClassDescription() {
           </div>
 
           <div className={styles.class}>
-            <img className={styles.classImage} src={testIMG} alt='class-img' />
+            <img
+              className={styles.classImage}
+              src={classImg1}
+              alt='class-img'
+            />
             <div className={`${styles.classInfo} ${styles.scrollable}`}>
               <div className={styles.category}>
                 <Button buttonStyle={categoryBtn} tag='식사주문' />
               </div>
               <span
-                className={`${styles.classTitle} font-bold ${user.memberType === 'SENIOR' ? 'font-25pt' : 'font-22pt'}`}
+                className={`${styles.classTitle} font-bold ${
+                  user.memberType === 'SENIOR' ? 'font-25pt' : 'font-22pt'
+                }`}
               >
                 버거킹 키오스크 수업
               </span>
@@ -88,9 +113,17 @@ function ClassDescription() {
             </div>
             <div className={styles.bottom}>
               {user.memberType === 'SENIOR' ? (
-                <Button buttonStyle={buttonStyle} tag='수업 들으러 가기' action={handleChatClick} />
+                <Button
+                  buttonStyle={buttonStyle}
+                  tag='수업 들으러 가기'
+                  action={handleChatClick}
+                />
               ) : (
-                <Button buttonStyle={buttonStyle} tag='수업 하러 가기' action={handleChatClick} />
+                <Button
+                  buttonStyle={buttonStyle}
+                  tag='수업 하러 가기'
+                  action={handleChatClick}
+                />
               )}
             </div>
           </div>
