@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FaStar } from 'react-icons/fa';
+import axios from 'axios';
 import styles from './Star.module.scss';
 
 const array = [0, 1, 2, 3, 4];
 
-function Star() {
+function Star({ memberId, ratedMemberId }) {
   const [clicked, setClicked] = useState([false, false, false, false, false]);
 
   const handleStarClick = (index) => {
@@ -14,13 +16,30 @@ function Star() {
     }
     setClicked(clickStates);
   };
-  const sendReview = () => {
+
+  const sendReview = async () => {
     const score = clicked.filter(Boolean).length;
-    console.log(score);
+
+    try {
+      // HTTP POST 요청 보내기
+      const response = await axios.post('http://localhost:8080/star-rate/set-rating', {
+        memberId,
+        ratedMemberId,
+        rating: score,
+      });
+
+      if (response.status === 200) {
+        console.log('별점이 성공적으로 등록되었습니다.');
+      } else {
+        console.log('별점 등록에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('별점 등록 중 오류가 발생했습니다.', error);
+    }
   };
   useEffect(() => {
     sendReview();
-  }, [clicked]);
+  }, [clicked, memberId, ratedMemberId]);
 
   return (
     <div className={styles.star}>
@@ -31,5 +50,10 @@ function Star() {
     </div>
   );
 }
+
+Star.propTypes = {
+  memberId: PropTypes.number.isRequired,
+  ratedMemberId: PropTypes.number.isRequired,
+};
 
 export default Star;
