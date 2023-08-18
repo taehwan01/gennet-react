@@ -10,16 +10,10 @@ import seniorImg from '../../assets/images/senior.png';
 import juniorImg from '../../assets/images/junior.png';
 
 function Register1() {
-  const dispatch = useDispatch(); // 추가
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [selectedUser, setSelectedUser] = useState('SENIOR');
-
-  const handleNextStep = () => {
-    // eslint-disable-next-line no-use-before-define
-    dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
-    navigate('/register/2');
-  };
 
   const duplicationCheckBtn = {
     backgroundColor: '#57b0bc',
@@ -35,8 +29,6 @@ function Register1() {
     fontSize: '30pt',
     borderRadius: '15px',
     margin: '10px 0',
-    // marginTop: '2rem',
-    // marginBottom: '132px',
   };
 
   const [email, setEmail] = useState('');
@@ -48,31 +40,22 @@ function Register1() {
 
   const [emailDupliError, setEmailDupliError] = useState('');
 
-  const handleEmailCheck = () => {
-    axios
-      .post('http://localhost:8080/members/check-email', { email }) // js문법 떄문에 축약
-      .then((response) => {
-        console.log(response);
-        setEmailDupliError('');
-      })
-      .catch((error) => {
-        // console.log(error.response.status);
-        const errorCode = error.response.status;
-        if (errorCode === 409) {
-          console.log(emailDupliError);
-          setEmailDupliError('이메일이 중복되었습니다.');
-        }
-      });
+  const handleEmailCheck = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/members/check-email', { email });
+      setEmailDupliError('');
+      if (response.status === 200) alert('사용 가능한 메일입니다.'); // TODO: 나중에 투명 모달창 등으로 바꾸기
+    } catch (error) {
+      const errorCode = error.response.status;
+      if (errorCode === 409) {
+        setEmailDupliError('이메일이 중복되었습니다.');
+      }
+    }
   };
-
-  // const handleNextStep = () => {
-  //   navigate('/register/2');
-  // };
 
   const handleEmailChange = (e) => {
     const emailInput = e.target.value;
     setEmail(emailInput);
-    // email 주소 형식을 검사
     const emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
 
     if (!emailRegExp.test(emailInput)) {
@@ -85,8 +68,7 @@ function Register1() {
   const handlePasswordChange = (e) => {
     const passwordInput = e.target.value;
     setPassword(passwordInput);
-    // 특수문자 한 자 이상 포함, 8자 이상, 영어 사용
-    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    const passwordRegExp = /^(?=.*[\W_])(.{8,})$/;
 
     if (!passwordRegExp.test(passwordInput)) {
       setPasswordValidation(false);
@@ -104,6 +86,17 @@ function Register1() {
       setPasswordConfirmValidation(true);
     }
   };
+
+  const isAllValid = emailValidation && passwordValidation && passwordConfirmValidation;
+
+  const handleNextStep = () => {
+    if (isAllValid && emailDupliError === '') {
+      // eslint-disable-next-line no-use-before-define
+      dispatch(loginUser({ email, password, passwordConfirm, type: selectedUser }));
+      navigate('/register/2');
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img className={styles.logo} src={logoImg} alt='logo icon' />
@@ -181,7 +174,12 @@ function Register1() {
           </span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button action={handleNextStep} buttonStyle={nextBtn} tag='다음' />
+          <Button
+            action={handleNextStep}
+            buttonStyle={nextBtn}
+            tag='다음'
+            disabled={!isAllValid || !emailValidation || emailDupliError}
+          />
         </div>
       </form>
     </div>

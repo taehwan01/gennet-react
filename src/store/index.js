@@ -25,6 +25,7 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.password = action.payload.password;
       state.passwordConfirm = action.payload.passwordConfirm;
+      state.type = action.payload.type;
     },
     logoutUser: (state) => {
       state.accessToken = '';
