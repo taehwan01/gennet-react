@@ -6,6 +6,8 @@ import Star from '../../components/Star/Star';
 import juniorImg from '../../assets/images/junior.png';
 
 function ClassEnd() {
+  const memberId = 123;
+  const ratedMemberId = 456;
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
@@ -38,7 +40,7 @@ function ClassEnd() {
           <span className={styles.classTitle}>버거킹 키오스크 수업</span>
         </div>
       </div>
-      <Star />
+      <Star memberId={memberId} ratedMemberId={ratedMemberId} />
       <span className={styles.starDescription}>별을 직접 클릭할 수 있어요.</span>
       <Button action={handleClick} buttonStyle={buttonStyle} tag='완료' />
     </div>
