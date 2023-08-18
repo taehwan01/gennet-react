@@ -16,6 +16,14 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const getInfo = async (accessToken, memberId) => {
+    const response2 = await axios.get(`http://localhost:8080/members/${memberId}`, {
+      headers: { Authorization: accessToken },
+    });
+
+    const { memberType, avgStarRate, name, image, dateOfBirth, introduction } = response2.data;
+    dispatch(setUserInfo({ memberId, memberType, avgStarRate, name, image, dateOfBirth, introduction }));
+  };
   const loginAndGetUserInfo = async () => {
     try {
       const response1 = await axios.post('http://localhost:8080/auth/login', {
@@ -23,45 +31,21 @@ function Login() {
         password,
       });
       const accessToken = response1.headers.authorization;
-      const refreshToken = response1.headers.refresh;
-      dispatch(setTokens({ accessToken, refreshToken }));
+      // const refreshToken = response1.headers.refresh;
+      // dispatch(setTokens({ accessToken, refreshToken }));
 
       const { memberId } = response1.data;
 
-      const response2 = await axios.get(
-        `http://localhost:8080/members/${memberId}`,
-        {
-          headers: { Authorization: accessToken },
-        },
-      );
+      await getInfo(accessToken, memberId);
 
-      const {
-        memberType,
-        avgStarRate,
-        name,
-        image,
-        dateOfBirth,
-        introduction,
-      } = response2.data;
-      dispatch(
-        setUserInfo({
-          memberId,
-          memberType,
-          avgStarRate,
-          name,
-          image,
-          dateOfBirth,
-          introduction,
-        }),
-      );
+      console.log('user: ', user.memberType);
+      if (user.memberType !== 'NONE') navigate(`/${user.memberType.toLowerCase()}`);
     } catch (error) {
       console.error('Login error:', error);
     }
   };
-  const handleLogin = () => {
-    loginAndGetUserInfo();
-    console.log('user: ', user.memberType);
-    navigate(`/${user.memberType.toLowerCase()}`);
+  const handleLogin = async () => {
+    await loginAndGetUserInfo();
   };
 
   const buttonStyle = {

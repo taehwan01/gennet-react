@@ -68,7 +68,7 @@ function Main() {
   return (
     <div className={styles['main-page']}>
       <AdCarousel />
-      {`${user.memberId} ${user.memberType} ${user.memberId} ${user.memberId}`}
+      {`${user.memberId} ${user.memberType} ${user.name}- ${user.memberId}`}
       <div className={styles.messages}>
         <p
           className={`${styles['main-message']} font-bold ${user.memberType === 'SENIOR' ? 'font-30pt' : 'font-28pt'}`}
