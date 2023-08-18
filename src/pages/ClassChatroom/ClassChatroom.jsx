@@ -101,6 +101,10 @@ function ClassChatroom() {
     setModal(false);
   };
 
+  const handleProfileClick = () => {
+    navigate(`/${user.type.toLowerCase()}/profile`);
+  };
+
   const renderMessages = () => {
     let prevUser = null;
     return messages.map((msg) => {
@@ -110,9 +114,17 @@ function ClassChatroom() {
         <div className={`${styles['user-chat']} ${user.name === msg.user ? styles.right : styles.left}`}>
           {sameUser && (
             <div className={styles['same-user-chat']}>
-              {msg.user !== user.name && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
+              {msg.user !== user.name && (
+                <button type='button' className={`${styles.profileButton}`} onClick={handleProfileClick}>
+                  <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
+                </button>
+              )}
               <span className={`${styles['message-user']} font-bold`}>{msg.user}</span>
-              {msg.user === user.name && <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />}
+              {msg.user === user.name && (
+                <button type='button' className={`${styles.profileButton}`} onClick={handleProfileClick}>
+                  <img className={styles['profile-image']} src={testIMG} alt='Profile IMG' />
+                </button>
+              )}
             </div>
           )}
           {msg.user === user.name ? (
