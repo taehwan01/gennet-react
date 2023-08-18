@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Navigation from './components/Navigation/Navigation';
 import SettingProfile from './pages/SettingProfile/SettingProfile';
@@ -30,8 +30,17 @@ function ScrollToTopOnNavigate() {
 }
 
 function App() {
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
   console.log(user);
+
+  useEffect(() => {
+    if (user.accessToken === '') {
+      navigate('/');
+      alert('로그인 필요');
+    }
+  }, []);
 
   return (
     <div className={`App ${user.type.toLowerCase()}-page`}>
